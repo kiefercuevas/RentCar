@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RentCar.Models
 {
@@ -16,7 +13,6 @@ namespace RentCar.Models
         public int CommissionPercentage { get; set; }
         public DateTime AdmissionDate { get; set; }
         public bool State { get; set; }
-
         public virtual IEnumerable<IncomeAndRefund> IncomeAndRefunds { get; set; }
     }
 }
