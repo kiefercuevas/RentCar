@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.ComponentModel.DataAnnotations;
 namespace RentCar.Models
 {
     public class PersonType
     {
+        [Key]
         public int PersonTypeId { get; set; }
+        [Required(ErrorMessage ="El tipo de persona es obligatorio")]
         public string Title { get; set; }
     }
 }

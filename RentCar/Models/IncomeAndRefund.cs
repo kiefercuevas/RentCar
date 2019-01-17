@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.ComponentModel.DataAnnotations;
 namespace RentCar.Models
 {
     public class IncomeAndRefund
     {
-        public int Incomeid { get; set; }
+        [Key]
+        public int IncomeId { get; set; }
+
         public int EmployeeId { get; set; }
         public Employee Employee { get; set; }
         public int VehicleId { get; set; }

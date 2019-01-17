@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 namespace RentCar.Models
 {
     public class RubberState
     {
+        [Key]
         public int RubberId;
         public string Description;
         public bool State;
