@@ -7,7 +7,7 @@ using RentCar.Models;
 using RentCar.Data.Core;
 namespace RentCar.Data.Repositories
 {
-    public class FluelTypeRepository :Repository<FuelType>,IFluelTypeRepository
+    public class FluelTypeRepository :Repository<FluelType>,IFluelTypeRepository
     {
         public RentCarContex _RentCarContex
         {

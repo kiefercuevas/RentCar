@@ -5,7 +5,7 @@ namespace RentCar.Models
     public class Vehicle
     {
         [Key]
-        public int VehicleId { get; set; }
+        public int VehicleID { get; set; }
 
         [Required(ErrorMessage ="La descripcion del vehiculo es obligatoria")]
         public string Description { get; set; }
@@ -29,17 +29,17 @@ namespace RentCar.Models
         [RegularExpression(@"^[a-zA-Z]{1}\d+$",ErrorMessage = "La placa del vehiculo no es correcta")]
         public string LicensePlateNumber { get; set; }
 
-        public int VehicleTypeId {get;set;}
+        public int VehicleTypeID { get;set;}
         public virtual VehicleType VehicleType { get; set; }
-        public int BrandId { get; set; }
+        public int BrandID { get; set; }
         public virtual Brand Brand { get; set; }
-        public int ModelId { get; set; }
+        public int ModelID { get; set; }
         public virtual Model Model { get; set; }
-        public int FuelTypeId { get; set; }
-        public FuelType FuelType { get; set; }
+        public int FluelTypeID { get; set; }
+        public FluelType FluelType { get; set; }
         public bool State { get; set; }
 
-        public virtual IEnumerable<Inspection> Inspections { get; set; }
-        public virtual IEnumerable<IncomeAndRefund> IncomeAndRefunds { get; set; }
+        public virtual ICollection<Inspection> Inspections { get; set; }
+        public virtual ICollection<IncomeAndRefund> IncomeAndRefunds { get; set; }
     }
 }

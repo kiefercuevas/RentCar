@@ -5,11 +5,11 @@ namespace RentCar.Models
     public class IncomeAndRefund
     {
         [Key]
-        public int IncomeId { get; set; }
+        public int IncomeID { get; set; }
 
-        public int EmployeeId { get; set; }
+        public int EmployeeID { get; set; }
         public Employee Employee { get; set; }
-        public int VehicleId { get; set; }
+        public int VehicleID { get; set; }
         public Vehicle Vehicle { get; set; }
         public DateTime IncomeDate { get; set; }
         public DateTime RefundDate { get; set; }

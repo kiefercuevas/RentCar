@@ -4,7 +4,7 @@ namespace RentCar.Models
     public class FluelQuantity
     {
         [Key]
-        public int FluelQuantityId { get; set; }
+        public int FluelQuantityID { get; set; }
         public float Quantity { get; set; }
     }
 }

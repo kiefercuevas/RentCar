@@ -5,9 +5,9 @@ namespace RentCar.Models
     public class RubberState
     {
         [Key]
-        public int RubberId;
-        public string Description;
-        public bool State;
-        public virtual IEnumerable<Inspection> Inspections { get; set; }
+        public int RubberID { get; set; }
+        public string Description { get; set; }
+        public bool State { get; set; }
+        public virtual ICollection<Inspection> Inspections { get; set; }
     }
 }

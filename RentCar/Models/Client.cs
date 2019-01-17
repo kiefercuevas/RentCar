@@ -5,7 +5,7 @@ namespace RentCar.Models
     public class Client
     {
         [Key]
-        public int ClientId { get; set; }
+        public int ClientID { get; set; }
 
         [Required(ErrorMessage ="El nombre es obligatorio")]
         [MinLength(3,ErrorMessage ="El nombre debe tener almenos 3 caracteres")]
@@ -26,8 +26,8 @@ namespace RentCar.Models
 
         public bool State { get; set; }
 
-        public int PersonTypeId { get; set; }
+        public int PersonTypeID { get; set; }
         public virtual PersonType PersonType { get; set; }
-        public virtual IEnumerable<Inspection> Inspections { get; set; }
+        public virtual ICollection<Inspection> Inspections { get; set; }
     }
 }

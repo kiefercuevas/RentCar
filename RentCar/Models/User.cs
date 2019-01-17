@@ -5,8 +5,8 @@ namespace RentCar.Models
     public class User
     {
         [Key]
-        public int UserId { get; set; }
-        public int EmployeeId { get; set; }
+        public int UserID { get; set; }
+        public int EmployeeID { get; set; }
         public Employee Employee { get; set; }
 
         [Required(ErrorMessage = "El correo es obligatorio")]
@@ -18,6 +18,6 @@ namespace RentCar.Models
         [MaxLength(20, ErrorMessage = "La clave no puede ser mayor a 20 caracteres")]
         public string Password { get; set; }
 
-        public IEnumerable<Role> Roles { get; set; }
+        public ICollection<Role> Roles { get; set; }
     }
 }

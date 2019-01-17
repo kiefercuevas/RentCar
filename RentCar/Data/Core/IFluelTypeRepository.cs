@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using RentCar.Models;
 namespace RentCar.Data.Core
 {
-    public interface IFluelTypeRepository :IRepository<FuelType>
+    public interface IFluelTypeRepository :IRepository<FluelType>
     {
     }
 }

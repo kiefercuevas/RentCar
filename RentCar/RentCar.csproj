@@ -88,12 +88,17 @@
     <Compile Include="Data\Repositories\VehicleRepository.cs" />
     <Compile Include="Data\Repositories\VehicleTypeRepository.cs" />
     <Compile Include="Data\Repositories\WorkShiftRepository.cs" />
+    <Compile Include="Migrations\201901171741468_initial.cs" />
+    <Compile Include="Migrations\201901171741468_initial.Designer.cs">
+      <DependentUpon>201901171741468_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IncomeAndRefund.cs" />
     <Compile Include="Models\FluelQuantity.cs" />
-    <Compile Include="Models\FuelType.cs" />
+    <Compile Include="Models\FluelType.cs" />
     <Compile Include="Models\Inspection.cs" />
     <Compile Include="Models\Model.cs" />
     <Compile Include="Models\PersonType.cs" />
@@ -111,6 +116,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Migrations\201901171741468_initial.resx">
+      <DependentUpon>201901171741468_initial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -5,9 +5,9 @@ namespace RentCar.Models
     public class Role
     {
         [Key]
-        public int RoleId { get; set; }
+        public int RoleID { get; set; }
         [Required(ErrorMessage ="El rol es obligatorio")]
         public string Name { get; set; }
-        public IEnumerable<User> Users { get; set; }
+        public ICollection<User> Users { get; set; }
     }
 }
