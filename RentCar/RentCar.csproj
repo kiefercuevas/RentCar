@@ -88,6 +88,7 @@
     <Compile Include="Data\Repositories\VehicleRepository.cs" />
     <Compile Include="Data\Repositories\VehicleTypeRepository.cs" />
     <Compile Include="Data\Repositories\WorkShiftRepository.cs" />
+    <Compile Include="Global.cs" />
     <Compile Include="Migrations\201901171741468_initial.cs" />
     <Compile Include="Migrations\201901171741468_initial.Designer.cs">
       <DependentUpon>201901171741468_initial.cs</DependentUpon>
