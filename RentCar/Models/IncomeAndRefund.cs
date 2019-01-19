@@ -9,6 +9,10 @@ namespace RentCar.Models
 
         public int EmployeeID { get; set; }
         public Employee Employee { get; set; }
+
+        public int ClientID { get; set; }
+        public Client Client { get; set; }
+
         public int VehicleID { get; set; }
         public Vehicle Vehicle { get; set; }
         public DateTime IncomeDate { get; set; }

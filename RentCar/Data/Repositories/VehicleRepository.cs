@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using RentCar.Data.Core;
 using RentCar.Models;
+using System.Data.Entity;
+using System.Linq.Expressions;
 namespace RentCar.Data.Repositories
 {
     public class VehicleRepository :Repository<Vehicle>,IVehicleRepository
@@ -17,6 +19,11 @@ namespace RentCar.Data.Repositories
             : base(context)
         {
 
+        }
+
+        public IEnumerable<Vehicle> GetVehiclesWithTypes(Expression<Func<Vehicle,bool>> predicate)
+        {
+            return _RentCarContex.Vehicles.Include(v => v.VehicleType).Where(predicate);
         }
     }
 }

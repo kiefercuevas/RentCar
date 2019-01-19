@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RentCar.Models;
+﻿using RentCar.Models;
+using System;
+using System.Linq.Expressions;
+
 namespace RentCar.Data.Core
 {
     public interface IUserRepository :IRepository<User>
     {
+        User GetUserWithEmployeeAndRoles(Expression<Func<User, bool>> predicate);
     }
 }

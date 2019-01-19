@@ -23,5 +23,7 @@ namespace RentCar.Models
         public DateTime AdmissionDate { get; set; }
         public bool State { get; set; }
         public virtual ICollection<IncomeAndRefund> IncomeAndRefunds { get; set; }
+        public virtual ICollection<Inspection> Inspections { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

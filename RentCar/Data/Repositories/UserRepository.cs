@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 using RentCar.Data.Core;
 using RentCar.Models;
+using System.Data.Entity;
+using System.Linq;
+
 namespace RentCar.Data.Repositories
 {
     public class UserRepository :Repository<User>,IUserRepository
@@ -16,6 +16,13 @@ namespace RentCar.Data.Repositories
         public UserRepository(RentCarContex context)
             : base(context)
         {
+        }
+
+        public User GetUserWithEmployeeAndRoles(Expression<Func<User, bool>> predicate)
+        {
+            return _RentCarContex.Users.Include(u => u.Employee)
+                .Include(u => u.Roles)
+                .SingleOrDefault(predicate);
         }
     }
 }

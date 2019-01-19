@@ -20,6 +20,8 @@ namespace RentCar.Models
         public string Etc { get; set; }
         public DateTime InspectionDate { get; set; }
         public bool State { get; set; }
+        public int EmployeeID { get; set; }
+        public Employee Employee { get; set; }
         public virtual ICollection<RubberState> RubberStates { get; set; }
     }
 }

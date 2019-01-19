@@ -4,6 +4,11 @@ namespace RentCar
 {
     public static class Global
     {
-        public static Dictionary<string, string> Variables = new Dictionary<string, string>();
+        public const string Username = "Username";
+        public const string Roles = "Roles";
+        public const string Id = "Id";
+
+
+        public static Dictionary<string, object> Variables = new Dictionary<string, object>();
     }
 }

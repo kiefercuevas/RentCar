@@ -21,13 +21,13 @@ namespace RentCar.Models
         [RegularExpression(@"^\d+$", ErrorMessage = "La Tarjeta debe contener solo numeros")]
         public string CreditCardNumber { get; set; }
 
-        
         public float CreditLimit { get; set; }
 
         public bool State { get; set; }
 
         public int PersonTypeID { get; set; }
         public virtual PersonType PersonType { get; set; }
-        public virtual ICollection<Inspection> Inspections { get; set; }
+        public virtual ICollection<IncomeAndRefund> IncomeAndRefunds { get; set; }
+        public virtual ICollection<Inspection> Inspection { get; set; }
     }
 }

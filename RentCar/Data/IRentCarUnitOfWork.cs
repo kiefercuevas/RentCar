@@ -11,7 +11,6 @@ namespace RentCar.Data
         IBrandRepository Brands { get; }
         IClientRepository Clients { get; }
         IEmployeeRepository Employees { get; }
-        IFluelQuantityRepository FluelQuantitys { get; }
         IFluelTypeRepository FuelTypes { get; }
         IIncomeAndRefundRepository IncomeAndRefund { get; }
         IInspectionRepository Inspections { get; }
@@ -22,6 +21,7 @@ namespace RentCar.Data
         IUserRepository User { get; }
         IVehicleRepository Vehicles { get; }
         IWorkShiftRepository WorkShifts { get; }
+        IFluelQuantityRepository FluelQuantitys { get; }
         int Complete();
     }
 }
