@@ -14,7 +14,7 @@ namespace RentCar.Data
         public IBrandRepository Brands { get; private set; }
         public IClientRepository Clients { get; private set; }
         public IEmployeeRepository Employees { get; private set; }
-        public IFluelTypeRepository FuelTypes { get; private set; }
+        public IFluelTypeRepository FluelTypes { get; private set; }
         public IIncomeAndRefundRepository IncomeAndRefund { get; private set; }
         public IInspectionRepository Inspections { get; private set; }
         public IModelRepository Models { get; private set; }
@@ -34,7 +34,7 @@ namespace RentCar.Data
             Clients = new ClientRepository(_context);
             Employees = new EmployeeRepository(_context);
             FluelQuantitys = new FluelQuantityRepository(_context);
-            FuelTypes = new FluelTypeRepository(_context);
+            FluelTypes = new FluelTypeRepository(_context);
             IncomeAndRefund = new IncomeAndRefundRepository(_context);
             Inspections = new InspectionRepository(_context);
             Models = new ModelRepository(_context);

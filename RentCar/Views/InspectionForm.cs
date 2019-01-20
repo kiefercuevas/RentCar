@@ -24,7 +24,6 @@ namespace RentCar.Views
         private void InspectionForm_Load(object sender, EventArgs e)
         {
             TBXEmployee.Text = Global.Variables[Global.Username] as string;
-            TBXEmployee.Enabled = false;
 
             LoadClients();
             LoadVehicle();
@@ -65,6 +64,60 @@ namespace RentCar.Views
 
             if (vehicle != null)
                 CreateRubberCheckBoxes(vehicle.VehicleType.RubberQuantity);
+        }
+
+        private void TXBvehicle_TextChanged(object sender, EventArgs e)
+        {
+            string text = TXBvehicle.Text;
+            IEnumerable<Vehicle> vehicles;
+            if (!string.IsNullOrWhiteSpace(text))
+            {
+               vehicles = _context.Vehicles.Find(v => v.Brand.Description.Contains(text) ||
+                   v.ChassisNumber.Contains(text) ||
+                   v.Description.Contains(text) ||
+                   v.EngineNumber.Contains(text) ||
+                   v.FluelType.Description.Contains(text) ||
+                   v.LicensePlateNumber.Contains(text) ||
+                   v.Model.Description.Contains(text) ||
+                   v.VehicleType.Description.Contains(text));
+            }
+            else
+                vehicles = _context.Vehicles.GetAll();
+            
+            CLBXrubbers.Items.Clear();
+
+            CBXvehicles.Items.Clear();
+            CBXvehicles.Items.AddRange(vehicles.Select(v => v.ChassisNumber).ToArray());
+        }
+
+        private void TXBclients_TextChanged(object sender, EventArgs e)
+        {
+            string text = TXBclients.Text;
+            IEnumerable<Client> clients;
+            if (!string.IsNullOrWhiteSpace(text)){
+                clients = _context.Clients.Find(c => c.CreditCardNumber.Contains(text) ||
+                            c.CreditLimit.ToString().Contains(text) ||
+                            c.IdentificationCard.Contains(text) ||
+                            c.Name.Contains(text));
+            }
+            else
+                clients = _context.Clients.GetAll();
+
+            CBXclients.Items.Clear();
+            CBXclients.Items.AddRange(clients.Select(c => c.IdentificationCard).ToArray());
+        }
+
+        private void TBXfuelquantity_TextChanged(object sender, EventArgs e)
+        {
+            string text = TBXfuelquantity.Text;
+            IEnumerable<FluelQuantity> fluels;
+            if (!string.IsNullOrWhiteSpace(text))
+                fluels = _context.FluelQuantitys.Find(f => f.Quantity.ToString().Contains(text));
+            else
+                fluels = _context.FluelQuantitys.GetAll();
+
+            CBXfluelQuantity.Items.Clear();
+            CBXfluelQuantity.Items.AddRange(fluels.Select(f => f.Quantity.ToString()).ToArray());
         }
     }
 }

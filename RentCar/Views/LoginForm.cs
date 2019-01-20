@@ -42,11 +42,11 @@ namespace RentCar.Views
                 }
                 else{
                     ShowMessage("El usuario es incorrecto, verifique el correo o contraseña");
-                    ChangeBTNStatus(BTNLogin, true);
+                    ResetForm();
                 }
             }else{
                 ShowMessage("Debe introudir valores al email y contraseña");
-                ChangeBTNStatus(BTNLogin, true);
+                ResetForm();
             }
         }
 
@@ -87,5 +87,6 @@ namespace RentCar.Views
             TBXPassword.Text = null;
             ChangeBTNStatus(BTNLogin, true);
         }
+
     }
 }

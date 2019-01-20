@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.LBdividerLine = new System.Windows.Forms.Label();
             this.GBbackColor = new System.Windows.Forms.GroupBox();
-            this.PBRentCarImage = new System.Windows.Forms.PictureBox();
-            this.LBRentCar = new System.Windows.Forms.Label();
             this.LBSlogan = new System.Windows.Forms.Label();
+            this.LBRentCar = new System.Windows.Forms.Label();
+            this.PBRentCarImage = new System.Windows.Forms.PictureBox();
             this.LBEmail = new System.Windows.Forms.Label();
             this.LBPassword = new System.Windows.Forms.Label();
             this.TBXEmail = new System.Windows.Forms.TextBox();
@@ -64,15 +64,15 @@
             this.GBbackColor.TabIndex = 1;
             this.GBbackColor.TabStop = false;
             // 
-            // PBRentCarImage
+            // LBSlogan
             // 
-            this.PBRentCarImage.Image = ((System.Drawing.Image)(resources.GetObject("PBRentCarImage.Image")));
-            this.PBRentCarImage.Location = new System.Drawing.Point(22, 15);
-            this.PBRentCarImage.Name = "PBRentCarImage";
-            this.PBRentCarImage.Size = new System.Drawing.Size(153, 120);
-            this.PBRentCarImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PBRentCarImage.TabIndex = 0;
-            this.PBRentCarImage.TabStop = false;
+            this.LBSlogan.AutoSize = true;
+            this.LBSlogan.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBSlogan.Location = new System.Drawing.Point(536, 96);
+            this.LBSlogan.Name = "LBSlogan";
+            this.LBSlogan.Size = new System.Drawing.Size(259, 25);
+            this.LBSlogan.TabIndex = 2;
+            this.LBSlogan.Text = "Sistema de Renta de Vehiculos";
             // 
             // LBRentCar
             // 
@@ -84,15 +84,15 @@
             this.LBRentCar.TabIndex = 1;
             this.LBRentCar.Text = "RentCar";
             // 
-            // LBSlogan
+            // PBRentCarImage
             // 
-            this.LBSlogan.AutoSize = true;
-            this.LBSlogan.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBSlogan.Location = new System.Drawing.Point(536, 96);
-            this.LBSlogan.Name = "LBSlogan";
-            this.LBSlogan.Size = new System.Drawing.Size(259, 25);
-            this.LBSlogan.TabIndex = 2;
-            this.LBSlogan.Text = "Sistema de Renta de Vehiculos";
+            this.PBRentCarImage.Image = ((System.Drawing.Image)(resources.GetObject("PBRentCarImage.Image")));
+            this.PBRentCarImage.Location = new System.Drawing.Point(22, 15);
+            this.PBRentCarImage.Name = "PBRentCarImage";
+            this.PBRentCarImage.Size = new System.Drawing.Size(153, 120);
+            this.PBRentCarImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PBRentCarImage.TabIndex = 0;
+            this.PBRentCarImage.TabStop = false;
             // 
             // LBEmail
             // 

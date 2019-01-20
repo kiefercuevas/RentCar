@@ -10,5 +10,6 @@ namespace RentCar.Data.Core
     public interface IVehicleRepository :IRepository<Vehicle>
     {
         IEnumerable<Vehicle> GetVehiclesWithTypes(Expression<Func<Vehicle, bool>> predicate);
+        IEnumerable<Vehicle> GetVehiclesWithAll(Expression<Func<Vehicle, bool>> predicate);
     }
 }
