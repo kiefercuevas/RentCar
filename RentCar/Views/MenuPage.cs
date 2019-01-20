@@ -41,8 +41,8 @@ namespace RentCar.Views
                 row.Cells[1].Value = income.IncomeDate.ToShortDateString();
                 row.Cells[2].Value = income.RefundDate.ToShortDateString();
                 row.Cells[3].Value = income.AmountPerDay;
-                row.Cells[4].Value = income.State;
-
+                row.Cells[4].Value = income.NumberOfDays;
+                row.Cells[5].Value = income.State;
             }
         }
 
@@ -98,6 +98,7 @@ namespace RentCar.Views
         {
             InspectionForm inspection = new InspectionForm();
             inspection.ShowDialog();
+            ShowIncomes(_context.IncomeAndRefund.GetAll().ToList());
         }
     }
 }

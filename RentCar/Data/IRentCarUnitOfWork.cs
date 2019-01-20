@@ -21,7 +21,7 @@ namespace RentCar.Data
         IUserRepository User { get; }
         IVehicleRepository Vehicles { get; }
         IWorkShiftRepository WorkShifts { get; }
-        IFluelQuantityRepository FluelQuantitys { get; }
+        IFluelQuantityRepository FluelQuantities { get; }
         int Complete();
     }
 }

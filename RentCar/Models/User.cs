@@ -7,7 +7,7 @@ namespace RentCar.Models
         [Key]
         public int UserID { get; set; }
         public int EmployeeID { get; set; }
-        public Employee Employee { get; set; }
+        public virtual Employee Employee { get; set; }
 
         [Required(ErrorMessage = "El correo es obligatorio")]
         [EmailAddress(ErrorMessage ="El correo no cumple el formato valido")]
@@ -17,6 +17,6 @@ namespace RentCar.Models
         [MinLength(6,ErrorMessage = "La clave debe ser de almenos 6 caracteres")]
         public string Password { get; set; }
 
-        public ICollection<Role> Roles { get; set; }
+        public virtual ICollection<Role> Roles { get; set; }
     }
 }

@@ -89,9 +89,9 @@
     <Compile Include="Data\Repositories\VehicleTypeRepository.cs" />
     <Compile Include="Data\Repositories\WorkShiftRepository.cs" />
     <Compile Include="Global.cs" />
-    <Compile Include="Migrations\201901191754332_initial.cs" />
-    <Compile Include="Migrations\201901191754332_initial.Designer.cs">
-      <DependentUpon>201901191754332_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201901202019457_initial.cs" />
+    <Compile Include="Migrations\201901202019457_initial.Designer.cs">
+      <DependentUpon>201901202019457_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
@@ -109,6 +109,12 @@
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Models\VehicleType.cs" />
     <Compile Include="Models\WorkShift.cs" />
+    <Compile Include="Views\IncomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\IncomeForm.Designer.cs">
+      <DependentUpon>IncomeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\InspectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,8 +135,14 @@
     <Compile Include="Views\MenuPage.Designer.cs">
       <DependentUpon>MenuPage.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Migrations\201901191754332_initial.resx">
-      <DependentUpon>201901191754332_initial.cs</DependentUpon>
+    <Compile Include="Views\VehiclesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\VehiclesForm.Designer.cs">
+      <DependentUpon>VehiclesForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Migrations\201901202019457_initial.resx">
+      <DependentUpon>201901202019457_initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -141,6 +153,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\IncomeForm.resx">
+      <DependentUpon>IncomeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\InspectionForm.resx">
       <DependentUpon>InspectionForm.cs</DependentUpon>
     </EmbeddedResource>

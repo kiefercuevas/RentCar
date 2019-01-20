@@ -120,16 +120,19 @@ namespace RentCar.Migrations
                         InspectionDate = c.DateTime(nullable: false),
                         State = c.Boolean(nullable: false),
                         EmployeeID = c.Int(nullable: false),
+                        IncomeID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.InspectionID)
                 .ForeignKey("dbo.Clients", t => t.ClientID, cascadeDelete: true)
                 .ForeignKey("dbo.Employees", t => t.EmployeeID, cascadeDelete: true)
                 .ForeignKey("dbo.FluelQuantities", t => t.FluelQuantityID, cascadeDelete: true)
+                .ForeignKey("dbo.IncomeAndRefunds", t => t.IncomeID)
                 .ForeignKey("dbo.Vehicles", t => t.VehicleID, cascadeDelete: true)
                 .Index(t => t.VehicleID)
                 .Index(t => t.ClientID)
                 .Index(t => t.FluelQuantityID)
-                .Index(t => t.EmployeeID);
+                .Index(t => t.EmployeeID)
+                .Index(t => t.IncomeID);
             
             CreateTable(
                 "dbo.Employees",
@@ -195,8 +198,11 @@ namespace RentCar.Migrations
                         RubberID = c.Int(nullable: false, identity: true),
                         Description = c.String(),
                         State = c.Boolean(nullable: false),
+                        InspectionID = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.RubberID);
+                .PrimaryKey(t => t.RubberID)
+                .ForeignKey("dbo.Inspections", t => t.InspectionID, cascadeDelete: true)
+                .Index(t => t.InspectionID);
             
             CreateTable(
                 "dbo.PersonTypes",
@@ -231,19 +237,6 @@ namespace RentCar.Migrations
                 .Index(t => t.Role_RoleID)
                 .Index(t => t.User_UserID);
             
-            CreateTable(
-                "dbo.RubberStateInspections",
-                c => new
-                    {
-                        RubberState_RubberID = c.Int(nullable: false),
-                        Inspection_InspectionID = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => new { t.RubberState_RubberID, t.Inspection_InspectionID })
-                .ForeignKey("dbo.RubberStates", t => t.RubberState_RubberID, cascadeDelete: true)
-                .ForeignKey("dbo.Inspections", t => t.Inspection_InspectionID, cascadeDelete: true)
-                .Index(t => t.RubberState_RubberID)
-                .Index(t => t.Inspection_InspectionID);
-            
         }
         
         public override void Down()
@@ -253,8 +246,8 @@ namespace RentCar.Migrations
             DropForeignKey("dbo.IncomeAndRefunds", "VehicleID", "dbo.Vehicles");
             DropForeignKey("dbo.Clients", "PersonTypeID", "dbo.PersonTypes");
             DropForeignKey("dbo.Inspections", "VehicleID", "dbo.Vehicles");
-            DropForeignKey("dbo.RubberStateInspections", "Inspection_InspectionID", "dbo.Inspections");
-            DropForeignKey("dbo.RubberStateInspections", "RubberState_RubberID", "dbo.RubberStates");
+            DropForeignKey("dbo.RubberStates", "InspectionID", "dbo.Inspections");
+            DropForeignKey("dbo.Inspections", "IncomeID", "dbo.IncomeAndRefunds");
             DropForeignKey("dbo.Inspections", "FluelQuantityID", "dbo.FluelQuantities");
             DropForeignKey("dbo.Employees", "WorkShiftID", "dbo.WorkShifts");
             DropForeignKey("dbo.RoleUsers", "User_UserID", "dbo.Users");
@@ -267,12 +260,12 @@ namespace RentCar.Migrations
             DropForeignKey("dbo.Vehicles", "FluelTypeID", "dbo.FluelTypes");
             DropForeignKey("dbo.Vehicles", "BrandID", "dbo.Brands");
             DropForeignKey("dbo.Models", "BrandID", "dbo.Brands");
-            DropIndex("dbo.RubberStateInspections", new[] { "Inspection_InspectionID" });
-            DropIndex("dbo.RubberStateInspections", new[] { "RubberState_RubberID" });
             DropIndex("dbo.RoleUsers", new[] { "User_UserID" });
             DropIndex("dbo.RoleUsers", new[] { "Role_RoleID" });
+            DropIndex("dbo.RubberStates", new[] { "InspectionID" });
             DropIndex("dbo.Users", new[] { "EmployeeID" });
             DropIndex("dbo.Employees", new[] { "WorkShiftID" });
+            DropIndex("dbo.Inspections", new[] { "IncomeID" });
             DropIndex("dbo.Inspections", new[] { "EmployeeID" });
             DropIndex("dbo.Inspections", new[] { "FluelQuantityID" });
             DropIndex("dbo.Inspections", new[] { "ClientID" });
@@ -286,7 +279,6 @@ namespace RentCar.Migrations
             DropIndex("dbo.Vehicles", new[] { "BrandID" });
             DropIndex("dbo.Vehicles", new[] { "VehicleTypeID" });
             DropIndex("dbo.Models", new[] { "BrandID" });
-            DropTable("dbo.RubberStateInspections");
             DropTable("dbo.RoleUsers");
             DropTable("dbo.VehicleTypes");
             DropTable("dbo.PersonTypes");

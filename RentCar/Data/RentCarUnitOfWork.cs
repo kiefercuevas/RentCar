@@ -24,7 +24,7 @@ namespace RentCar.Data
         public IUserRepository User { get; private set; }
         public IVehicleRepository Vehicles { get; private set; }
         public IWorkShiftRepository WorkShifts { get; private set; }
-        public IFluelQuantityRepository FluelQuantitys { get; private set; }
+        public IFluelQuantityRepository FluelQuantities { get; private set; }
 
     public RentCarUnitOfWork()
         {
@@ -33,7 +33,7 @@ namespace RentCar.Data
             Brands = new BrandRepository(_context);
             Clients = new ClientRepository(_context);
             Employees = new EmployeeRepository(_context);
-            FluelQuantitys = new FluelQuantityRepository(_context);
+            FluelQuantities = new FluelQuantityRepository(_context);
             FluelTypes = new FluelTypeRepository(_context);
             IncomeAndRefund = new IncomeAndRefundRepository(_context);
             Inspections = new InspectionRepository(_context);

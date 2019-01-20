@@ -157,6 +157,7 @@
             this.BTNIncomeForm.TabIndex = 12;
             this.BTNIncomeForm.Text = "Siguiente";
             this.BTNIncomeForm.UseVisualStyleBackColor = true;
+            this.BTNIncomeForm.Click += new System.EventHandler(this.BTNIncomeForm_Click);
             // 
             // LBetc
             // 

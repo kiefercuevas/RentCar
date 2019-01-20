@@ -37,6 +37,12 @@ namespace RentCar.Data
                 HasRequired(m => m.Brand)
                 .WithMany(b => b.Models)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Inspection>().
+                HasRequired(i => i.IncomeAndRefund)
+                .WithMany(r => r.Inspections)
+                .WillCascadeOnDelete(false);
+
         }
     }
 }

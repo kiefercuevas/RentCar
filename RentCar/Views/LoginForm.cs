@@ -18,7 +18,7 @@ namespace RentCar.Views
 
         private void BTNLogin_Click(object sender, EventArgs e)
         {
-            ChangeBTNStatus(BTNLogin, false);
+            BTNLogin.Enabled = false;
             string Email = TBXEmail.Text;
             string password = TBXPassword.Text;
 
@@ -41,11 +41,12 @@ namespace RentCar.Views
                     Hide();
                 }
                 else{
-                    ShowMessage("El usuario es incorrecto, verifique el correo o contraseña");
-                    ResetForm();
+                   MessageBox.Show("El usuario es incorrecto, verifique el correo o contraseña");
+                   TBXPassword.Text = null;
+                   BTNLogin.Enabled = true;
                 }
             }else{
-                ShowMessage("Debe introudir valores al email y contraseña");
+                MessageBox.Show("Debe introudir valores al email y contraseña");
                 ResetForm();
             }
         }
@@ -55,25 +56,14 @@ namespace RentCar.Views
             byte[] data = Encoding.UTF8.GetBytes(password);
             data = new SHA256Managed().ComputeHash(data);
             string hash = Convert.ToBase64String(data);
-
             return hash;
-        }
-
-        private void ShowMessage(string message)
-        {
-            MessageBox.Show(message);
-        }
-
-        private void ChangeBTNStatus(Button btn,bool status)
-        {
-            btn.Enabled = status;
         }
 
         private void AddSessionVariables(User user)
         {
-            Global.Variables.Add(Global.Id, user.Employee.EmployeeID.ToString());
+            Global.Variables.Add(Global.Id, user.Employee.EmployeeID);
             Global.Variables.Add(Global.Username, user.Employee.Name);
-            Global.Variables.Add(Global.Roles, user.Roles.Select(r => r.Name).ToArray());
+            Global.Variables.Add(Global.Roles, user.Roles.Select(r => r.Name).ToList());
         }
 
         void MenuPage_FormClosed(object sender, FormClosedEventArgs e)
@@ -85,7 +75,7 @@ namespace RentCar.Views
         {
             TBXEmail.Text = null;
             TBXPassword.Text = null;
-            ChangeBTNStatus(BTNLogin, true);
+            BTNLogin.Enabled = true;
         }
 
     }

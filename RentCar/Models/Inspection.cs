@@ -13,7 +13,7 @@ namespace RentCar.Models
         public virtual Client Client { get; set; }
         public bool HasGrazes { get; set; }
         public int FluelQuantityID { get; set; }
-        public FluelQuantity FluelQuantity { get; set; }
+        public virtual FluelQuantity FluelQuantity { get; set; }
         public bool HasReplacementRubber { get; set; }
         public bool HasLeverCat { get; set; }
         public bool HasGlassBreaks { get; set; }
@@ -21,7 +21,9 @@ namespace RentCar.Models
         public DateTime InspectionDate { get; set; }
         public bool State { get; set; }
         public int EmployeeID { get; set; }
-        public Employee Employee { get; set; }
+        public virtual Employee Employee { get; set; }
+        public int IncomeID { get; set; }
+        public virtual IncomeAndRefund IncomeAndRefund { get; set; }
         public virtual ICollection<RubberState> RubberStates { get; set; }
     }
 }

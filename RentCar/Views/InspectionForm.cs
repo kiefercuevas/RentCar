@@ -25,27 +25,72 @@ namespace RentCar.Views
         {
             TBXEmployee.Text = Global.Variables[Global.Username] as string;
 
-            LoadClients();
-            LoadVehicle();
-            LoadFuelQuantity(); 
+            LoadClients(_context.Clients.GetAll());
+            LoadVehicle(_context.Vehicles.GetAll());
+            LoadFuelQuantity(_context.FluelQuantities.GetAll()); 
         }
 
-        private void LoadClients()
+        private void LoadClients(IEnumerable<Client> clients)
         {
-            var clients = _context.Clients.GetAll();
-            CBXclients.Items.AddRange(clients.Select(c => c.IdentificationCard).ToArray());
+            if (clients.Count() > 0)
+            {
+                Dictionary<int, string> clientsdata = new Dictionary<int, string>();
+
+                foreach (var client in clients)
+                    clientsdata.Add(client.ClientID, client.Name);
+
+                CBXclients.DataSource = new BindingSource(clientsdata, null);
+                CBXclients.DisplayMember = "Value";
+                CBXclients.ValueMember = "Key";
+            }
+            else{
+                CBXclients.DataSource = null;
+                CBXclients.Items.Clear();
+                CBXclients.Items.Add("No hay datos");
+            }
         }
 
-        private void LoadVehicle()
+        private void LoadVehicle(IEnumerable<Vehicle> vehicles)
         {
-            var vehicles = _context.Vehicles.GetAll();
-            CBXvehicles.Items.AddRange(vehicles.Select(v => v.ChassisNumber).ToArray());
+            if (vehicles.Count() > 0)
+            {
+                Dictionary<int, string> vehiclesdata = new Dictionary<int, string>();
+
+                foreach (Vehicle vehicle in vehicles)
+                    vehiclesdata.Add(vehicle.VehicleID, vehicle.Description);
+
+                CBXvehicles.DataSource = new BindingSource(vehiclesdata, null);
+                CBXvehicles.DisplayMember = "Value";
+                CBXvehicles.ValueMember = "Key";
+            }
+            else{
+                CBXvehicles.DataSource = null;
+                CBXvehicles.Items.Clear();
+                CBXvehicles.Items.Add("No hay vehiculos");
+            }
+               
+
         }
 
-        private void LoadFuelQuantity()
+        private void LoadFuelQuantity(IEnumerable<FluelQuantity> fuelQuantities)
         {
-            var fuelQuantity = _context.FluelQuantitys.GetAll();
-            CBXfluelQuantity.Items.AddRange(fuelQuantity.Select(v => v.Quantity.ToString()).ToArray());
+            if (fuelQuantities.Count() > 0)
+            {
+                Dictionary<int, string> fuelQuantitydata = new Dictionary<int, string>();
+
+                foreach (var fluelQuantity in fuelQuantities)
+                    fuelQuantitydata.Add(fluelQuantity.FluelQuantityID, fluelQuantity.Quantity.ToString());
+
+                CBXfluelQuantity.DataSource = new BindingSource(fuelQuantitydata, null);
+                CBXfluelQuantity.DisplayMember = "Value";
+                CBXfluelQuantity.ValueMember = "Key";
+            }
+            else{
+                CBXfluelQuantity.DataSource = null;
+                CBXfluelQuantity.Items.Clear();
+                CBXfluelQuantity.Items.Add("No hay combustibles");
+            }
+                
         }
 
         private void CreateRubberCheckBoxes(int quantity)
@@ -60,10 +105,15 @@ namespace RentCar.Views
 
         private void CBXvehicles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var vehicle = _context.Vehicles.GetVehiclesWithTypes(v => v.ChassisNumber == CBXvehicles.Text).FirstOrDefault();
+            if(CBXvehicles.DataSource != null){
+                int id = ((KeyValuePair<int, string>)CBXvehicles.SelectedItem).Key;
+                var vehicle = _context.Vehicles
+                    .GetVehiclesWithTypes(v => v.VehicleID == id)
+                    .FirstOrDefault();
 
-            if (vehicle != null)
-                CreateRubberCheckBoxes(vehicle.VehicleType.RubberQuantity);
+                if (vehicle != null)
+                    CreateRubberCheckBoxes(vehicle.VehicleType.RubberQuantity);
+            }
         }
 
         private void TXBvehicle_TextChanged(object sender, EventArgs e)
@@ -83,11 +133,10 @@ namespace RentCar.Views
             }
             else
                 vehicles = _context.Vehicles.GetAll();
+
             
             CLBXrubbers.Items.Clear();
-
-            CBXvehicles.Items.Clear();
-            CBXvehicles.Items.AddRange(vehicles.Select(v => v.ChassisNumber).ToArray());
+            LoadVehicle(vehicles);
         }
 
         private void TXBclients_TextChanged(object sender, EventArgs e)
@@ -103,8 +152,7 @@ namespace RentCar.Views
             else
                 clients = _context.Clients.GetAll();
 
-            CBXclients.Items.Clear();
-            CBXclients.Items.AddRange(clients.Select(c => c.IdentificationCard).ToArray());
+            LoadClients(clients);
         }
 
         private void TBXfuelquantity_TextChanged(object sender, EventArgs e)
@@ -112,12 +160,65 @@ namespace RentCar.Views
             string text = TBXfuelquantity.Text;
             IEnumerable<FluelQuantity> fluels;
             if (!string.IsNullOrWhiteSpace(text))
-                fluels = _context.FluelQuantitys.Find(f => f.Quantity.ToString().Contains(text));
+                fluels = _context.FluelQuantities.Find(f => f.Quantity.ToString().Contains(text));
             else
-                fluels = _context.FluelQuantitys.GetAll();
+                fluels = _context.FluelQuantities.GetAll();
 
-            CBXfluelQuantity.Items.Clear();
-            CBXfluelQuantity.Items.AddRange(fluels.Select(f => f.Quantity.ToString()).ToArray());
+            LoadFuelQuantity(fluels);
         }
+
+        private void BTNIncomeForm_Click(object sender, EventArgs e)
+        {
+            int vehicleId = GetSourceId(CBXvehicles);
+            int clientId = GetSourceId(CBXclients);
+            int fluelQuantityId = GetSourceId(CBXfluelQuantity);
+
+            if (vehicleId == 0)
+                MessageBox.Show("Debe Elegir un vehiculo");
+            else if (clientId == 0)
+                MessageBox.Show("Debe Elegir un cliente");
+            else if (fluelQuantityId == 0)
+                MessageBox.Show("Debe Elegir una cantidad de Combustible");
+            else{
+                Inspection inspection = new Inspection()
+                {
+                    ClientID = clientId,
+                    VehicleID = vehicleId,
+                    FluelQuantityID = fluelQuantityId,
+                    EmployeeID = Convert.ToInt32(Global.Variables[Global.Id]),
+                    HasGlassBreaks = CKBhasGlassBreaks.Checked,
+                    HasGrazes = CKBhasgrazes.Checked,
+                    HasLeverCat = CKBhasLeverCat.Checked,
+                    HasReplacementRubber = CKBhasReplacementRubber.Checked,
+                    State = true,
+                    InspectionDate = DateTime.Now,
+                    Etc = RTBXetc.Text,
+                    RubberStates = new List<RubberState>()
+                };
+
+                for(int i=0;i < CLBXrubbers.Items.Count; i++)
+                {
+                    inspection.RubberStates.Add(new RubberState() {
+                        Description = CLBXrubbers.Items[i].ToString(),
+                        State = CLBXrubbers.GetItemChecked(i)
+                    });
+                }
+
+                IncomeForm income = new IncomeForm(inspection);
+                income.ShowDialog();
+                Close();
+            }
+        }
+
+        
+
+        private int GetSourceId(ComboBox comboBox)
+        {
+            if (comboBox.DataSource != null)
+                return ((KeyValuePair<int, string>)comboBox.SelectedItem).Key;
+            else
+                return 0;
+        }
+
     }
 }

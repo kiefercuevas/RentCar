@@ -30,11 +30,6 @@
         {
             this.LBUserName = new System.Windows.Forms.Label();
             this.DTGVIncomes = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IncomeDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RefoundDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AmountPerDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.State = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DTPStartDate = new System.Windows.Forms.DateTimePicker();
             this.DTPEndDate = new System.Windows.Forms.DateTimePicker();
             this.TBXIncomeSearch = new System.Windows.Forms.TextBox();
@@ -42,6 +37,13 @@
             this.LBEndDate = new System.Windows.Forms.Label();
             this.BTNDateFilter = new System.Windows.Forms.Button();
             this.BTNIncome = new System.Windows.Forms.Button();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IncomeDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RefoundDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AmountPerDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumberOfDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.State = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.BTNvehicles = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DTGVIncomes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,42 +66,13 @@
             this.IncomeDate,
             this.RefoundDate,
             this.AmountPerDay,
+            this.NumberOfDays,
             this.State});
             this.DTGVIncomes.Location = new System.Drawing.Point(244, 171);
             this.DTGVIncomes.Name = "DTGVIncomes";
             this.DTGVIncomes.ReadOnly = true;
             this.DTGVIncomes.Size = new System.Drawing.Size(544, 267);
             this.DTGVIncomes.TabIndex = 1;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Codigo";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // IncomeDate
-            // 
-            this.IncomeDate.HeaderText = "Fecha Renta";
-            this.IncomeDate.Name = "IncomeDate";
-            this.IncomeDate.ReadOnly = true;
-            // 
-            // RefoundDate
-            // 
-            this.RefoundDate.HeaderText = "Fecha Devolucion";
-            this.RefoundDate.Name = "RefoundDate";
-            this.RefoundDate.ReadOnly = true;
-            // 
-            // AmountPerDay
-            // 
-            this.AmountPerDay.HeaderText = "Monto x Dia";
-            this.AmountPerDay.Name = "AmountPerDay";
-            this.AmountPerDay.ReadOnly = true;
-            // 
-            // State
-            // 
-            this.State.HeaderText = "Estado";
-            this.State.Name = "State";
-            this.State.ReadOnly = true;
             // 
             // DTPStartDate
             // 
@@ -164,11 +137,58 @@
             this.BTNIncome.UseVisualStyleBackColor = true;
             this.BTNIncome.Click += new System.EventHandler(this.BTNIncome_Click);
             // 
+            // Id
+            // 
+            this.Id.HeaderText = "Codigo";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // IncomeDate
+            // 
+            this.IncomeDate.HeaderText = "Fecha Renta";
+            this.IncomeDate.Name = "IncomeDate";
+            this.IncomeDate.ReadOnly = true;
+            // 
+            // RefoundDate
+            // 
+            this.RefoundDate.HeaderText = "Fecha Devolucion";
+            this.RefoundDate.Name = "RefoundDate";
+            this.RefoundDate.ReadOnly = true;
+            // 
+            // AmountPerDay
+            // 
+            this.AmountPerDay.HeaderText = "Monto x Dia";
+            this.AmountPerDay.Name = "AmountPerDay";
+            this.AmountPerDay.ReadOnly = true;
+            // 
+            // NumberOfDays
+            // 
+            this.NumberOfDays.HeaderText = "CantidadDias";
+            this.NumberOfDays.Name = "NumberOfDays";
+            this.NumberOfDays.ReadOnly = true;
+            // 
+            // State
+            // 
+            this.State.HeaderText = "Estado";
+            this.State.Name = "State";
+            this.State.ReadOnly = true;
+            // 
+            // BTNvehicles
+            // 
+            this.BTNvehicles.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTNvehicles.Location = new System.Drawing.Point(12, 171);
+            this.BTNvehicles.Name = "BTNvehicles";
+            this.BTNvehicles.Size = new System.Drawing.Size(205, 35);
+            this.BTNvehicles.TabIndex = 7;
+            this.BTNvehicles.Text = "Vehiculos";
+            this.BTNvehicles.UseVisualStyleBackColor = true;
+            // 
             // MenuPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BTNvehicles);
             this.Controls.Add(this.BTNIncome);
             this.Controls.Add(this.BTNDateFilter);
             this.Controls.Add(this.LBEndDate);
@@ -194,11 +214,6 @@
 
         private System.Windows.Forms.Label LBUserName;
         private System.Windows.Forms.DataGridView DTGVIncomes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IncomeDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RefoundDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AmountPerDay;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn State;
         private System.Windows.Forms.DateTimePicker DTPStartDate;
         private System.Windows.Forms.DateTimePicker DTPEndDate;
         private System.Windows.Forms.TextBox TBXIncomeSearch;
@@ -206,5 +221,12 @@
         private System.Windows.Forms.Label LBEndDate;
         private System.Windows.Forms.Button BTNDateFilter;
         private System.Windows.Forms.Button BTNIncome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IncomeDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RefoundDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AmountPerDay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumberOfDays;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn State;
+        private System.Windows.Forms.Button BTNvehicles;
     }
 }

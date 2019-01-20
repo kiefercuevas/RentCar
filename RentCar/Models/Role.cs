@@ -8,6 +8,6 @@ namespace RentCar.Models
         public int RoleID { get; set; }
         [Required(ErrorMessage ="El rol es obligatorio")]
         public string Name { get; set; }
-        public ICollection<User> Users { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }
