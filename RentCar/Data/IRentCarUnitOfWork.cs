@@ -22,6 +22,7 @@ namespace RentCar.Data
         IVehicleRepository Vehicles { get; }
         IWorkShiftRepository WorkShifts { get; }
         IFluelQuantityRepository FluelQuantities { get; }
+        IVehicleTypeRepository VehicleTypes { get; }
         int Complete();
     }
 }

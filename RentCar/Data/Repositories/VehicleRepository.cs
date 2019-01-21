@@ -28,11 +28,22 @@ namespace RentCar.Data.Repositories
 
         public IEnumerable<Vehicle> GetVehiclesWithAll(Expression<Func<Vehicle, bool>> predicate)
         {
-            return _RentCarContex.Vehicles.Include(v => v.Brand)
+            return _RentCarContex.Vehicles
+                .Include(v => v.Brand)
                 .Include(v => v.Model)
                 .Include(v => v.VehicleType)
                 .Include(v => v.FluelType)
                 .Where(predicate)
+                .ToList();
+        }
+
+        public IEnumerable<Vehicle> GetVehiclesWithAll()
+        {
+            return _RentCarContex.Vehicles
+                .Include(v => v.Brand)
+                .Include(v => v.Model)
+                .Include(v => v.VehicleType)
+                .Include(v => v.FluelType)
                 .ToList();
         }
     }

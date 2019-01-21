@@ -11,5 +11,6 @@ namespace RentCar.Data.Core
     {
         IEnumerable<Vehicle> GetVehiclesWithTypes(Expression<Func<Vehicle, bool>> predicate);
         IEnumerable<Vehicle> GetVehiclesWithAll(Expression<Func<Vehicle, bool>> predicate);
+        IEnumerable<Vehicle> GetVehiclesWithAll();
     }
 }

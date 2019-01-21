@@ -108,6 +108,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Models\VehicleType.cs" />
+    <Compile Include="Models\ViewModels\VehicleViewModel.cs" />
     <Compile Include="Models\WorkShift.cs" />
     <Compile Include="Views\Incomes\IncomeForm.cs">
       <SubType>Form</SubType>
@@ -147,6 +148,12 @@
     <Compile Include="Views\MenuPage.Designer.cs">
       <DependentUpon>MenuPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\vehicles\SaveVehicleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\vehicles\SaveVehicleForm.Designer.cs">
+      <DependentUpon>SaveVehicleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\vehicles\VehiclesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MenuPage.resx">
       <DependentUpon>MenuPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\vehicles\SaveVehicleForm.resx">
+      <DependentUpon>SaveVehicleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\vehicles\VehiclesForm.resx">
       <DependentUpon>VehiclesForm.cs</DependentUpon>

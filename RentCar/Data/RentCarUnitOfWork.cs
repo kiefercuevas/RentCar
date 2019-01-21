@@ -25,8 +25,9 @@ namespace RentCar.Data
         public IVehicleRepository Vehicles { get; private set; }
         public IWorkShiftRepository WorkShifts { get; private set; }
         public IFluelQuantityRepository FluelQuantities { get; private set; }
+        public IVehicleTypeRepository VehicleTypes { get; private set; }
 
-    public RentCarUnitOfWork()
+        public RentCarUnitOfWork()
         {
             _context = new RentCarContex();
 
@@ -44,6 +45,7 @@ namespace RentCar.Data
             User = new UserRepository(_context);
             Vehicles = new VehicleRepository(_context);
             WorkShifts = new WorkShiftRepository(_context);
+            VehicleTypes = new VehicleTypeRepository(_context);
         }
 
         public int Complete()
