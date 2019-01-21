@@ -8,7 +8,8 @@ namespace RentCar
         public const string Roles = "Roles";
         public const string Id = "Id";
 
-
+        public const string ADMINROLE = "ADMIN";
+        public const string USEROLE = "USER";
         public static Dictionary<string, object> Variables = new Dictionary<string, object>();
     }
 }

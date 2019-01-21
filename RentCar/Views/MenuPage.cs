@@ -1,12 +1,8 @@
 ﻿using RentCar.Data;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using RentCar.Models;
 namespace RentCar.Views
@@ -23,52 +19,46 @@ namespace RentCar.Views
         private void MenuPage_Load(object sender, EventArgs e)
         {
             LBUserName.Text = Global.Variables[Global.Username].ToString();
-            ShowIncomes(_context.IncomeAndRefund.GetAll().ToList());
+            ShowIncomes(_context.IncomeAndRefund.GetAll());
+            List<string> roles = (List<string>)Global.Variables[Global.Roles];
 
+            if (!roles.Contains(Global.ADMINROLE)){
+                BTNEmployees.Enabled = false;
+            }
         }
 
 
         
-        private void ShowIncomes(List<IncomeAndRefund> data)
+        private void ShowIncomes(IEnumerable<IncomeAndRefund> data)
         {
-            DTGVIncomes.Rows.Clear();
-            foreach(IncomeAndRefund income in data)
-            {
-                int index = DTGVIncomes.Rows.Add();
-                DataGridViewRow row = DTGVIncomes.Rows[index];
-
-                row.Cells[0].Value = income.IncomeID;
-                row.Cells[1].Value = income.IncomeDate.ToShortDateString();
-                row.Cells[2].Value = income.RefundDate.ToShortDateString();
-                row.Cells[3].Value = income.AmountPerDay;
-                row.Cells[4].Value = income.NumberOfDays;
-                row.Cells[5].Value = income.State;
-            }
+            DTGVIncomes.AutoGenerateColumns = false;
+            DTGVIncomes.DataSource = data;
         }
 
         private void BTNDateFilter_Click(object sender, EventArgs e)
         {
-            string param = TBXIncomeSearch.Text;
             DateTime startDate = DTPStartDate.Value.Date;
             DateTime endDate = DTPEndDate.Value.Date.AddDays(1);
-            List<IncomeAndRefund> data = new List<IncomeAndRefund>();
+            IEnumerable<IncomeAndRefund> data;
 
             if (startDate > endDate)
                 ShowMessage("La fecha inicial no puede ser mayor a la final");
             else{
-                if (!string.IsNullOrEmpty(param)){
-                    data = _context.IncomeAndRefund
-                         .Find(i => i.IncomeDate >= startDate && i.RefundDate < endDate &&
-                         (i.IncomeID.ToString().Contains(param) ||
-                          i.AmountPerDay.ToString().Contains(param)
-                         )).ToList();
-                }else{
-                    data = _context.IncomeAndRefund
-                         .Find(i => i.IncomeDate >= startDate && i.RefundDate < endDate)
-                         .ToList();
-                }
+                data = FilterGridViewByDatesAndParam(startDate,endDate,TBXIncomeSearch.Text);
                 ShowIncomes(data);
             }
+        }
+
+        private IEnumerable<IncomeAndRefund> FilterGridViewByDatesAndParam(DateTime start,DateTime end,string param = null)
+        {
+            if (!string.IsNullOrEmpty(param))
+                return _context.IncomeAndRefund
+                     .Find(i => i.IncomeDate >= start && i.RefundDate < end &&
+                     (i.IncomeID.ToString().Contains(param) ||
+                      i.AmountPerDay.ToString().Contains(param)));
+            else
+                return _context.IncomeAndRefund
+                     .Find(i => i.IncomeDate >= start && i.RefundDate < end);
         }
 
         private void ShowMessage(string message)
@@ -98,7 +88,19 @@ namespace RentCar.Views
         {
             InspectionForm inspection = new InspectionForm();
             inspection.ShowDialog();
-            ShowIncomes(_context.IncomeAndRefund.GetAll().ToList());
+            ShowIncomes(_context.IncomeAndRefund.GetAll());
+        }
+
+        private void DTGVIncomes_DoubleClick(object sender, EventArgs e)
+        {
+            if(DTGVIncomes.CurrentRow.Index != -1){
+                //MessageBox.Show(DTGVIncomes.CurrentRow.Index.ToString());
+            }
+        }
+
+        private void BTNclear_Click(object sender, EventArgs e)
+        {
+            ShowIncomes(_context.IncomeAndRefund.GetAll());
         }
     }
 }

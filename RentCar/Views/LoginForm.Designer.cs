@@ -30,16 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.LBdividerLine = new System.Windows.Forms.Label();
-            this.GBbackColor = new System.Windows.Forms.GroupBox();
             this.LBSlogan = new System.Windows.Forms.Label();
             this.LBRentCar = new System.Windows.Forms.Label();
-            this.PBRentCarImage = new System.Windows.Forms.PictureBox();
             this.LBEmail = new System.Windows.Forms.Label();
             this.LBPassword = new System.Windows.Forms.Label();
             this.TBXEmail = new System.Windows.Forms.TextBox();
             this.TBXPassword = new System.Windows.Forms.TextBox();
             this.BTNLogin = new System.Windows.Forms.Button();
-            this.GBbackColor.SuspendLayout();
+            this.PBRentCarImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.PBRentCarImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,23 +50,11 @@
             this.LBdividerLine.TabIndex = 0;
             this.LBdividerLine.Text = "_________________";
             // 
-            // GBbackColor
-            // 
-            this.GBbackColor.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.GBbackColor.Controls.Add(this.LBSlogan);
-            this.GBbackColor.Controls.Add(this.LBRentCar);
-            this.GBbackColor.Controls.Add(this.PBRentCarImage);
-            this.GBbackColor.Location = new System.Drawing.Point(-9, -7);
-            this.GBbackColor.Name = "GBbackColor";
-            this.GBbackColor.Size = new System.Drawing.Size(822, 141);
-            this.GBbackColor.TabIndex = 1;
-            this.GBbackColor.TabStop = false;
-            // 
             // LBSlogan
             // 
             this.LBSlogan.AutoSize = true;
             this.LBSlogan.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBSlogan.Location = new System.Drawing.Point(536, 96);
+            this.LBSlogan.Location = new System.Drawing.Point(487, 81);
             this.LBSlogan.Name = "LBSlogan";
             this.LBSlogan.Size = new System.Drawing.Size(259, 25);
             this.LBSlogan.TabIndex = 2;
@@ -78,21 +64,11 @@
             // 
             this.LBRentCar.AutoSize = true;
             this.LBRentCar.Font = new System.Drawing.Font("Arial Narrow", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBRentCar.Location = new System.Drawing.Point(665, 53);
+            this.LBRentCar.Location = new System.Drawing.Point(614, 38);
             this.LBRentCar.Name = "LBRentCar";
             this.LBRentCar.Size = new System.Drawing.Size(132, 43);
             this.LBRentCar.TabIndex = 1;
             this.LBRentCar.Text = "RentCar";
-            // 
-            // PBRentCarImage
-            // 
-            this.PBRentCarImage.Image = ((System.Drawing.Image)(resources.GetObject("PBRentCarImage.Image")));
-            this.PBRentCarImage.Location = new System.Drawing.Point(22, 15);
-            this.PBRentCarImage.Name = "PBRentCarImage";
-            this.PBRentCarImage.Size = new System.Drawing.Size(153, 120);
-            this.PBRentCarImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PBRentCarImage.TabIndex = 0;
-            this.PBRentCarImage.TabStop = false;
             // 
             // LBEmail
             // 
@@ -143,24 +119,34 @@
             this.BTNLogin.UseVisualStyleBackColor = true;
             this.BTNLogin.Click += new System.EventHandler(this.BTNLogin_Click);
             // 
+            // PBRentCarImage
+            // 
+            this.PBRentCarImage.Image = ((System.Drawing.Image)(resources.GetObject("PBRentCarImage.Image")));
+            this.PBRentCarImage.Location = new System.Drawing.Point(-9, -2);
+            this.PBRentCarImage.Name = "PBRentCarImage";
+            this.PBRentCarImage.Size = new System.Drawing.Size(809, 136);
+            this.PBRentCarImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PBRentCarImage.TabIndex = 0;
+            this.PBRentCarImage.TabStop = false;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.LBSlogan);
+            this.Controls.Add(this.LBRentCar);
+            this.Controls.Add(this.PBRentCarImage);
             this.Controls.Add(this.BTNLogin);
             this.Controls.Add(this.TBXPassword);
             this.Controls.Add(this.TBXEmail);
             this.Controls.Add(this.LBPassword);
             this.Controls.Add(this.LBEmail);
-            this.Controls.Add(this.GBbackColor);
             this.Controls.Add(this.LBdividerLine);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.GBbackColor.ResumeLayout(false);
-            this.GBbackColor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBRentCarImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -170,8 +156,6 @@
         #endregion
 
         private System.Windows.Forms.Label LBdividerLine;
-        private System.Windows.Forms.GroupBox GBbackColor;
-        private System.Windows.Forms.PictureBox PBRentCarImage;
         private System.Windows.Forms.Label LBSlogan;
         private System.Windows.Forms.Label LBRentCar;
         private System.Windows.Forms.Label LBEmail;
@@ -179,6 +163,7 @@
         private System.Windows.Forms.TextBox TBXEmail;
         private System.Windows.Forms.TextBox TBXPassword;
         private System.Windows.Forms.Button BTNLogin;
+        private System.Windows.Forms.PictureBox PBRentCarImage;
     }
 }
 
