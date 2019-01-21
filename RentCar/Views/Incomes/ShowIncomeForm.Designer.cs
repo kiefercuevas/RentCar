@@ -30,31 +30,39 @@
         {
             this.LBincomeID = new System.Windows.Forms.Label();
             this.GBXincomeInfo = new System.Windows.Forms.GroupBox();
-            this.TBXincomeID = new System.Windows.Forms.TextBox();
-            this.LBIncomeDate = new System.Windows.Forms.Label();
-            this.TBXIncomeDate = new System.Windows.Forms.TextBox();
-            this.LBrefundDate = new System.Windows.Forms.Label();
-            this.TBXrefundDate = new System.Windows.Forms.TextBox();
-            this.LBamountPerDay = new System.Windows.Forms.Label();
-            this.TBXamountPerDay = new System.Windows.Forms.TextBox();
-            this.LBnumberOfDays = new System.Windows.Forms.Label();
-            this.TBXnumberOfDays = new System.Windows.Forms.TextBox();
-            this.LBcomment = new System.Windows.Forms.Label();
-            this.RTBXcomment = new System.Windows.Forms.RichTextBox();
-            this.BTNinspection = new System.Windows.Forms.Button();
             this.LBinspection = new System.Windows.Forms.Label();
+            this.BTNinspection = new System.Windows.Forms.Button();
+            this.RTBXcomment = new System.Windows.Forms.RichTextBox();
+            this.LBcomment = new System.Windows.Forms.Label();
+            this.TBXnumberOfDays = new System.Windows.Forms.TextBox();
+            this.LBnumberOfDays = new System.Windows.Forms.Label();
+            this.TBXamountPerDay = new System.Windows.Forms.TextBox();
+            this.LBamountPerDay = new System.Windows.Forms.Label();
+            this.TBXrefundDate = new System.Windows.Forms.TextBox();
+            this.LBrefundDate = new System.Windows.Forms.Label();
+            this.TBXIncomeDate = new System.Windows.Forms.TextBox();
+            this.LBIncomeDate = new System.Windows.Forms.Label();
+            this.TBXincomeID = new System.Windows.Forms.TextBox();
             this.GBclient = new System.Windows.Forms.GroupBox();
-            this.LBclientName = new System.Windows.Forms.Label();
-            this.TBXclientname = new System.Windows.Forms.TextBox();
-            this.LBidentificationCard = new System.Windows.Forms.Label();
-            this.TBXidentificationCard = new System.Windows.Forms.TextBox();
-            this.LBcreditCard = new System.Windows.Forms.Label();
-            this.TBXcreditCard = new System.Windows.Forms.TextBox();
-            this.LBtypeOfPerson = new System.Windows.Forms.Label();
-            this.TBXtypeOfPerson = new System.Windows.Forms.TextBox();
-            this.LBcreditLimit = new System.Windows.Forms.Label();
             this.TBXcreditLimit = new System.Windows.Forms.TextBox();
+            this.LBcreditLimit = new System.Windows.Forms.Label();
+            this.TBXtypeOfPerson = new System.Windows.Forms.TextBox();
+            this.LBtypeOfPerson = new System.Windows.Forms.Label();
+            this.TBXcreditCard = new System.Windows.Forms.TextBox();
+            this.LBcreditCard = new System.Windows.Forms.Label();
+            this.TBXidentificationCard = new System.Windows.Forms.TextBox();
+            this.LBidentificationCard = new System.Windows.Forms.Label();
+            this.TBXclientname = new System.Windows.Forms.TextBox();
+            this.LBclientName = new System.Windows.Forms.Label();
             this.GBXvehicle = new System.Windows.Forms.GroupBox();
+            this.LBrubberQuantity = new System.Windows.Forms.Label();
+            this.TBXrubberQuantity = new System.Windows.Forms.TextBox();
+            this.TBXfluelType = new System.Windows.Forms.TextBox();
+            this.LBflueltype = new System.Windows.Forms.Label();
+            this.TBXmodel = new System.Windows.Forms.TextBox();
+            this.LBmodel = new System.Windows.Forms.Label();
+            this.TBXbrand = new System.Windows.Forms.TextBox();
+            this.LBbrand = new System.Windows.Forms.Label();
             this.TBXtypeOfVehicle = new System.Windows.Forms.TextBox();
             this.LBtypeOfVehicle = new System.Windows.Forms.Label();
             this.TBXplateNumber = new System.Windows.Forms.TextBox();
@@ -65,17 +73,9 @@
             this.LBchassisNumber = new System.Windows.Forms.Label();
             this.TBXdescription = new System.Windows.Forms.TextBox();
             this.LBdescription = new System.Windows.Forms.Label();
-            this.TBXbrand = new System.Windows.Forms.TextBox();
-            this.LBbrand = new System.Windows.Forms.Label();
             this.GBXemployee = new System.Windows.Forms.GroupBox();
-            this.TBXmodel = new System.Windows.Forms.TextBox();
-            this.LBmodel = new System.Windows.Forms.Label();
-            this.LBflueltype = new System.Windows.Forms.Label();
-            this.TBXfluelType = new System.Windows.Forms.TextBox();
-            this.TBXrubberQuantity = new System.Windows.Forms.TextBox();
-            this.LBrubberQuantity = new System.Windows.Forms.Label();
-            this.LBempName = new System.Windows.Forms.Label();
             this.TBXempName = new System.Windows.Forms.TextBox();
+            this.LBempName = new System.Windows.Forms.Label();
             this.GBXincomeInfo.SuspendLayout();
             this.GBclient.SuspendLayout();
             this.GBXvehicle.SuspendLayout();
@@ -116,85 +116,34 @@
             this.GBXincomeInfo.TabStop = false;
             this.GBXincomeInfo.Text = "Detalles de la renta";
             // 
-            // TBXincomeID
+            // LBinspection
             // 
-            this.TBXincomeID.Enabled = false;
-            this.TBXincomeID.Location = new System.Drawing.Point(101, 34);
-            this.TBXincomeID.Name = "TBXincomeID";
-            this.TBXincomeID.Size = new System.Drawing.Size(148, 26);
-            this.TBXincomeID.TabIndex = 2;
+            this.LBinspection.AutoSize = true;
+            this.LBinspection.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBinspection.Location = new System.Drawing.Point(287, 132);
+            this.LBinspection.Name = "LBinspection";
+            this.LBinspection.Size = new System.Drawing.Size(85, 23);
+            this.LBinspection.TabIndex = 15;
+            this.LBinspection.Text = "Inspeccion";
             // 
-            // LBIncomeDate
+            // BTNinspection
             // 
-            this.LBIncomeDate.AutoSize = true;
-            this.LBIncomeDate.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBIncomeDate.Location = new System.Drawing.Point(9, 81);
-            this.LBIncomeDate.Name = "LBIncomeDate";
-            this.LBIncomeDate.Size = new System.Drawing.Size(86, 23);
-            this.LBIncomeDate.TabIndex = 4;
-            this.LBIncomeDate.Text = "Fec. Renta";
+            this.BTNinspection.Location = new System.Drawing.Point(416, 124);
+            this.BTNinspection.Name = "BTNinspection";
+            this.BTNinspection.Size = new System.Drawing.Size(88, 36);
+            this.BTNinspection.TabIndex = 14;
+            this.BTNinspection.Text = "Inspeccion";
+            this.BTNinspection.UseVisualStyleBackColor = true;
+            this.BTNinspection.Click += new System.EventHandler(this.BTNinspection_Click);
             // 
-            // TBXIncomeDate
+            // RTBXcomment
             // 
-            this.TBXIncomeDate.Enabled = false;
-            this.TBXIncomeDate.Location = new System.Drawing.Point(101, 78);
-            this.TBXIncomeDate.Name = "TBXIncomeDate";
-            this.TBXIncomeDate.Size = new System.Drawing.Size(148, 26);
-            this.TBXIncomeDate.TabIndex = 5;
-            // 
-            // LBrefundDate
-            // 
-            this.LBrefundDate.AutoSize = true;
-            this.LBrefundDate.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBrefundDate.Location = new System.Drawing.Point(9, 132);
-            this.LBrefundDate.Name = "LBrefundDate";
-            this.LBrefundDate.Size = new System.Drawing.Size(122, 23);
-            this.LBrefundDate.TabIndex = 6;
-            this.LBrefundDate.Text = "Fec. Devolucion";
-            // 
-            // TBXrefundDate
-            // 
-            this.TBXrefundDate.Enabled = false;
-            this.TBXrefundDate.Location = new System.Drawing.Point(137, 129);
-            this.TBXrefundDate.Name = "TBXrefundDate";
-            this.TBXrefundDate.Size = new System.Drawing.Size(112, 26);
-            this.TBXrefundDate.TabIndex = 7;
-            // 
-            // LBamountPerDay
-            // 
-            this.LBamountPerDay.AutoSize = true;
-            this.LBamountPerDay.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBamountPerDay.Location = new System.Drawing.Point(287, 31);
-            this.LBamountPerDay.Name = "LBamountPerDay";
-            this.LBamountPerDay.Size = new System.Drawing.Size(92, 23);
-            this.LBamountPerDay.TabIndex = 8;
-            this.LBamountPerDay.Text = "Monto x Dia";
-            // 
-            // TBXamountPerDay
-            // 
-            this.TBXamountPerDay.Enabled = false;
-            this.TBXamountPerDay.Location = new System.Drawing.Point(436, 28);
-            this.TBXamountPerDay.Name = "TBXamountPerDay";
-            this.TBXamountPerDay.Size = new System.Drawing.Size(68, 26);
-            this.TBXamountPerDay.TabIndex = 9;
-            // 
-            // LBnumberOfDays
-            // 
-            this.LBnumberOfDays.AutoSize = true;
-            this.LBnumberOfDays.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBnumberOfDays.Location = new System.Drawing.Point(287, 81);
-            this.LBnumberOfDays.Name = "LBnumberOfDays";
-            this.LBnumberOfDays.Size = new System.Drawing.Size(127, 23);
-            this.LBnumberOfDays.TabIndex = 10;
-            this.LBnumberOfDays.Text = "Cantidad de dias";
-            // 
-            // TBXnumberOfDays
-            // 
-            this.TBXnumberOfDays.Enabled = false;
-            this.TBXnumberOfDays.Location = new System.Drawing.Point(436, 78);
-            this.TBXnumberOfDays.Name = "TBXnumberOfDays";
-            this.TBXnumberOfDays.Size = new System.Drawing.Size(68, 26);
-            this.TBXnumberOfDays.TabIndex = 11;
+            this.RTBXcomment.Enabled = false;
+            this.RTBXcomment.Location = new System.Drawing.Point(567, 59);
+            this.RTBXcomment.Name = "RTBXcomment";
+            this.RTBXcomment.Size = new System.Drawing.Size(181, 96);
+            this.RTBXcomment.TabIndex = 13;
+            this.RTBXcomment.Text = "";
             // 
             // LBcomment
             // 
@@ -206,33 +155,85 @@
             this.LBcomment.TabIndex = 12;
             this.LBcomment.Text = "Comentarios";
             // 
-            // RTBXcomment
+            // TBXnumberOfDays
             // 
-            this.RTBXcomment.Enabled = false;
-            this.RTBXcomment.Location = new System.Drawing.Point(567, 59);
-            this.RTBXcomment.Name = "RTBXcomment";
-            this.RTBXcomment.Size = new System.Drawing.Size(181, 96);
-            this.RTBXcomment.TabIndex = 13;
-            this.RTBXcomment.Text = "";
+            this.TBXnumberOfDays.Enabled = false;
+            this.TBXnumberOfDays.Location = new System.Drawing.Point(436, 78);
+            this.TBXnumberOfDays.Name = "TBXnumberOfDays";
+            this.TBXnumberOfDays.Size = new System.Drawing.Size(68, 26);
+            this.TBXnumberOfDays.TabIndex = 11;
             // 
-            // BTNinspection
+            // LBnumberOfDays
             // 
-            this.BTNinspection.Location = new System.Drawing.Point(416, 124);
-            this.BTNinspection.Name = "BTNinspection";
-            this.BTNinspection.Size = new System.Drawing.Size(88, 36);
-            this.BTNinspection.TabIndex = 14;
-            this.BTNinspection.Text = "Inspeccion";
-            this.BTNinspection.UseVisualStyleBackColor = true;
+            this.LBnumberOfDays.AutoSize = true;
+            this.LBnumberOfDays.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBnumberOfDays.Location = new System.Drawing.Point(287, 81);
+            this.LBnumberOfDays.Name = "LBnumberOfDays";
+            this.LBnumberOfDays.Size = new System.Drawing.Size(127, 23);
+            this.LBnumberOfDays.TabIndex = 10;
+            this.LBnumberOfDays.Text = "Cantidad de dias";
             // 
-            // LBinspection
+            // TBXamountPerDay
             // 
-            this.LBinspection.AutoSize = true;
-            this.LBinspection.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBinspection.Location = new System.Drawing.Point(287, 132);
-            this.LBinspection.Name = "LBinspection";
-            this.LBinspection.Size = new System.Drawing.Size(85, 23);
-            this.LBinspection.TabIndex = 15;
-            this.LBinspection.Text = "Inspeccion";
+            this.TBXamountPerDay.Enabled = false;
+            this.TBXamountPerDay.Location = new System.Drawing.Point(436, 28);
+            this.TBXamountPerDay.Name = "TBXamountPerDay";
+            this.TBXamountPerDay.Size = new System.Drawing.Size(68, 26);
+            this.TBXamountPerDay.TabIndex = 9;
+            // 
+            // LBamountPerDay
+            // 
+            this.LBamountPerDay.AutoSize = true;
+            this.LBamountPerDay.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBamountPerDay.Location = new System.Drawing.Point(287, 31);
+            this.LBamountPerDay.Name = "LBamountPerDay";
+            this.LBamountPerDay.Size = new System.Drawing.Size(92, 23);
+            this.LBamountPerDay.TabIndex = 8;
+            this.LBamountPerDay.Text = "Monto x Dia";
+            // 
+            // TBXrefundDate
+            // 
+            this.TBXrefundDate.Enabled = false;
+            this.TBXrefundDate.Location = new System.Drawing.Point(137, 129);
+            this.TBXrefundDate.Name = "TBXrefundDate";
+            this.TBXrefundDate.Size = new System.Drawing.Size(112, 26);
+            this.TBXrefundDate.TabIndex = 7;
+            // 
+            // LBrefundDate
+            // 
+            this.LBrefundDate.AutoSize = true;
+            this.LBrefundDate.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBrefundDate.Location = new System.Drawing.Point(9, 132);
+            this.LBrefundDate.Name = "LBrefundDate";
+            this.LBrefundDate.Size = new System.Drawing.Size(122, 23);
+            this.LBrefundDate.TabIndex = 6;
+            this.LBrefundDate.Text = "Fec. Devolucion";
+            // 
+            // TBXIncomeDate
+            // 
+            this.TBXIncomeDate.Enabled = false;
+            this.TBXIncomeDate.Location = new System.Drawing.Point(101, 78);
+            this.TBXIncomeDate.Name = "TBXIncomeDate";
+            this.TBXIncomeDate.Size = new System.Drawing.Size(148, 26);
+            this.TBXIncomeDate.TabIndex = 5;
+            // 
+            // LBIncomeDate
+            // 
+            this.LBIncomeDate.AutoSize = true;
+            this.LBIncomeDate.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBIncomeDate.Location = new System.Drawing.Point(9, 81);
+            this.LBIncomeDate.Name = "LBIncomeDate";
+            this.LBIncomeDate.Size = new System.Drawing.Size(86, 23);
+            this.LBIncomeDate.TabIndex = 4;
+            this.LBIncomeDate.Text = "Fec. Renta";
+            // 
+            // TBXincomeID
+            // 
+            this.TBXincomeID.Enabled = false;
+            this.TBXincomeID.Location = new System.Drawing.Point(101, 34);
+            this.TBXincomeID.Name = "TBXincomeID";
+            this.TBXincomeID.Size = new System.Drawing.Size(148, 26);
+            this.TBXincomeID.TabIndex = 2;
             // 
             // GBclient
             // 
@@ -254,77 +255,13 @@
             this.GBclient.TabStop = false;
             this.GBclient.Text = "Detalles del cliente";
             // 
-            // LBclientName
+            // TBXcreditLimit
             // 
-            this.LBclientName.AutoSize = true;
-            this.LBclientName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBclientName.Location = new System.Drawing.Point(8, 34);
-            this.LBclientName.Name = "LBclientName";
-            this.LBclientName.Size = new System.Drawing.Size(66, 23);
-            this.LBclientName.TabIndex = 16;
-            this.LBclientName.Text = "Nombre";
-            // 
-            // TBXclientname
-            // 
-            this.TBXclientname.Enabled = false;
-            this.TBXclientname.Location = new System.Drawing.Point(80, 31);
-            this.TBXclientname.Name = "TBXclientname";
-            this.TBXclientname.Size = new System.Drawing.Size(211, 26);
-            this.TBXclientname.TabIndex = 16;
-            // 
-            // LBidentificationCard
-            // 
-            this.LBidentificationCard.AutoSize = true;
-            this.LBidentificationCard.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBidentificationCard.Location = new System.Drawing.Point(8, 74);
-            this.LBidentificationCard.Name = "LBidentificationCard";
-            this.LBidentificationCard.Size = new System.Drawing.Size(60, 23);
-            this.LBidentificationCard.TabIndex = 17;
-            this.LBidentificationCard.Text = "Cedula";
-            // 
-            // TBXidentificationCard
-            // 
-            this.TBXidentificationCard.Enabled = false;
-            this.TBXidentificationCard.Location = new System.Drawing.Point(74, 71);
-            this.TBXidentificationCard.Name = "TBXidentificationCard";
-            this.TBXidentificationCard.Size = new System.Drawing.Size(217, 26);
-            this.TBXidentificationCard.TabIndex = 18;
-            // 
-            // LBcreditCard
-            // 
-            this.LBcreditCard.AutoSize = true;
-            this.LBcreditCard.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBcreditCard.Location = new System.Drawing.Point(8, 113);
-            this.LBcreditCard.Name = "LBcreditCard";
-            this.LBcreditCard.Size = new System.Drawing.Size(129, 23);
-            this.LBcreditCard.TabIndex = 19;
-            this.LBcreditCard.Text = "Tarjeta de credito";
-            // 
-            // TBXcreditCard
-            // 
-            this.TBXcreditCard.Enabled = false;
-            this.TBXcreditCard.Location = new System.Drawing.Point(143, 110);
-            this.TBXcreditCard.Name = "TBXcreditCard";
-            this.TBXcreditCard.Size = new System.Drawing.Size(148, 26);
-            this.TBXcreditCard.TabIndex = 20;
-            // 
-            // LBtypeOfPerson
-            // 
-            this.LBtypeOfPerson.AutoSize = true;
-            this.LBtypeOfPerson.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBtypeOfPerson.Location = new System.Drawing.Point(8, 151);
-            this.LBtypeOfPerson.Name = "LBtypeOfPerson";
-            this.LBtypeOfPerson.Size = new System.Drawing.Size(124, 23);
-            this.LBtypeOfPerson.TabIndex = 21;
-            this.LBtypeOfPerson.Text = "Tipo de persona";
-            // 
-            // TBXtypeOfPerson
-            // 
-            this.TBXtypeOfPerson.Enabled = false;
-            this.TBXtypeOfPerson.Location = new System.Drawing.Point(143, 148);
-            this.TBXtypeOfPerson.Name = "TBXtypeOfPerson";
-            this.TBXtypeOfPerson.Size = new System.Drawing.Size(148, 26);
-            this.TBXtypeOfPerson.TabIndex = 22;
+            this.TBXcreditLimit.Enabled = false;
+            this.TBXcreditLimit.Location = new System.Drawing.Point(143, 187);
+            this.TBXcreditLimit.Name = "TBXcreditLimit";
+            this.TBXcreditLimit.Size = new System.Drawing.Size(148, 26);
+            this.TBXcreditLimit.TabIndex = 24;
             // 
             // LBcreditLimit
             // 
@@ -336,13 +273,77 @@
             this.LBcreditLimit.TabIndex = 23;
             this.LBcreditLimit.Text = "Limite de credito";
             // 
-            // TBXcreditLimit
+            // TBXtypeOfPerson
             // 
-            this.TBXcreditLimit.Enabled = false;
-            this.TBXcreditLimit.Location = new System.Drawing.Point(143, 187);
-            this.TBXcreditLimit.Name = "TBXcreditLimit";
-            this.TBXcreditLimit.Size = new System.Drawing.Size(148, 26);
-            this.TBXcreditLimit.TabIndex = 24;
+            this.TBXtypeOfPerson.Enabled = false;
+            this.TBXtypeOfPerson.Location = new System.Drawing.Point(143, 148);
+            this.TBXtypeOfPerson.Name = "TBXtypeOfPerson";
+            this.TBXtypeOfPerson.Size = new System.Drawing.Size(148, 26);
+            this.TBXtypeOfPerson.TabIndex = 22;
+            // 
+            // LBtypeOfPerson
+            // 
+            this.LBtypeOfPerson.AutoSize = true;
+            this.LBtypeOfPerson.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBtypeOfPerson.Location = new System.Drawing.Point(8, 151);
+            this.LBtypeOfPerson.Name = "LBtypeOfPerson";
+            this.LBtypeOfPerson.Size = new System.Drawing.Size(124, 23);
+            this.LBtypeOfPerson.TabIndex = 21;
+            this.LBtypeOfPerson.Text = "Tipo de persona";
+            // 
+            // TBXcreditCard
+            // 
+            this.TBXcreditCard.Enabled = false;
+            this.TBXcreditCard.Location = new System.Drawing.Point(143, 110);
+            this.TBXcreditCard.Name = "TBXcreditCard";
+            this.TBXcreditCard.Size = new System.Drawing.Size(148, 26);
+            this.TBXcreditCard.TabIndex = 20;
+            // 
+            // LBcreditCard
+            // 
+            this.LBcreditCard.AutoSize = true;
+            this.LBcreditCard.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBcreditCard.Location = new System.Drawing.Point(8, 113);
+            this.LBcreditCard.Name = "LBcreditCard";
+            this.LBcreditCard.Size = new System.Drawing.Size(129, 23);
+            this.LBcreditCard.TabIndex = 19;
+            this.LBcreditCard.Text = "Tarjeta de credito";
+            // 
+            // TBXidentificationCard
+            // 
+            this.TBXidentificationCard.Enabled = false;
+            this.TBXidentificationCard.Location = new System.Drawing.Point(74, 71);
+            this.TBXidentificationCard.Name = "TBXidentificationCard";
+            this.TBXidentificationCard.Size = new System.Drawing.Size(217, 26);
+            this.TBXidentificationCard.TabIndex = 18;
+            // 
+            // LBidentificationCard
+            // 
+            this.LBidentificationCard.AutoSize = true;
+            this.LBidentificationCard.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBidentificationCard.Location = new System.Drawing.Point(8, 74);
+            this.LBidentificationCard.Name = "LBidentificationCard";
+            this.LBidentificationCard.Size = new System.Drawing.Size(60, 23);
+            this.LBidentificationCard.TabIndex = 17;
+            this.LBidentificationCard.Text = "Cedula";
+            // 
+            // TBXclientname
+            // 
+            this.TBXclientname.Enabled = false;
+            this.TBXclientname.Location = new System.Drawing.Point(80, 31);
+            this.TBXclientname.Name = "TBXclientname";
+            this.TBXclientname.Size = new System.Drawing.Size(211, 26);
+            this.TBXclientname.TabIndex = 16;
+            // 
+            // LBclientName
+            // 
+            this.LBclientName.AutoSize = true;
+            this.LBclientName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBclientName.Location = new System.Drawing.Point(8, 34);
+            this.LBclientName.Name = "LBclientName";
+            this.LBclientName.Size = new System.Drawing.Size(66, 23);
+            this.LBclientName.TabIndex = 16;
+            this.LBclientName.Text = "Nombre";
             // 
             // GBXvehicle
             // 
@@ -371,6 +372,78 @@
             this.GBXvehicle.TabIndex = 25;
             this.GBXvehicle.TabStop = false;
             this.GBXvehicle.Text = "Detalles del vehiculo";
+            // 
+            // LBrubberQuantity
+            // 
+            this.LBrubberQuantity.AutoSize = true;
+            this.LBrubberQuantity.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBrubberQuantity.Location = new System.Drawing.Point(374, 203);
+            this.LBrubberQuantity.Name = "LBrubberQuantity";
+            this.LBrubberQuantity.Size = new System.Drawing.Size(89, 23);
+            this.LBrubberQuantity.TabIndex = 34;
+            this.LBrubberQuantity.Text = "No. Gomas";
+            // 
+            // TBXrubberQuantity
+            // 
+            this.TBXrubberQuantity.Enabled = false;
+            this.TBXrubberQuantity.Location = new System.Drawing.Point(484, 200);
+            this.TBXrubberQuantity.Name = "TBXrubberQuantity";
+            this.TBXrubberQuantity.Size = new System.Drawing.Size(154, 26);
+            this.TBXrubberQuantity.TabIndex = 33;
+            // 
+            // TBXfluelType
+            // 
+            this.TBXfluelType.Enabled = false;
+            this.TBXfluelType.Location = new System.Drawing.Point(528, 146);
+            this.TBXfluelType.Name = "TBXfluelType";
+            this.TBXfluelType.Size = new System.Drawing.Size(110, 26);
+            this.TBXfluelType.TabIndex = 31;
+            // 
+            // LBflueltype
+            // 
+            this.LBflueltype.AutoSize = true;
+            this.LBflueltype.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBflueltype.Location = new System.Drawing.Point(373, 146);
+            this.LBflueltype.Name = "LBflueltype";
+            this.LBflueltype.Size = new System.Drawing.Size(149, 23);
+            this.LBflueltype.TabIndex = 30;
+            this.LBflueltype.Text = "Tipo de combustible";
+            // 
+            // TBXmodel
+            // 
+            this.TBXmodel.Enabled = false;
+            this.TBXmodel.Location = new System.Drawing.Point(442, 90);
+            this.TBXmodel.Name = "TBXmodel";
+            this.TBXmodel.Size = new System.Drawing.Size(196, 26);
+            this.TBXmodel.TabIndex = 28;
+            // 
+            // LBmodel
+            // 
+            this.LBmodel.AutoSize = true;
+            this.LBmodel.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBmodel.Location = new System.Drawing.Point(373, 93);
+            this.LBmodel.Name = "LBmodel";
+            this.LBmodel.Size = new System.Drawing.Size(62, 23);
+            this.LBmodel.TabIndex = 29;
+            this.LBmodel.Text = "Modelo";
+            // 
+            // TBXbrand
+            // 
+            this.TBXbrand.Enabled = false;
+            this.TBXbrand.Location = new System.Drawing.Point(442, 31);
+            this.TBXbrand.Name = "TBXbrand";
+            this.TBXbrand.Size = new System.Drawing.Size(196, 26);
+            this.TBXbrand.TabIndex = 26;
+            // 
+            // LBbrand
+            // 
+            this.LBbrand.AutoSize = true;
+            this.LBbrand.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBbrand.Location = new System.Drawing.Point(373, 34);
+            this.LBbrand.Name = "LBbrand";
+            this.LBbrand.Size = new System.Drawing.Size(54, 23);
+            this.LBbrand.TabIndex = 27;
+            this.LBbrand.Text = "Marca";
             // 
             // TBXtypeOfVehicle
             // 
@@ -462,24 +535,6 @@
             this.LBdescription.TabIndex = 16;
             this.LBdescription.Text = "Descripcion";
             // 
-            // TBXbrand
-            // 
-            this.TBXbrand.Enabled = false;
-            this.TBXbrand.Location = new System.Drawing.Point(442, 31);
-            this.TBXbrand.Name = "TBXbrand";
-            this.TBXbrand.Size = new System.Drawing.Size(196, 26);
-            this.TBXbrand.TabIndex = 26;
-            // 
-            // LBbrand
-            // 
-            this.LBbrand.AutoSize = true;
-            this.LBbrand.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBbrand.Location = new System.Drawing.Point(373, 34);
-            this.LBbrand.Name = "LBbrand";
-            this.LBbrand.Size = new System.Drawing.Size(54, 23);
-            this.LBbrand.TabIndex = 27;
-            this.LBbrand.Text = "Marca";
-            // 
             // GBXemployee
             // 
             this.GBXemployee.Controls.Add(this.TBXempName);
@@ -492,59 +547,13 @@
             this.GBXemployee.TabStop = false;
             this.GBXemployee.Text = "Detalles del empleado";
             // 
-            // TBXmodel
+            // TBXempName
             // 
-            this.TBXmodel.Enabled = false;
-            this.TBXmodel.Location = new System.Drawing.Point(442, 90);
-            this.TBXmodel.Name = "TBXmodel";
-            this.TBXmodel.Size = new System.Drawing.Size(196, 26);
-            this.TBXmodel.TabIndex = 28;
-            // 
-            // LBmodel
-            // 
-            this.LBmodel.AutoSize = true;
-            this.LBmodel.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBmodel.Location = new System.Drawing.Point(373, 93);
-            this.LBmodel.Name = "LBmodel";
-            this.LBmodel.Size = new System.Drawing.Size(62, 23);
-            this.LBmodel.TabIndex = 29;
-            this.LBmodel.Text = "Modelo";
-            // 
-            // LBflueltype
-            // 
-            this.LBflueltype.AutoSize = true;
-            this.LBflueltype.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBflueltype.Location = new System.Drawing.Point(373, 146);
-            this.LBflueltype.Name = "LBflueltype";
-            this.LBflueltype.Size = new System.Drawing.Size(149, 23);
-            this.LBflueltype.TabIndex = 30;
-            this.LBflueltype.Text = "Tipo de combustible";
-            // 
-            // TBXfluelType
-            // 
-            this.TBXfluelType.Enabled = false;
-            this.TBXfluelType.Location = new System.Drawing.Point(528, 146);
-            this.TBXfluelType.Name = "TBXfluelType";
-            this.TBXfluelType.Size = new System.Drawing.Size(110, 26);
-            this.TBXfluelType.TabIndex = 31;
-            // 
-            // TBXrubberQuantity
-            // 
-            this.TBXrubberQuantity.Enabled = false;
-            this.TBXrubberQuantity.Location = new System.Drawing.Point(484, 200);
-            this.TBXrubberQuantity.Name = "TBXrubberQuantity";
-            this.TBXrubberQuantity.Size = new System.Drawing.Size(154, 26);
-            this.TBXrubberQuantity.TabIndex = 33;
-            // 
-            // LBrubberQuantity
-            // 
-            this.LBrubberQuantity.AutoSize = true;
-            this.LBrubberQuantity.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBrubberQuantity.Location = new System.Drawing.Point(374, 203);
-            this.LBrubberQuantity.Name = "LBrubberQuantity";
-            this.LBrubberQuantity.Size = new System.Drawing.Size(89, 23);
-            this.LBrubberQuantity.TabIndex = 34;
-            this.LBrubberQuantity.Text = "No. Gomas";
+            this.TBXempName.Enabled = false;
+            this.TBXempName.Location = new System.Drawing.Point(78, 34);
+            this.TBXempName.Name = "TBXempName";
+            this.TBXempName.Size = new System.Drawing.Size(148, 26);
+            this.TBXempName.TabIndex = 35;
             // 
             // LBempName
             // 
@@ -556,14 +565,6 @@
             this.LBempName.TabIndex = 35;
             this.LBempName.Text = "Nombre";
             // 
-            // TBXempName
-            // 
-            this.TBXempName.Enabled = false;
-            this.TBXempName.Location = new System.Drawing.Point(78, 34);
-            this.TBXempName.Name = "TBXempName";
-            this.TBXempName.Size = new System.Drawing.Size(148, 26);
-            this.TBXempName.TabIndex = 35;
-            // 
             // ShowIncomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -573,9 +574,10 @@
             this.Controls.Add(this.GBXvehicle);
             this.Controls.Add(this.GBclient);
             this.Controls.Add(this.GBXincomeInfo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ShowIncomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ShowIncomeForm";
+            this.Text = "Detalles renta";
             this.Load += new System.EventHandler(this.ShowIncomeForm_Load);
             this.GBXincomeInfo.ResumeLayout(false);
             this.GBXincomeInfo.PerformLayout();

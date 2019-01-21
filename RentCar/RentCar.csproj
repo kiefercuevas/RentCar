@@ -121,11 +121,17 @@
     <Compile Include="Views\Incomes\ShowIncomeForm.Designer.cs">
       <DependentUpon>ShowIncomeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\InspectionForm.cs">
+    <Compile Include="Views\inspections\InspectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\InspectionForm.Designer.cs">
+    <Compile Include="Views\inspections\InspectionForm.Designer.cs">
       <DependentUpon>InspectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\inspections\ShowInspection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\inspections\ShowInspection.Designer.cs">
+      <DependentUpon>ShowInspection.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginForm.cs">
       <SubType>Form</SubType>
@@ -165,14 +171,20 @@
     <EmbeddedResource Include="Views\Incomes\ShowIncomeForm.resx">
       <DependentUpon>ShowIncomeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\InspectionForm.resx">
+    <EmbeddedResource Include="Views\inspections\InspectionForm.resx">
       <DependentUpon>InspectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\inspections\ShowInspection.resx">
+      <DependentUpon>ShowInspection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MenuPage.resx">
       <DependentUpon>MenuPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\vehicles\VehiclesForm.resx">
+      <DependentUpon>VehiclesForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using RentCar.Views.Incomes;
 
-namespace RentCar.Views
+namespace RentCar.Views.inspections
 {
     public partial class InspectionForm : Form
     {

@@ -6,6 +6,8 @@ using System.Linq;
 using System.Windows.Forms;
 using RentCar.Models;
 using RentCar.Views.Incomes;
+using RentCar.Views.inspections;
+using RentCar.Views.vehicles;
 
 namespace RentCar.Views
 {
@@ -107,6 +109,12 @@ namespace RentCar.Views
         private void BTNclear_Click(object sender, EventArgs e)
         {
             ShowIncomes(_context.IncomeAndRefund.GetAll());
+        }
+
+        private void BTNvehicles_Click(object sender, EventArgs e)
+        {
+            VehiclesForm vehiclesForm = new VehiclesForm();
+            vehiclesForm.ShowDialog();
         }
     }
 }

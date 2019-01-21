@@ -7,15 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RentCar.Data;
 using RentCar.Models;
+using RentCar.Views.inspections;
 namespace RentCar.Views.Incomes
 {
     public partial class ShowIncomeForm : Form
     {
-        IncomeAndRefund Income;
+        IncomeAndRefund Income { get; set; }
+        private readonly RentCarUnitOfWork _context;
         public ShowIncomeForm(IncomeAndRefund income)
         {
             InitializeComponent();
+            _context = new RentCarUnitOfWork();
             Income = income;
         }
 
@@ -48,6 +52,15 @@ namespace RentCar.Views.Incomes
             TBXmodel.Text = Income.Vehicle.Model.Description;
             TBXfluelType.Text = Income.Vehicle.FluelType.Description;
             TBXrubberQuantity.Text = Income.Vehicle.VehicleType.RubberQuantity.ToString();
+        }
+
+        private void BTNinspection_Click(object sender, EventArgs e)
+        {
+            Inspection inspection = _context.Inspections
+                .GetInspectionWithAll(i => i.IncomeID == Income.IncomeID);
+
+            ShowInspection inspectionForm = new ShowInspection(inspection);
+            inspectionForm.ShowDialog();
         }
     }
 }

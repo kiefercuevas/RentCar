@@ -1,4 +1,4 @@
-﻿namespace RentCar.Views
+﻿namespace RentCar.Views.inspections
 {
     partial class InspectionForm
     {
@@ -308,7 +308,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "InspectionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "InspectionForm";
+            this.Text = "Inspeccion";
             this.Load += new System.EventHandler(this.InspectionForm_Load);
             this.GBXcheckboxes.ResumeLayout(false);
             this.GBXcheckboxes.PerformLayout();

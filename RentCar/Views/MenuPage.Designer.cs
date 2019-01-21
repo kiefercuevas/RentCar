@@ -196,6 +196,7 @@
             this.BTNvehicles.TabIndex = 7;
             this.BTNvehicles.Text = "Vehiculos";
             this.BTNvehicles.UseVisualStyleBackColor = true;
+            this.BTNvehicles.Click += new System.EventHandler(this.BTNvehicles_Click);
             // 
             // BTNclear
             // 

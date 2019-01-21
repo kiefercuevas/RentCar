@@ -128,7 +128,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "IncomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "IncomeForm";
+            this.Text = "Renta";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.IncomeForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.NUDamountxDay)).EndInit();
             this.ResumeLayout(false);
