@@ -9,6 +9,6 @@ namespace RentCar.Data.Core
 {
     public interface IIncomeAndRefundRepository :IRepository<IncomeAndRefund>
     {
-        
+        IncomeAndRefund GetIncomeAndRefundWithAll(int id);
     }
 }

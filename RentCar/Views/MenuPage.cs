@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using RentCar.Models;
+using RentCar.Views.Incomes;
+
 namespace RentCar.Views
 {
     public partial class MenuPage : Form
@@ -94,7 +96,11 @@ namespace RentCar.Views
         private void DTGVIncomes_DoubleClick(object sender, EventArgs e)
         {
             if(DTGVIncomes.CurrentRow.Index != -1){
-                //MessageBox.Show(DTGVIncomes.CurrentRow.Index.ToString());
+                int id = Convert.ToInt32(DTGVIncomes.CurrentRow.Cells["IncomeID"].Value);
+
+                var income = _context.IncomeAndRefund.GetIncomeAndRefundWithAll(id);
+                ShowIncomeForm showIncome = new ShowIncomeForm(income);
+                showIncome.ShowDialog();
             }
         }
 

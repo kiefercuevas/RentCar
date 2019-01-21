@@ -1,4 +1,4 @@
-﻿namespace RentCar.Views
+﻿namespace RentCar.Views.vehicles
 {
     partial class VehiclesForm
     {

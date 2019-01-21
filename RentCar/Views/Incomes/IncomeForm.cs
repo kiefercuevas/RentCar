@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using RentCar.Data;
 using RentCar.Models;
-namespace RentCar.Views
+namespace RentCar.Views.Incomes
 {
     public partial class IncomeForm : Form
     {

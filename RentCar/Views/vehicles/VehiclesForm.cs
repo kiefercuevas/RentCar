@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RentCar.Views
+namespace RentCar.Views.vehicles
 {
     public partial class VehiclesForm : Form
     {

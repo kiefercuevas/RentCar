@@ -109,11 +109,17 @@
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Models\VehicleType.cs" />
     <Compile Include="Models\WorkShift.cs" />
-    <Compile Include="Views\IncomeForm.cs">
+    <Compile Include="Views\Incomes\IncomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\IncomeForm.Designer.cs">
+    <Compile Include="Views\Incomes\IncomeForm.Designer.cs">
       <DependentUpon>IncomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Incomes\ShowIncomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Incomes\ShowIncomeForm.Designer.cs">
+      <DependentUpon>ShowIncomeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\InspectionForm.cs">
       <SubType>Form</SubType>
@@ -135,10 +141,10 @@
     <Compile Include="Views\MenuPage.Designer.cs">
       <DependentUpon>MenuPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\VehiclesForm.cs">
+    <Compile Include="Views\vehicles\VehiclesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\VehiclesForm.Designer.cs">
+    <Compile Include="Views\vehicles\VehiclesForm.Designer.cs">
       <DependentUpon>VehiclesForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Migrations\201901202019457_initial.resx">
@@ -153,8 +159,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\IncomeForm.resx">
+    <EmbeddedResource Include="Views\Incomes\IncomeForm.resx">
       <DependentUpon>IncomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Incomes\ShowIncomeForm.resx">
+      <DependentUpon>ShowIncomeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\InspectionForm.resx">
       <DependentUpon>InspectionForm.cs</DependentUpon>

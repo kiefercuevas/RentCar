@@ -1,4 +1,4 @@
-﻿namespace RentCar.Views
+﻿namespace RentCar.Views.Incomes
 {
     partial class IncomeForm
     {
