@@ -110,6 +110,12 @@
     <Compile Include="Models\VehicleType.cs" />
     <Compile Include="Models\ViewModels\VehicleViewModel.cs" />
     <Compile Include="Models\WorkShift.cs" />
+    <Compile Include="Views\brands\BrandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\brands\BrandForm.Designer.cs">
+      <DependentUpon>BrandForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Incomes\IncomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\brands\BrandForm.resx">
+      <DependentUpon>BrandForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Incomes\IncomeForm.resx">
       <DependentUpon>IncomeForm.cs</DependentUpon>
     </EmbeddedResource>

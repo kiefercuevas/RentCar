@@ -8,7 +8,7 @@ using RentCar.Models;
 using RentCar.Views.Incomes;
 using RentCar.Views.inspections;
 using RentCar.Views.vehicles;
-
+using RentCar.Views.brands;
 namespace RentCar.Views
 {
     public partial class MenuPage : Form
@@ -108,6 +108,9 @@ namespace RentCar.Views
 
         private void BTNclear_Click(object sender, EventArgs e)
         {
+            DTPStartDate.Value = DateTime.Now;
+            DTPEndDate.Value = DateTime.Now;
+            TBXIncomeSearch.Text = null;
             ShowIncomes(_context.IncomeAndRefund.GetAll());
         }
 
@@ -115,6 +118,12 @@ namespace RentCar.Views
         {
             VehiclesForm vehiclesForm = new VehiclesForm();
             vehiclesForm.ShowDialog();
+        }
+
+        private void BTNbrands_Click(object sender, EventArgs e)
+        {
+            BrandForm brandForm = new BrandForm();
+            brandForm.ShowDialog();
         }
     }
 }

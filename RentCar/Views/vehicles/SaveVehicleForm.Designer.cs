@@ -207,6 +207,7 @@
             // 
             // SaveVehicleForm
             // 
+            this.AcceptButton = this.BTNsave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 368);
@@ -228,7 +229,8 @@
             this.Controls.Add(this.TBXvehicleName);
             this.Controls.Add(this.LBvehicleName);
             this.Name = "SaveVehicleForm";
-            this.Text = "SaveVehicleForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Guardar vehiculo";
             this.ResumeLayout(false);
             this.PerformLayout();
 

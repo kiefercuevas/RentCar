@@ -8,6 +8,6 @@ namespace RentCar.Data.Core
 {
     public interface IBrandRepository :IRepository<Brand>
     {
-
+        Brand GetBrandWithAll(int id);
     }
 }

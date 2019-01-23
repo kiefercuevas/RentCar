@@ -40,6 +40,9 @@
             this.FluelType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BTNaddVehicle = new System.Windows.Forms.Button();
             this.BTNdelete = new System.Windows.Forms.Button();
+            this.TBXsearchVehicle = new System.Windows.Forms.TextBox();
+            this.BTNsearchVehicle = new System.Windows.Forms.Button();
+            this.BTNclear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DTGVvehicle)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,10 +61,10 @@
             this.EngineNumber,
             this.VehicleType,
             this.FluelType});
-            this.DTGVvehicle.Location = new System.Drawing.Point(12, 130);
+            this.DTGVvehicle.Location = new System.Drawing.Point(12, 69);
             this.DTGVvehicle.Name = "DTGVvehicle";
             this.DTGVvehicle.ReadOnly = true;
-            this.DTGVvehicle.Size = new System.Drawing.Size(776, 308);
+            this.DTGVvehicle.Size = new System.Drawing.Size(685, 291);
             this.DTGVvehicle.TabIndex = 0;
             this.DTGVvehicle.DoubleClick += new System.EventHandler(this.DTGVvehicle_DoubleClick);
             // 
@@ -131,9 +134,9 @@
             // BTNaddVehicle
             // 
             this.BTNaddVehicle.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNaddVehicle.Location = new System.Drawing.Point(12, 12);
+            this.BTNaddVehicle.Location = new System.Drawing.Point(12, 29);
             this.BTNaddVehicle.Name = "BTNaddVehicle";
-            this.BTNaddVehicle.Size = new System.Drawing.Size(151, 51);
+            this.BTNaddVehicle.Size = new System.Drawing.Size(144, 34);
             this.BTNaddVehicle.TabIndex = 1;
             this.BTNaddVehicle.Text = "Agregar";
             this.BTNaddVehicle.UseVisualStyleBackColor = true;
@@ -142,29 +145,63 @@
             // BTNdelete
             // 
             this.BTNdelete.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNdelete.Location = new System.Drawing.Point(689, 78);
+            this.BTNdelete.Location = new System.Drawing.Point(162, 29);
             this.BTNdelete.Name = "BTNdelete";
-            this.BTNdelete.Size = new System.Drawing.Size(99, 46);
+            this.BTNdelete.Size = new System.Drawing.Size(145, 33);
             this.BTNdelete.TabIndex = 4;
             this.BTNdelete.Text = "Eliminar";
             this.BTNdelete.UseVisualStyleBackColor = true;
             this.BTNdelete.Click += new System.EventHandler(this.BTNdelete_Click);
             // 
+            // TBXsearchVehicle
+            // 
+            this.TBXsearchVehicle.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBXsearchVehicle.Location = new System.Drawing.Point(374, 29);
+            this.TBXsearchVehicle.Name = "TBXsearchVehicle";
+            this.TBXsearchVehicle.Size = new System.Drawing.Size(155, 32);
+            this.TBXsearchVehicle.TabIndex = 5;
+            // 
+            // BTNsearchVehicle
+            // 
+            this.BTNsearchVehicle.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTNsearchVehicle.Location = new System.Drawing.Point(535, 28);
+            this.BTNsearchVehicle.Name = "BTNsearchVehicle";
+            this.BTNsearchVehicle.Size = new System.Drawing.Size(102, 33);
+            this.BTNsearchVehicle.TabIndex = 6;
+            this.BTNsearchVehicle.Text = "Buscar";
+            this.BTNsearchVehicle.UseVisualStyleBackColor = true;
+            this.BTNsearchVehicle.Click += new System.EventHandler(this.BTNsearchVehicle_Click);
+            // 
+            // BTNclear
+            // 
+            this.BTNclear.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTNclear.Location = new System.Drawing.Point(653, 29);
+            this.BTNclear.Name = "BTNclear";
+            this.BTNclear.Size = new System.Drawing.Size(44, 33);
+            this.BTNclear.TabIndex = 7;
+            this.BTNclear.Text = "X";
+            this.BTNclear.UseVisualStyleBackColor = true;
+            this.BTNclear.Click += new System.EventHandler(this.BTNclear_Click);
+            // 
             // VehiclesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(705, 369);
+            this.Controls.Add(this.BTNclear);
+            this.Controls.Add(this.BTNsearchVehicle);
+            this.Controls.Add(this.TBXsearchVehicle);
             this.Controls.Add(this.BTNdelete);
             this.Controls.Add(this.BTNaddVehicle);
             this.Controls.Add(this.DTGVvehicle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "VehiclesForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vehiculos";
             this.Load += new System.EventHandler(this.VehiclesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DTGVvehicle)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -182,5 +219,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn VehicleType;
         private System.Windows.Forms.DataGridViewTextBoxColumn FluelType;
         private System.Windows.Forms.Button BTNdelete;
+        private System.Windows.Forms.TextBox TBXsearchVehicle;
+        private System.Windows.Forms.Button BTNsearchVehicle;
+        private System.Windows.Forms.Button BTNclear;
     }
 }

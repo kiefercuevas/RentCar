@@ -6,6 +6,7 @@ using System.Data.Entity.Validation;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RentCar.Data;
@@ -15,6 +16,7 @@ namespace RentCar.Views.vehicles
     public partial class SaveVehicleForm : Form
     {
         private readonly RentCarUnitOfWork _context;
+        
         private Vehicle Vehicle { get; set; }
         private string Action { get; set; }
         public SaveVehicleForm(Vehicle vehicle)
@@ -25,9 +27,13 @@ namespace RentCar.Views.vehicles
             LoadComboxes();
 
             if (vehicle.VehicleID > 0){
+                Vehicle = _context.Vehicles
+                    .GetVehiclesWithAll(v => v.VehicleID == Vehicle.VehicleID)
+                    .FirstOrDefault();
+
                 EditVehicle();
                 BTNsave.Text = "Editar";
-
+                Text = "Editar vehiculo";
             }
             else
                 BTNsave.Text = "Guardar";
@@ -52,7 +58,7 @@ namespace RentCar.Views.vehicles
             CBXbrand.SelectedIndex = CBXbrand.FindString(Vehicle.Brand.Description);
             CBXfluelType.SelectedIndex = CBXfluelType.FindString(Vehicle.FluelType.Description);
             CBXmodel.SelectedIndex = CBXmodel.FindString(Vehicle.Model.Description);
-            CBXvehicleType.SelectedIndex = CBXbrand.FindString(Vehicle.VehicleType.Description);
+            CBXvehicleType.SelectedIndex = CBXvehicleType.FindString(Vehicle.VehicleType.Description);
         }
 
 
@@ -110,7 +116,7 @@ namespace RentCar.Views.vehicles
             else{
                 CBXmodel.DataSource = null;
                 CBXmodel.Items.Clear();
-                CBXmodel.Items.Add("No hay tipos de vehiculo");
+                CBXmodel.Items.Add("No hay modelos del vehiculo");
             }
         }
         private void LoadFluelTypes(IEnumerable<FluelType> fluelTypes)
@@ -132,7 +138,7 @@ namespace RentCar.Views.vehicles
             }
         }
 
-        private void AddVehicle()
+        private void SetVehicleObject(Vehicle Vehicle)
         {
             Vehicle.BrandID = GetSourceId(CBXbrand);
             Vehicle.ModelID = GetSourceId(CBXmodel);
@@ -143,6 +149,7 @@ namespace RentCar.Views.vehicles
             Vehicle.LicensePlateNumber = TBXplateNumber.Text;
             Vehicle.EngineNumber = TBXengineNumber.Text;
             Vehicle.Description = TBXvehicleName.Text;
+            Vehicle.State = true;
         }
 
         private int GetSourceId(ComboBox comboBox)
@@ -152,27 +159,144 @@ namespace RentCar.Views.vehicles
             else
                 return 0;
         }
+        private string ValidateVehicleName()
+        {
+            string vehicleDescription = TBXvehicleName.Text;
+            if (!string.IsNullOrEmpty(vehicleDescription))
+                return "";
+            else
+                return "El nombre del vehiculo no puede estar vacio";
+        }
+        private string ValidateChassisNumber()
+        {
+            string chassisNo = TBXchasisNumber.Text;
+            if (!string.IsNullOrWhiteSpace(chassisNo))
+            {
+                if (chassisNo.Length == 17)
+                {
+                    if (CheckValidChassisNumber(chassisNo))
+                        return "";
+                    else
+                        return "El numero de chasis no es valido";
+                }
+                else
+                    return "El numero de chassis debe tener 17 digitos";
+            }
+            else
+                return "El numero de chasis no puede estar vacio";
+        }
+        private string ValidatePlateNumber()
+        {
+            string plateNumber = TBXplateNumber.Text;
+            if (!string.IsNullOrWhiteSpace(plateNumber))
+            {
+                if (TBXplateNumber.TextLength == 7)
+                {
+                    string pattern = @"^[A-Za-z]{1}[0-9]{6}$";
+                    var regex = new Regex(pattern);
+                    if (regex.IsMatch(plateNumber))
+                        return "";
+                    else
+                        return "La Matricula no es valida";
+                }
+                else
+                    return "La matricula debe tener 7 digitos";
+            } else
+                return "La matricula no puede estar vacia";
+        }
+        private string ValidateEngineNumber()
+        {
+            string engineNumber = TBXengineNumber.Text;
+            if (!string.IsNullOrWhiteSpace(engineNumber))
+            {
+                if (engineNumber.Length >= 8)
+                    return "";
+                else
+                    return "El numero del motor debe ser mayor que 8";
+            }
+            else
+                return "El numero del motor no puede estar vacio";
+        }
+        private bool CheckValidChassisNumber(string chassisNumber)
+        {
+            string weightsFactor = "8765432X098765432";
+            string stringNumbers = "0123456789X";
+            int sum = 0;
+            int remainder = 0;
+            char checkValue = chassisNumber[8];
+
+            for (int i = 0; i < chassisNumber.Length;i++){
+                sum += ChanceLetterToVinValue(chassisNumber[i]) * stringNumbers.IndexOf(weightsFactor[i]);
+            }
+            remainder = sum % 11;
+
+            return stringNumbers[remainder] == checkValue;  
+        }
+        private int ChanceLetterToVinValue(char c)
+        {
+            string pattern = "0123456789.ABCDEFGH..JKLMN.P.R..STUVWXYZ";
+            return pattern.IndexOf(c) % 10;
+        }
+
+        private string GetErrors()
+        {
+            string chassisErrors = ValidateChassisNumber();
+            string plateNumberErrors = ValidatePlateNumber();
+            string vehicleErrors = ValidateVehicleName();
+            string engineNumberErrors = ValidateEngineNumber();
+
+            if (string.IsNullOrWhiteSpace(vehicleErrors)){
+                if (string.IsNullOrWhiteSpace(chassisErrors)){
+                    if (string.IsNullOrWhiteSpace(engineNumberErrors)){
+                        if (string.IsNullOrWhiteSpace(plateNumberErrors)){
+                            return "";
+                        }else
+                            return plateNumberErrors;
+                    }else
+                        return engineNumberErrors;
+                }else
+                    return chassisErrors;
+            }else
+                return vehicleErrors;
+        }
 
         private void BTNsave_Click(object sender, EventArgs e)
         {
-            if(Vehicle.VehicleID <= 0){
-                AddVehicle();
-                _context.Vehicles.Add(Vehicle);
-                Action = "Agregado";
-                //validar datos antes de insertarlos
-            }else{
-                //editar
-                Action = "Editado";
-            }
+            string errors = GetErrors();
 
+            if (string.IsNullOrEmpty(errors)) {
+                if (Vehicle.VehicleID == 0){
+                    SetVehicleObject(Vehicle);
+                    _context.Vehicles.Add(Vehicle);
+                    Action = "Agregado";
+                    SaveVehicle();
+                }
+                else{
+                    Vehicle vehicleToEdit = _context.Vehicles.Get(Vehicle.VehicleID);
+                    SetVehicleObject(vehicleToEdit);
+                    Action = "Editado";
+                    SaveVehicle();
+                }  
+            }else
+                MessageBox.Show(errors);
+        }
+        private void ChangeRow(Vehicle vehicle)
+        {
+            vehicle = Vehicle;
+        }
+        private void SaveVehicle()
+        {
             try{
                 if (_context.Complete() > 0)
-                    if (MessageBox.Show("Se han " + Action + " Correctamente") == DialogResult.OK)
+                    if (MessageBox.Show("Se ha " + Action + " el vehiculo Correctamente") == DialogResult.OK)
+                    {
+                        DialogResult = DialogResult.OK;
                         Close();
-            }catch(Exception ex){
+                    }  
+            }
+            catch (Exception ex){
                 MessageBox.Show("Ha ocurrido un error" + ex.Message);
             }
-            
         }
     }
 }

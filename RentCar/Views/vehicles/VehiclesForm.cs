@@ -24,12 +24,11 @@ namespace RentCar.Views.vehicles
 
         private void VehiclesForm_Load(object sender, EventArgs e)
         {
-            var data = GetVehicleViewModels(_context.Vehicles.GetVehiclesWithAll(v => v.State == true));
-            LoadVehicleGridView(data);
+            LoadVehicleData();
         }
-
-        private void LoadVehicleGridView(IEnumerable<VehicleViewModel> data)
+        private void LoadVehicleData()
         {
+            var data = GetVehicleViewModels(_context.Vehicles.GetVehiclesWithAll());
             DTGVvehicle.AutoGenerateColumns = false;
             DTGVvehicle.DataSource = data;
         }
@@ -59,22 +58,22 @@ namespace RentCar.Views.vehicles
         {
             SaveVehicleForm saveVehicle = new SaveVehicleForm(new Vehicle());
             saveVehicle.ShowDialog();
-            var data = GetVehicleViewModels(_context.Vehicles.GetVehiclesWithAll());
-            LoadVehicleGridView(data);
+            LoadVehicleData();
         }
 
         private void DTGVvehicle_DoubleClick(object sender, EventArgs e)
         {
-            if (DTGVvehicle.CurrentRow.Index != -1)
-            {
+            if (DTGVvehicle.CurrentRow.Index != -1){
                 int id = Convert.ToInt32(DTGVvehicle.CurrentRow.Cells["VehicleID"].Value);
+                SaveVehicleForm saveVehicle = new SaveVehicleForm(new Vehicle() { VehicleID = id });
+                var result = saveVehicle.ShowDialog();
 
-                var vehicle = _context.Vehicles.GetVehiclesWithAll(v => v.VehicleID == id).FirstOrDefault();
-
-                SaveVehicleForm saveVehicle = new SaveVehicleForm(vehicle);
-                saveVehicle.ShowDialog();
+                if(result == DialogResult.OK)
+                    Close();
+                
             }
         }
+
 
         private void BTNdelete_Click(object sender, EventArgs e)
         {
@@ -90,11 +89,7 @@ namespace RentCar.Views.vehicles
                        if( _context.Complete() > 0){
                             var result = MessageBox.Show("El vehiculo ha sido eliminado correctamente");
                             if (result == DialogResult.OK)
-                            {
-                                var data = _context.Vehicles.GetVehiclesWithAll();
-                                var viewmodel = GetVehicleViewModels(data);
-                                LoadVehicleGridView(viewmodel);
-                            };
+                                LoadVehicleData();
                         }
                         break;
                     case DialogResult.No:
@@ -103,6 +98,31 @@ namespace RentCar.Views.vehicles
                         break;
                 }
             }
+        }
+
+        private void BTNsearchVehicle_Click(object sender, EventArgs e)
+        {
+            string param = TBXsearchVehicle.Text.ToLower();
+            if (!string.IsNullOrEmpty(param))
+            {
+                IEnumerable<Vehicle> vehicles = _context.Vehicles
+                    .GetVehiclesWithAll(v => v.Description.ToLower().Contains(param) ||
+                     v.Brand.Description.ToLower().Contains(param) ||
+                     v.ChassisNumber.ToLower().Contains(param) ||
+                     v.EngineNumber.ToLower().Contains(param) ||
+                     v.FluelType.Description.ToLower().Contains(param) ||
+                     v.LicensePlateNumber.ToLower().Contains(param) ||
+                     v.Model.Description.ToLower().Contains(param) ||
+                     v.VehicleType.Description.ToLower().Contains(param));
+
+                DTGVvehicle.DataSource = GetVehicleViewModels(vehicles);
+            }
+        }
+
+        private void BTNclear_Click(object sender, EventArgs e)
+        {
+            TBXsearchVehicle.Text = null;
+            LoadVehicleData();
         }
     }
 }
