@@ -8,6 +8,6 @@ namespace RentCar.Data.Core
 {
     public interface IVehicleTypeRepository:IRepository<VehicleType>
     {
-
+        VehicleType GetVehicleTypeWithAll(int id);
     }
 }

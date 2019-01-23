@@ -127,7 +127,7 @@ namespace RentCar.Views.brands
             try
             {
                 if (_context.Complete() > 0)
-                    MessageBox.Show("Se ha " + Action + " el vehiculo Correctamente");
+                    MessageBox.Show("Se ha " + Action + " la marca Correctamente");
                     LoadBrandGrid();
                     Reset();
             }

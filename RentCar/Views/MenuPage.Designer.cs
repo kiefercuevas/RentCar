@@ -247,6 +247,7 @@
             this.BTNmodels.Text = "Modelos";
             this.BTNmodels.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BTNmodels.UseVisualStyleBackColor = true;
+            this.BTNmodels.Click += new System.EventHandler(this.BTNmodels_Click);
             // 
             // BTNfluels
             // 
@@ -271,6 +272,7 @@
             this.BTNvehicleTypes.Text = "Tipos de vehiculo";
             this.BTNvehicleTypes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BTNvehicleTypes.UseVisualStyleBackColor = true;
+            this.BTNvehicleTypes.Click += new System.EventHandler(this.BTNvehicleTypes_Click);
             // 
             // BTNclients
             // 

@@ -9,6 +9,8 @@ using RentCar.Views.Incomes;
 using RentCar.Views.inspections;
 using RentCar.Views.vehicles;
 using RentCar.Views.brands;
+using RentCar.Views.models;
+using RentCar.Views.vehicleTypes;
 namespace RentCar.Views
 {
     public partial class MenuPage : Form
@@ -124,6 +126,18 @@ namespace RentCar.Views
         {
             BrandForm brandForm = new BrandForm();
             brandForm.ShowDialog();
+        }
+
+        private void BTNmodels_Click(object sender, EventArgs e)
+        {
+            ModelsForm modelform = new ModelsForm();
+            modelform.ShowDialog();
+        }
+
+        private void BTNvehicleTypes_Click(object sender, EventArgs e)
+        {
+            VehicleTypesForm form = new VehicleTypesForm();
+            form.ShowDialog();
         }
     }
 }

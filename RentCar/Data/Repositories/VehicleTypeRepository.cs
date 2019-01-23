@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RentCar.Data.Core;
 using RentCar.Models;
+using System.Data.Entity;
 namespace RentCar.Data.Repositories
 {
     public class VehicleTypeRepository :Repository<VehicleType>,IVehicleTypeRepository
@@ -16,6 +17,12 @@ namespace RentCar.Data.Repositories
         public VehicleTypeRepository(RentCarContex contex)
             : base(contex)
         {
+        }
+
+        public VehicleType GetVehicleTypeWithAll(int id)
+        {
+            return _Context.VehicleTypes.Include(vt => vt.Vehicles)
+                .SingleOrDefault(vt => vt.VehicleTypeID == id);
         }
     }
 }

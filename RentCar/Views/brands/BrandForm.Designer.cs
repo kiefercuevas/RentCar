@@ -34,12 +34,12 @@
             this.BTNdelete = new System.Windows.Forms.Button();
             this.BTNaddBrand = new System.Windows.Forms.Button();
             this.DTGVbrands = new System.Windows.Forms.DataGridView();
-            this.TBXbrandName = new System.Windows.Forms.TextBox();
-            this.LBbrandName = new System.Windows.Forms.Label();
-            this.LBbrand = new System.Windows.Forms.Label();
             this.BrandID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.State = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TBXbrandName = new System.Windows.Forms.TextBox();
+            this.LBbrandName = new System.Windows.Forms.Label();
+            this.LBbrand = new System.Windows.Forms.Label();
             this.CKBXstate = new System.Windows.Forms.CheckBox();
             this.BTNcancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DTGVbrands)).BeginInit();
@@ -77,6 +77,7 @@
             // 
             // BTNdelete
             // 
+            this.BTNdelete.Enabled = false;
             this.BTNdelete.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTNdelete.Location = new System.Drawing.Point(367, 324);
             this.BTNdelete.Name = "BTNdelete";
@@ -84,6 +85,7 @@
             this.BTNdelete.TabIndex = 10;
             this.BTNdelete.Text = "Eliminar";
             this.BTNdelete.UseVisualStyleBackColor = true;
+            this.BTNdelete.Visible = false;
             this.BTNdelete.Click += new System.EventHandler(this.BTNdelete_Click);
             // 
             // BTNaddBrand
@@ -113,6 +115,27 @@
             this.DTGVbrands.TabIndex = 8;
             this.DTGVbrands.DoubleClick += new System.EventHandler(this.DTGVbrands_DoubleClick);
             // 
+            // BrandID
+            // 
+            this.BrandID.DataPropertyName = "BrandID";
+            this.BrandID.HeaderText = "Codigo";
+            this.BrandID.Name = "BrandID";
+            this.BrandID.ReadOnly = true;
+            // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "Description";
+            this.Description.HeaderText = "Descripcion";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
+            // State
+            // 
+            this.State.DataPropertyName = "State";
+            this.State.HeaderText = "Estado";
+            this.State.Name = "State";
+            this.State.ReadOnly = true;
+            // 
             // TBXbrandName
             // 
             this.TBXbrandName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -140,27 +163,6 @@
             this.LBbrand.Size = new System.Drawing.Size(67, 25);
             this.LBbrand.TabIndex = 16;
             this.LBbrand.Text = "Buscar";
-            // 
-            // BrandID
-            // 
-            this.BrandID.DataPropertyName = "BrandID";
-            this.BrandID.HeaderText = "Codigo";
-            this.BrandID.Name = "BrandID";
-            this.BrandID.ReadOnly = true;
-            // 
-            // Description
-            // 
-            this.Description.DataPropertyName = "Description";
-            this.Description.HeaderText = "Descripcion";
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            // 
-            // State
-            // 
-            this.State.DataPropertyName = "State";
-            this.State.HeaderText = "Estado";
-            this.State.Name = "State";
-            this.State.ReadOnly = true;
             // 
             // CKBXstate
             // 
@@ -206,6 +208,7 @@
             this.Controls.Add(this.BTNdelete);
             this.Controls.Add(this.BTNaddBrand);
             this.Controls.Add(this.DTGVbrands);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "BrandForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Marcas";

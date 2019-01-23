@@ -144,6 +144,7 @@
             // 
             // BTNdelete
             // 
+            this.BTNdelete.Enabled = false;
             this.BTNdelete.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTNdelete.Location = new System.Drawing.Point(162, 29);
             this.BTNdelete.Name = "BTNdelete";
@@ -151,6 +152,7 @@
             this.BTNdelete.TabIndex = 4;
             this.BTNdelete.Text = "Eliminar";
             this.BTNdelete.UseVisualStyleBackColor = true;
+            this.BTNdelete.Visible = false;
             this.BTNdelete.Click += new System.EventHandler(this.BTNdelete_Click);
             // 
             // TBXsearchVehicle

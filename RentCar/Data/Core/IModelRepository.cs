@@ -8,6 +8,6 @@ namespace RentCar.Data.Core
 {
     public interface IModelRepository :IRepository<Model>
     {
-        
+        Model GetModelWithAll(int id);
     }
 }
