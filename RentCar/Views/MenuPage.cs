@@ -22,7 +22,7 @@ namespace RentCar.Views
 
         private void MenuPage_Load(object sender, EventArgs e)
         {
-            LBUserName.Text = Global.Variables[Global.Username].ToString();
+            BTNuserName.Text = Global.Variables[Global.Username].ToString();
             ShowIncomes(_context.IncomeAndRefund.GetAll());
             List<string> roles = (List<string>)Global.Variables[Global.Roles];
 

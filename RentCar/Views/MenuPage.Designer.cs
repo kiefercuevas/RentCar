@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.LBUserName = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPage));
             this.DTGVIncomes = new System.Windows.Forms.DataGridView();
             this.IncomeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IncomeDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,17 +51,9 @@
             this.BTNfluels = new System.Windows.Forms.Button();
             this.BTNvehicleTypes = new System.Windows.Forms.Button();
             this.BTNclients = new System.Windows.Forms.Button();
+            this.BTNuserName = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DTGVIncomes)).BeginInit();
             this.SuspendLayout();
-            // 
-            // LBUserName
-            // 
-            this.LBUserName.AutoSize = true;
-            this.LBUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBUserName.Location = new System.Drawing.Point(716, 9);
-            this.LBUserName.Name = "LBUserName";
-            this.LBUserName.Size = new System.Drawing.Size(0, 25);
-            this.LBUserName.TabIndex = 0;
             // 
             // DTGVIncomes
             // 
@@ -78,7 +70,7 @@
             this.DTGVIncomes.Location = new System.Drawing.Point(244, 171);
             this.DTGVIncomes.Name = "DTGVIncomes";
             this.DTGVIncomes.ReadOnly = true;
-            this.DTGVIncomes.Size = new System.Drawing.Size(544, 267);
+            this.DTGVIncomes.Size = new System.Drawing.Size(544, 293);
             this.DTGVIncomes.TabIndex = 1;
             this.DTGVIncomes.DoubleClick += new System.EventHandler(this.DTGVIncomes_DoubleClick);
             // 
@@ -181,22 +173,29 @@
             // BTNIncome
             // 
             this.BTNIncome.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTNIncome.Image = ((System.Drawing.Image)(resources.GetObject("BTNIncome.Image")));
+            this.BTNIncome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BTNIncome.Location = new System.Drawing.Point(12, 22);
             this.BTNIncome.Name = "BTNIncome";
-            this.BTNIncome.Size = new System.Drawing.Size(205, 83);
+            this.BTNIncome.Size = new System.Drawing.Size(205, 75);
             this.BTNIncome.TabIndex = 6;
-            this.BTNIncome.Text = "Rentar Vehiculo";
+            this.BTNIncome.Text = "Rentar vehiculo";
+            this.BTNIncome.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BTNIncome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BTNIncome.UseVisualStyleBackColor = true;
             this.BTNIncome.Click += new System.EventHandler(this.BTNIncome_Click);
             // 
             // BTNvehicles
             // 
             this.BTNvehicles.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTNvehicles.Image = ((System.Drawing.Image)(resources.GetObject("BTNvehicles.Image")));
+            this.BTNvehicles.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BTNvehicles.Location = new System.Drawing.Point(223, 22);
             this.BTNvehicles.Name = "BTNvehicles";
-            this.BTNvehicles.Size = new System.Drawing.Size(205, 83);
+            this.BTNvehicles.Size = new System.Drawing.Size(201, 75);
             this.BTNvehicles.TabIndex = 7;
             this.BTNvehicles.Text = "Vehiculos";
+            this.BTNvehicles.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BTNvehicles.UseVisualStyleBackColor = true;
             this.BTNvehicles.Click += new System.EventHandler(this.BTNvehicles_Click);
             // 
@@ -214,69 +213,98 @@
             // BTNEmployees
             // 
             this.BTNEmployees.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNEmployees.Location = new System.Drawing.Point(12, 335);
+            this.BTNEmployees.Image = ((System.Drawing.Image)(resources.GetObject("BTNEmployees.Image")));
+            this.BTNEmployees.Location = new System.Drawing.Point(12, 329);
             this.BTNEmployees.Name = "BTNEmployees";
-            this.BTNEmployees.Size = new System.Drawing.Size(205, 47);
+            this.BTNEmployees.Size = new System.Drawing.Size(205, 58);
             this.BTNEmployees.TabIndex = 9;
             this.BTNEmployees.Text = "Empleados";
+            this.BTNEmployees.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BTNEmployees.UseVisualStyleBackColor = true;
             // 
             // BTNbrands
             // 
             this.BTNbrands.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTNbrands.Image = ((System.Drawing.Image)(resources.GetObject("BTNbrands.Image")));
             this.BTNbrands.Location = new System.Drawing.Point(434, 22);
             this.BTNbrands.Name = "BTNbrands";
-            this.BTNbrands.Size = new System.Drawing.Size(205, 83);
+            this.BTNbrands.Size = new System.Drawing.Size(205, 75);
             this.BTNbrands.TabIndex = 10;
             this.BTNbrands.Text = "Marcas";
+            this.BTNbrands.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BTNbrands.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BTNbrands.UseVisualStyleBackColor = true;
             this.BTNbrands.Click += new System.EventHandler(this.BTNbrands_Click);
             // 
             // BTNmodels
             // 
             this.BTNmodels.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNmodels.Location = new System.Drawing.Point(12, 228);
+            this.BTNmodels.Image = ((System.Drawing.Image)(resources.GetObject("BTNmodels.Image")));
+            this.BTNmodels.Location = new System.Drawing.Point(12, 190);
             this.BTNmodels.Name = "BTNmodels";
-            this.BTNmodels.Size = new System.Drawing.Size(205, 48);
+            this.BTNmodels.Size = new System.Drawing.Size(205, 58);
             this.BTNmodels.TabIndex = 11;
             this.BTNmodels.Text = "Modelos";
+            this.BTNmodels.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BTNmodels.UseVisualStyleBackColor = true;
             // 
             // BTNfluels
             // 
             this.BTNfluels.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNfluels.Location = new System.Drawing.Point(12, 388);
+            this.BTNfluels.Image = ((System.Drawing.Image)(resources.GetObject("BTNfluels.Image")));
+            this.BTNfluels.Location = new System.Drawing.Point(12, 403);
             this.BTNfluels.Name = "BTNfluels";
-            this.BTNfluels.Size = new System.Drawing.Size(205, 50);
+            this.BTNfluels.Size = new System.Drawing.Size(205, 58);
             this.BTNfluels.TabIndex = 12;
             this.BTNfluels.Text = "Combustibles";
+            this.BTNfluels.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BTNfluels.UseVisualStyleBackColor = true;
             // 
             // BTNvehicleTypes
             // 
             this.BTNvehicleTypes.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNvehicleTypes.Location = new System.Drawing.Point(12, 171);
+            this.BTNvehicleTypes.Image = ((System.Drawing.Image)(resources.GetObject("BTNvehicleTypes.Image")));
+            this.BTNvehicleTypes.Location = new System.Drawing.Point(12, 118);
             this.BTNvehicleTypes.Name = "BTNvehicleTypes";
-            this.BTNvehicleTypes.Size = new System.Drawing.Size(205, 51);
+            this.BTNvehicleTypes.Size = new System.Drawing.Size(205, 58);
             this.BTNvehicleTypes.TabIndex = 13;
             this.BTNvehicleTypes.Text = "Tipos de vehiculo";
+            this.BTNvehicleTypes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BTNvehicleTypes.UseVisualStyleBackColor = true;
             // 
             // BTNclients
             // 
             this.BTNclients.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNclients.Location = new System.Drawing.Point(12, 282);
+            this.BTNclients.Image = ((System.Drawing.Image)(resources.GetObject("BTNclients.Image")));
+            this.BTNclients.Location = new System.Drawing.Point(12, 256);
             this.BTNclients.Name = "BTNclients";
-            this.BTNclients.Size = new System.Drawing.Size(205, 47);
+            this.BTNclients.Size = new System.Drawing.Size(205, 58);
             this.BTNclients.TabIndex = 14;
             this.BTNclients.Text = "Clientes";
+            this.BTNclients.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BTNclients.UseVisualStyleBackColor = true;
+            // 
+            // BTNuserName
+            // 
+            this.BTNuserName.Cursor = System.Windows.Forms.Cursors.Default;
+            this.BTNuserName.FlatAppearance.BorderSize = 0;
+            this.BTNuserName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNuserName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTNuserName.Image = ((System.Drawing.Image)(resources.GetObject("BTNuserName.Image")));
+            this.BTNuserName.Location = new System.Drawing.Point(680, 22);
+            this.BTNuserName.Name = "BTNuserName";
+            this.BTNuserName.Size = new System.Drawing.Size(108, 37);
+            this.BTNuserName.TabIndex = 15;
+            this.BTNuserName.Text = "Usuario";
+            this.BTNuserName.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.BTNuserName.UseVisualStyleBackColor = true;
             // 
             // MenuPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 476);
+            this.Controls.Add(this.BTNuserName);
             this.Controls.Add(this.BTNclients);
             this.Controls.Add(this.BTNvehicleTypes);
             this.Controls.Add(this.BTNfluels);
@@ -293,7 +321,6 @@
             this.Controls.Add(this.DTPEndDate);
             this.Controls.Add(this.DTPStartDate);
             this.Controls.Add(this.DTGVIncomes);
-            this.Controls.Add(this.LBUserName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MenuPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -307,8 +334,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label LBUserName;
         private System.Windows.Forms.DataGridView DTGVIncomes;
         private System.Windows.Forms.DateTimePicker DTPStartDate;
         private System.Windows.Forms.DateTimePicker DTPEndDate;
@@ -331,5 +356,6 @@
         private System.Windows.Forms.Button BTNfluels;
         private System.Windows.Forms.Button BTNvehicleTypes;
         private System.Windows.Forms.Button BTNclients;
+        private System.Windows.Forms.Button BTNuserName;
     }
 }

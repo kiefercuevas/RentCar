@@ -111,9 +111,9 @@
             // BTNLogin
             // 
             this.BTNLogin.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNLogin.Location = new System.Drawing.Point(427, 332);
+            this.BTNLogin.Location = new System.Drawing.Point(238, 332);
             this.BTNLogin.Name = "BTNLogin";
-            this.BTNLogin.Size = new System.Drawing.Size(115, 41);
+            this.BTNLogin.Size = new System.Drawing.Size(304, 41);
             this.BTNLogin.TabIndex = 2;
             this.BTNLogin.Text = "Ingresar";
             this.BTNLogin.UseVisualStyleBackColor = true;
