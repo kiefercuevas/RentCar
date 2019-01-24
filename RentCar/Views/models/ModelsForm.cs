@@ -26,11 +26,12 @@ namespace RentCar.Views.models
         private void ModelsForm_Load(object sender, EventArgs e)
         {
             LoadModelsGrid();
+            LoadBrands(_context.Brands.Find(b => b.State == true));
         }
         private void LoadModelsGrid()
         {
             DTGVmodels.AutoGenerateColumns = false;
-            DTGVmodels.DataSource = _context.Models.GetAll();
+            DTGVmodels.DataSource = _context.Models.Find(m => m.State == true);
         }
 
         private void BTNclear_Click(object sender, EventArgs e)
@@ -43,11 +44,11 @@ namespace RentCar.Views.models
         {
             string param = TBXsearchModel.Text.ToLower();
 
-            if (!string.IsNullOrWhiteSpace(param))
-            {
+            if (!string.IsNullOrWhiteSpace(param)){
                 IEnumerable<Model> models = _context.Models
-                    .Find(b => b.Description.ToLower()
-                    .Contains(param));
+                    .Find(m => m.Description.ToLower()
+                    .Contains(param) &&
+                    m.State == true);
 
                 DTGVmodels.DataSource = models;
             }
@@ -55,7 +56,7 @@ namespace RentCar.Views.models
 
         private void BTNdelete_Click(object sender, EventArgs e)
         {
-            if (DTGVmodels.CurrentRow.Index != -1)
+            if (DTGVmodels.Rows.Count > 0 && DTGVmodels.CurrentRow.Index != -1)
             {
                 int id = Convert.ToInt32(DTGVmodels.CurrentRow.Cells["ModelID"].Value);
                 var model = _context.Models.GetModelWithAll(id);
@@ -65,10 +66,12 @@ namespace RentCar.Views.models
                 {
                     case DialogResult.Yes:
 
-                        _context.Vehicles.RemoveRange(vehicles);
-                        _context.Models.Remove(model);
-                        if (_context.Complete() > 0)
-                        {
+                        foreach (var vehicle in vehicles)
+                            vehicle.State = false;
+
+                        model.State = false;
+
+                        if (_context.Complete() > 0){
                             var result = MessageBox.Show("El Modelo ha sido eliminado correctamente");
                             if (result == DialogResult.OK)
                             {
@@ -85,17 +88,40 @@ namespace RentCar.Views.models
             }
         }
 
+        private void LoadBrands(IEnumerable<Brand> brands)
+        {
+            if (brands.Count() > 0)
+            {
+                Dictionary<int, string> brandsdata = new Dictionary<int, string>();
+
+                foreach (Brand brand in brands)
+                    brandsdata.Add(brand.BrandID, brand.Description);
+
+                CBXbrands.DataSource = new BindingSource(brandsdata, null);
+                CBXbrands.DisplayMember = "Value";
+                CBXbrands.ValueMember = "Key";
+            }
+            else
+            {
+                CBXbrands.DataSource = null;
+                CBXbrands.Items.Clear();
+                CBXbrands.Items.Add("No hay marcas");
+            }
+
+
+        }
+
         private void SetModel(Model model)
         {
             model.Description = TBXmodelName.Text;
-            model.State = CKBXstate.Checked;
+            model.BrandID = ((KeyValuePair<int, string>)CBXbrands.SelectedItem).Key;
+            model.State = true;
         }
 
         private string ValidateModel()
         {
-            if (!string.IsNullOrWhiteSpace(TBXmodelName.Text)){
+            if (!string.IsNullOrWhiteSpace(TBXmodelName.Text))
                 return "";
-            }
             else
                 return "El campo Descripcion no puede estar vacio";
         }
@@ -137,17 +163,17 @@ namespace RentCar.Views.models
 
         private void DTGVmodels_DoubleClick(object sender, EventArgs e)
         {
-            if (DTGVmodels.CurrentRow.Index != -1)
+            if (DTGVmodels.Rows.Count > 0 && DTGVmodels.CurrentRow.Index != -1)
             {
                 int id = Convert.ToInt32(DTGVmodels.CurrentRow.Cells["ModelID"].Value);
-                Model = _context.Models.Get(id);
-                TBXmodelName.Text = Model.Description;
+                Model = _context.Models.GetModelWithAll(id);
 
-                CKBXstate.Enabled = true;
+                TBXmodelName.Text = Model.Description;
+                CBXbrands.SelectedIndex = CBXbrands.FindString(Model.Brand.Description);
+
                 BTNaddModel.Text = "Editar";
                 BTNcancel.Visible = true;
                 BTNcancel.Enabled = true;
-                CKBXstate.Checked = Model.State;
             }
         }
 
@@ -160,11 +186,9 @@ namespace RentCar.Views.models
         {
             TBXsearchModel.Text = null;
             TBXmodelName.Text = null;
-            CKBXstate.Enabled = false;
             BTNaddModel.Text = "Agregar";
             BTNcancel.Visible = false;
             BTNcancel.Enabled = false;
-            CKBXstate.Checked = true;
             Model = new Model();
         }
     }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.BTNcancel = new System.Windows.Forms.Button();
-            this.CKBXstate = new System.Windows.Forms.CheckBox();
             this.LBModel = new System.Windows.Forms.Label();
             this.TBXmodelName = new System.Windows.Forms.TextBox();
             this.LBmodelName = new System.Windows.Forms.Label();
@@ -42,6 +41,8 @@
             this.ModelID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.State = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CBXbrands = new System.Windows.Forms.ComboBox();
+            this.LBbrand = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DTGVmodels)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             // 
             this.BTNcancel.Enabled = false;
             this.BTNcancel.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNcancel.Location = new System.Drawing.Point(367, 184);
+            this.BTNcancel.Location = new System.Drawing.Point(367, 190);
             this.BTNcancel.Name = "BTNcancel";
             this.BTNcancel.Size = new System.Drawing.Size(217, 34);
             this.BTNcancel.TabIndex = 30;
@@ -57,21 +58,6 @@
             this.BTNcancel.UseVisualStyleBackColor = true;
             this.BTNcancel.Visible = false;
             this.BTNcancel.Click += new System.EventHandler(this.BTNcancel_Click);
-            // 
-            // CKBXstate
-            // 
-            this.CKBXstate.AutoSize = true;
-            this.CKBXstate.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CKBXstate.Checked = true;
-            this.CKBXstate.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CKBXstate.Enabled = false;
-            this.CKBXstate.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CKBXstate.Location = new System.Drawing.Point(362, 98);
-            this.CKBXstate.Name = "CKBXstate";
-            this.CKBXstate.Size = new System.Drawing.Size(86, 29);
-            this.CKBXstate.TabIndex = 29;
-            this.CKBXstate.Text = "Estado";
-            this.CKBXstate.UseVisualStyleBackColor = true;
             // 
             // LBModel
             // 
@@ -146,7 +132,7 @@
             // BTNaddModel
             // 
             this.BTNaddModel.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNaddModel.Location = new System.Drawing.Point(367, 144);
+            this.BTNaddModel.Location = new System.Drawing.Point(367, 150);
             this.BTNaddModel.Name = "BTNaddModel";
             this.BTNaddModel.Size = new System.Drawing.Size(217, 34);
             this.BTNaddModel.TabIndex = 21;
@@ -191,13 +177,33 @@
             this.State.Name = "State";
             this.State.ReadOnly = true;
             // 
+            // CBXbrands
+            // 
+            this.CBXbrands.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBXbrands.FormattingEnabled = true;
+            this.CBXbrands.Location = new System.Drawing.Point(473, 99);
+            this.CBXbrands.Name = "CBXbrands";
+            this.CBXbrands.Size = new System.Drawing.Size(111, 31);
+            this.CBXbrands.TabIndex = 31;
+            // 
+            // LBbrand
+            // 
+            this.LBbrand.AutoSize = true;
+            this.LBbrand.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBbrand.Location = new System.Drawing.Point(362, 105);
+            this.LBbrand.Name = "LBbrand";
+            this.LBbrand.Size = new System.Drawing.Size(62, 25);
+            this.LBbrand.TabIndex = 32;
+            this.LBbrand.Text = "Marca";
+            // 
             // ModelsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(596, 369);
+            this.Controls.Add(this.LBbrand);
+            this.Controls.Add(this.CBXbrands);
             this.Controls.Add(this.BTNcancel);
-            this.Controls.Add(this.CKBXstate);
             this.Controls.Add(this.LBModel);
             this.Controls.Add(this.TBXmodelName);
             this.Controls.Add(this.LBmodelName);
@@ -221,7 +227,6 @@
         #endregion
 
         private System.Windows.Forms.Button BTNcancel;
-        private System.Windows.Forms.CheckBox CKBXstate;
         private System.Windows.Forms.Label LBModel;
         private System.Windows.Forms.TextBox TBXmodelName;
         private System.Windows.Forms.Label LBmodelName;
@@ -234,5 +239,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ModelID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn State;
+        private System.Windows.Forms.ComboBox CBXbrands;
+        private System.Windows.Forms.Label LBbrand;
     }
 }

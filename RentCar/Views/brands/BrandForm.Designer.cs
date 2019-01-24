@@ -40,7 +40,6 @@
             this.TBXbrandName = new System.Windows.Forms.TextBox();
             this.LBbrandName = new System.Windows.Forms.Label();
             this.LBbrand = new System.Windows.Forms.Label();
-            this.CKBXstate = new System.Windows.Forms.CheckBox();
             this.BTNcancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DTGVbrands)).BeginInit();
             this.SuspendLayout();
@@ -77,7 +76,6 @@
             // 
             // BTNdelete
             // 
-            this.BTNdelete.Enabled = false;
             this.BTNdelete.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTNdelete.Location = new System.Drawing.Point(367, 324);
             this.BTNdelete.Name = "BTNdelete";
@@ -85,13 +83,12 @@
             this.BTNdelete.TabIndex = 10;
             this.BTNdelete.Text = "Eliminar";
             this.BTNdelete.UseVisualStyleBackColor = true;
-            this.BTNdelete.Visible = false;
             this.BTNdelete.Click += new System.EventHandler(this.BTNdelete_Click);
             // 
             // BTNaddBrand
             // 
             this.BTNaddBrand.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNaddBrand.Location = new System.Drawing.Point(367, 143);
+            this.BTNaddBrand.Location = new System.Drawing.Point(367, 101);
             this.BTNaddBrand.Name = "BTNaddBrand";
             this.BTNaddBrand.Size = new System.Drawing.Size(217, 34);
             this.BTNaddBrand.TabIndex = 9;
@@ -164,26 +161,11 @@
             this.LBbrand.TabIndex = 16;
             this.LBbrand.Text = "Buscar";
             // 
-            // CKBXstate
-            // 
-            this.CKBXstate.AutoSize = true;
-            this.CKBXstate.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CKBXstate.Checked = true;
-            this.CKBXstate.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CKBXstate.Enabled = false;
-            this.CKBXstate.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CKBXstate.Location = new System.Drawing.Point(362, 97);
-            this.CKBXstate.Name = "CKBXstate";
-            this.CKBXstate.Size = new System.Drawing.Size(86, 29);
-            this.CKBXstate.TabIndex = 18;
-            this.CKBXstate.Text = "Estado";
-            this.CKBXstate.UseVisualStyleBackColor = true;
-            // 
             // BTNcancel
             // 
             this.BTNcancel.Enabled = false;
             this.BTNcancel.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNcancel.Location = new System.Drawing.Point(367, 183);
+            this.BTNcancel.Location = new System.Drawing.Point(367, 141);
             this.BTNcancel.Name = "BTNcancel";
             this.BTNcancel.Size = new System.Drawing.Size(217, 34);
             this.BTNcancel.TabIndex = 19;
@@ -198,7 +180,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(596, 369);
             this.Controls.Add(this.BTNcancel);
-            this.Controls.Add(this.CKBXstate);
             this.Controls.Add(this.LBbrand);
             this.Controls.Add(this.TBXbrandName);
             this.Controls.Add(this.LBbrandName);
@@ -233,7 +214,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn BrandID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn State;
-        private System.Windows.Forms.CheckBox CKBXstate;
         private System.Windows.Forms.Button BTNcancel;
     }
 }

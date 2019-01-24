@@ -285,6 +285,7 @@
             this.BTNclients.Text = "Clientes";
             this.BTNclients.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BTNclients.UseVisualStyleBackColor = true;
+            this.BTNclients.Click += new System.EventHandler(this.BTNclients_Click);
             // 
             // BTNuserName
             // 

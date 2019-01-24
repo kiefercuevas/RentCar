@@ -11,6 +11,7 @@ using RentCar.Views.vehicles;
 using RentCar.Views.brands;
 using RentCar.Views.models;
 using RentCar.Views.vehicleTypes;
+using RentCar.Views.clients;
 namespace RentCar.Views
 {
     public partial class MenuPage : Form
@@ -60,11 +61,12 @@ namespace RentCar.Views
             if (!string.IsNullOrEmpty(param))
                 return _context.IncomeAndRefund
                      .Find(i => i.IncomeDate >= start && i.RefundDate < end &&
+                     i.State == true &&
                      (i.IncomeID.ToString().Contains(param) ||
                       i.AmountPerDay.ToString().Contains(param)));
             else
                 return _context.IncomeAndRefund
-                     .Find(i => i.IncomeDate >= start && i.RefundDate < end);
+                     .Find(i => i.IncomeDate >= start && i.RefundDate < end && i.State == true);
         }
 
         private void ShowMessage(string message)
@@ -94,12 +96,12 @@ namespace RentCar.Views
         {
             InspectionForm inspection = new InspectionForm();
             inspection.ShowDialog();
-            ShowIncomes(_context.IncomeAndRefund.GetAll());
+            ShowIncomes(_context.IncomeAndRefund.Find(i => i.State == true));
         }
 
         private void DTGVIncomes_DoubleClick(object sender, EventArgs e)
         {
-            if(DTGVIncomes.CurrentRow.Index != -1){
+            if(DTGVIncomes.Rows.Count > 0 && DTGVIncomes.CurrentRow.Index != -1){
                 int id = Convert.ToInt32(DTGVIncomes.CurrentRow.Cells["IncomeID"].Value);
 
                 var income = _context.IncomeAndRefund.GetIncomeAndRefundWithAll(id);
@@ -113,7 +115,7 @@ namespace RentCar.Views
             DTPStartDate.Value = DateTime.Now;
             DTPEndDate.Value = DateTime.Now;
             TBXIncomeSearch.Text = null;
-            ShowIncomes(_context.IncomeAndRefund.GetAll());
+            ShowIncomes(_context.IncomeAndRefund.Find(i => i.State == true));
         }
 
         private void BTNvehicles_Click(object sender, EventArgs e)
@@ -138,6 +140,12 @@ namespace RentCar.Views
         {
             VehicleTypesForm form = new VehicleTypesForm();
             form.ShowDialog();
+        }
+
+        private void BTNclients_Click(object sender, EventArgs e)
+        {
+            ClientsForm clientsForm = new ClientsForm();
+            clientsForm.ShowDialog();
         }
     }
 }

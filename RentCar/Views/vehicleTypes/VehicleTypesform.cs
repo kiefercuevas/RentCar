@@ -32,7 +32,8 @@ namespace RentCar.Views.vehicleTypes
         private void LoadVehicleTypeGrid()
         {
             DTGVvehicleType.AutoGenerateColumns = false;
-            DTGVvehicleType.DataSource = _context.VehicleTypes.GetAll();
+            DTGVvehicleType.DataSource = _context.VehicleTypes
+                .Find(vt => vt.State == true);
         }
 
         private void BTNsearchVehicleType_Click(object sender, EventArgs e)
@@ -41,8 +42,9 @@ namespace RentCar.Views.vehicleTypes
 
             if (!string.IsNullOrWhiteSpace(param)){
                 IEnumerable<VehicleType> vehicleTypes = _context.VehicleTypes
-                    .Find(b => b.Description.ToLower()
-                    .Contains(param));
+                    .Find(vt => vt.Description.ToLower() 
+                    .Contains(param) &&
+                     vt.State == true);
 
                 DTGVvehicleType.DataSource = vehicleTypes;
             }
@@ -57,9 +59,7 @@ namespace RentCar.Views.vehicleTypes
         private string ValidateVehicleType()
         {
             if (!string.IsNullOrWhiteSpace(TBXvehicleTypeName.Text))
-            {
                 return "";
-            }
             else
                 return "El campo Descripcion no puede estar vacio";
         }
@@ -67,13 +67,13 @@ namespace RentCar.Views.vehicleTypes
         private void SetVehicleType(VehicleType vehicleType)
         {
             vehicleType.Description = TBXvehicleTypeName.Text;
-            vehicleType.State = CKBXstate.Checked;
             VehicleType.RubberQuantity = Convert.ToInt32(NUDrubberQuantity.Value);
+            VehicleType.State = true;
         }
 
         private void BTNdelete_Click(object sender, EventArgs e)
         {
-            if (DTGVvehicleType.CurrentRow.Index != -1)
+            if (DTGVvehicleType.Rows.Count > 0 && DTGVvehicleType.CurrentRow.Index != -1)
             {
                 int id = Convert.ToInt32(DTGVvehicleType.CurrentRow.Cells["VehicleTypeID"].Value);
                 var vehicletype = _context.VehicleTypes.GetVehicleTypeWithAll(id);
@@ -83,12 +83,14 @@ namespace RentCar.Views.vehicleTypes
                 {
                     case DialogResult.Yes:
 
-                        _context.Vehicles.RemoveRange(vehicles);
-                        _context.VehicleTypes.Remove(vehicletype);
+                        foreach (var vehicle in vehicles)
+                            vehicle.State = false;
+
+                        vehicletype.State = false;
+
                         if (_context.Complete() > 0){
                             var result = MessageBox.Show("El Tipo de vehiculo ha sido eliminado correctamente");
-                            if (result == DialogResult.OK)
-                            {
+                            if (result == DialogResult.OK){
                                 LoadVehicleTypeGrid();
                                 Reset();
                             }
@@ -108,12 +110,10 @@ namespace RentCar.Views.vehicleTypes
         {
             TBXsearchVehicleType.Text = null;
             TBXvehicleTypeName.Text = null;
-            CKBXstate.Enabled = false;
             NUDrubberQuantity.Value = 0;
             BTNaddVehicleType.Text = "Agregar";
             BTNcancel.Visible = false;
             BTNcancel.Enabled = false;
-            CKBXstate.Checked = true;
             VehicleType = new VehicleType();
         }
 
@@ -141,12 +141,13 @@ namespace RentCar.Views.vehicleTypes
             try
             {
                 if (_context.Complete() > 0)
+                {
                     MessageBox.Show("Se ha " + Action + " el tipo de vehiculo Correctamente");
-                LoadVehicleTypeGrid();
-                Reset();
+                    LoadVehicleTypeGrid();
+                    Reset();
+                }
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex){
                 MessageBox.Show("Ha ocurrido un error" + ex.Message);
             }
         }
@@ -158,17 +159,15 @@ namespace RentCar.Views.vehicleTypes
 
         private void DTGVvehicleType_DoubleClick(object sender, EventArgs e)
         {
-            if (DTGVvehicleType.CurrentRow.Index != -1)
+            if (DTGVvehicleType.Rows.Count > 0 && DTGVvehicleType.CurrentRow.Index != -1)
             {
                 int id = Convert.ToInt32(DTGVvehicleType.CurrentRow.Cells["VehicleTypeID"].Value);
                 VehicleType = _context.VehicleTypes.Get(id);
                 TBXvehicleTypeName.Text = VehicleType.Description;
 
-                CKBXstate.Enabled = true;
                 BTNaddVehicleType.Text = "Editar";
                 BTNcancel.Visible = true;
                 BTNcancel.Enabled = true;
-                CKBXstate.Checked = VehicleType.State;
                 NUDrubberQuantity.Value = VehicleType.RubberQuantity;
             }
         }

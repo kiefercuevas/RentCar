@@ -23,6 +23,7 @@ namespace RentCar.Data.Repositories
         public Model GetModelWithAll(int id)
         {
             return _RentCarContex.Models.Include(m => m.Vehicles)
+                .Include(m => m.Brand)
                 .SingleOrDefault(m => m.ModelID == id);
         }
     }

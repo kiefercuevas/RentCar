@@ -23,7 +23,7 @@ namespace RentCar.Data.Repositories
 
         public IEnumerable<Vehicle> GetVehiclesWithTypes(Expression<Func<Vehicle,bool>> predicate)
         {
-            return _RentCarContex.Vehicles.Include(v => v.VehicleType).Where(predicate);
+            return _RentCarContex.Vehicles.Include(v => v.VehicleType).Where(predicate).ToList();
         }
 
         public IEnumerable<Vehicle> GetVehiclesWithAll(Expression<Func<Vehicle, bool>> predicate)

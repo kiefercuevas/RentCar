@@ -54,6 +54,7 @@ namespace RentCar.Views.Incomes
                     IncomeDate = Inspection.InspectionDate,
                     RefundDate = DTPrefundDate.Value,
                     VehicleID = Inspection.VehicleID,
+                    State = true
                 };
                 income.Inspections = new List<Inspection>
                 {

@@ -33,7 +33,7 @@ namespace RentCar.Views.brands
         private void LoadBrandGrid()
         {
             DTGVbrands.AutoGenerateColumns = false;
-            DTGVbrands.DataSource = _context.Brands.GetAll();
+            DTGVbrands.DataSource = _context.Brands.Find(b => b.State == true);
         }
 
         private void BTNclear_Click(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace RentCar.Views.brands
             {
                 IEnumerable<Brand> brands = _context.Brands
                     .Find(b => b.Description.ToLower()
-                    .Contains(param));
+                    .Contains(param) && b.State == true);
 
                 DTGVbrands.DataSource = brands;
             }
@@ -59,7 +59,7 @@ namespace RentCar.Views.brands
 
         private void BTNdelete_Click(object sender, EventArgs e)
         {
-            if (DTGVbrands.CurrentRow.Index != -1)
+            if (DTGVbrands.Rows.Count > 0 && DTGVbrands.CurrentRow.Index != -1)
             {
                 int id = Convert.ToInt32(DTGVbrands.CurrentRow.Cells["BrandID"].Value);
                 var brand = _context.Brands.GetBrandWithAll(id);
@@ -70,9 +70,13 @@ namespace RentCar.Views.brands
                 {
                     case DialogResult.Yes:
 
-                        _context.Vehicles.RemoveRange(vehicles);
-                        _context.Models.RemoveRange(models);
-                        _context.Brands.Remove(brand);
+                        foreach (var vehicle in vehicles)
+                            vehicle.State = false;
+
+                        foreach (var model in models)
+                            model.State = false;
+
+                        brand.State = false;
                         if (_context.Complete() > 0)
                         {
                             var result = MessageBox.Show("La Marca ha sido eliminada correctamente");
@@ -93,7 +97,7 @@ namespace RentCar.Views.brands
         private void SetBrand(Brand brand)
         {
             brand.Description = TBXbrandName.Text;
-            brand.State = CKBXstate.Checked;
+            brand.State = true;
         }
 
         private string ValidateBrand()
@@ -138,17 +142,15 @@ namespace RentCar.Views.brands
 
         private void DTGVbrands_DoubleClick(object sender, EventArgs e)
         {
-            if (DTGVbrands.CurrentRow.Index != -1)
+            if (DTGVbrands.Rows.Count > 0 && DTGVbrands.CurrentRow.Index != -1)
             {
                 int id = Convert.ToInt32(DTGVbrands.CurrentRow.Cells["BrandID"].Value);
                 Brand = _context.Brands.Get(id);
                 TBXbrandName.Text = Brand.Description;
 
-                CKBXstate.Enabled = true;
                 BTNaddBrand.Text = "Editar";
                 BTNcancel.Visible = true;
                 BTNcancel.Enabled = true;
-                CKBXstate.Checked = Brand.State;
             }
         }
 
@@ -161,11 +163,9 @@ namespace RentCar.Views.brands
         {
             TBXsearchBrand.Text = null;
             TBXbrandName.Text = null;
-            CKBXstate.Enabled = false;
             BTNaddBrand.Text = "Agregar";
             BTNcancel.Visible = false;
             BTNcancel.Enabled = false;
-            CKBXstate.Checked = true;
             Brand = new Brand();
         }
     }

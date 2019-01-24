@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.BTNcancel = new System.Windows.Forms.Button();
-            this.CKBXstate = new System.Windows.Forms.CheckBox();
             this.LBvehicleType = new System.Windows.Forms.Label();
             this.TBXvehicleTypeName = new System.Windows.Forms.TextBox();
             this.LBvehicletypeName = new System.Windows.Forms.Label();
@@ -52,7 +51,7 @@
             // 
             this.BTNcancel.Enabled = false;
             this.BTNcancel.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNcancel.Location = new System.Drawing.Point(367, 238);
+            this.BTNcancel.Location = new System.Drawing.Point(367, 198);
             this.BTNcancel.Name = "BTNcancel";
             this.BTNcancel.Size = new System.Drawing.Size(217, 34);
             this.BTNcancel.TabIndex = 41;
@@ -60,21 +59,6 @@
             this.BTNcancel.UseVisualStyleBackColor = true;
             this.BTNcancel.Visible = false;
             this.BTNcancel.Click += new System.EventHandler(this.BTNcancel_Click);
-            // 
-            // CKBXstate
-            // 
-            this.CKBXstate.AutoSize = true;
-            this.CKBXstate.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CKBXstate.Checked = true;
-            this.CKBXstate.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CKBXstate.Enabled = false;
-            this.CKBXstate.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CKBXstate.Location = new System.Drawing.Point(362, 151);
-            this.CKBXstate.Name = "CKBXstate";
-            this.CKBXstate.Size = new System.Drawing.Size(86, 29);
-            this.CKBXstate.TabIndex = 40;
-            this.CKBXstate.Text = "Estado";
-            this.CKBXstate.UseVisualStyleBackColor = true;
             // 
             // LBvehicleType
             // 
@@ -143,13 +127,12 @@
             this.BTNdelete.TabIndex = 33;
             this.BTNdelete.Text = "Eliminar";
             this.BTNdelete.UseVisualStyleBackColor = true;
-            this.BTNdelete.Visible = false;
             this.BTNdelete.Click += new System.EventHandler(this.BTNdelete_Click);
             // 
             // BTNaddVehicleType
             // 
             this.BTNaddVehicleType.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNaddVehicleType.Location = new System.Drawing.Point(367, 198);
+            this.BTNaddVehicleType.Location = new System.Drawing.Point(367, 158);
             this.BTNaddVehicleType.Name = "BTNaddVehicleType";
             this.BTNaddVehicleType.Size = new System.Drawing.Size(217, 34);
             this.BTNaddVehicleType.TabIndex = 32;
@@ -220,7 +203,6 @@
             this.Controls.Add(this.NUDrubberQuantity);
             this.Controls.Add(this.LBrubberQuantity);
             this.Controls.Add(this.BTNcancel);
-            this.Controls.Add(this.CKBXstate);
             this.Controls.Add(this.LBvehicleType);
             this.Controls.Add(this.TBXvehicleTypeName);
             this.Controls.Add(this.LBvehicletypeName);
@@ -245,7 +227,6 @@
         #endregion
 
         private System.Windows.Forms.Button BTNcancel;
-        private System.Windows.Forms.CheckBox CKBXstate;
         private System.Windows.Forms.Label LBvehicleType;
         private System.Windows.Forms.TextBox TBXvehicleTypeName;
         private System.Windows.Forms.Label LBvehicletypeName;
