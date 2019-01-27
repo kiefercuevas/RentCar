@@ -31,6 +31,7 @@ namespace RentCar.Views.Incomes
             TBXamountPerDay.Text = Income.AmountPerDay.ToString();
             TBXnumberOfDays.Text = Income.NumberOfDays.ToString();
             RTBXcomment.Text = Income.Commentary;
+            CBXstate.Checked = Income.State;
 
             //employee
             TBXempName.Text = Income.Employee.Name;

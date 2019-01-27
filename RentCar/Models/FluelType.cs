@@ -6,7 +6,7 @@ namespace RentCar.Models
     {
         [Key]
         public int FluelTypeID { get; set; }
-        [Required(ErrorMessage ="El tipo de combustible es obligatorio")]
+        [Required]
         public string Description { get; set; }
         public bool State { get; set; }
 

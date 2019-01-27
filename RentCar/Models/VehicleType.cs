@@ -6,7 +6,7 @@ namespace RentCar.Models
     {
         [Key]
         public int VehicleTypeID { get; set; }
-        [Required(ErrorMessage ="El tipo de vehiculo es obligatorio")]
+        [Required]
         public string Description { get; set; }
         public bool State { get; set; }
         public int RubberQuantity { get; set; }

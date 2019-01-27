@@ -23,7 +23,8 @@ namespace RentCar.Data.Repositories
         {
             return _RentCarContex.Clients
                 .Include(c => c.PersonType)
-                .Where(predicate).ToList();
+                .Where(predicate)
+                .ToList();
         }
     }
 }

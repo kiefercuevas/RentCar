@@ -27,6 +27,8 @@ namespace RentCar.Views.models
         {
             LoadModelsGrid();
             LoadBrands(_context.Brands.Find(b => b.State == true));
+            if (Global.Variables[Global.rol].ToString() != "ADMIN")
+                BTNdelete.Enabled = false;
         }
         private void LoadModelsGrid()
         {
@@ -121,7 +123,12 @@ namespace RentCar.Views.models
         private string ValidateModel()
         {
             if (!string.IsNullOrWhiteSpace(TBXmodelName.Text))
-                return "";
+                if (_context.Models.Count(m => m.State == true && m.Description.ToLower() == TBXmodelName.Text.ToLower() && m.ModelID != Model.ModelID) == 0)
+                {
+                    return "";
+                }
+                else
+                    return "Ya existe un modelo con ese nombre";
             else
                 return "El campo Descripcion no puede estar vacio";
         }

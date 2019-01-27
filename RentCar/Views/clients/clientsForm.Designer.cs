@@ -33,6 +33,13 @@
             this.BTNsearchClient = new System.Windows.Forms.Button();
             this.TBXsearchClient = new System.Windows.Forms.TextBox();
             this.DTGVclients = new System.Windows.Forms.DataGridView();
+            this.ClientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdentificationCard = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreditCardNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreditLimit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.State = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BTNdelete = new System.Windows.Forms.Button();
             this.LBclientName = new System.Windows.Forms.Label();
             this.TBXclientName = new System.Windows.Forms.TextBox();
@@ -46,13 +53,6 @@
             this.BTNcancel = new System.Windows.Forms.Button();
             this.CBXtypeOfPerson = new System.Windows.Forms.ComboBox();
             this.LBtypeOfPerson = new System.Windows.Forms.Label();
-            this.ClientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdentificationCard = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreditCardNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreditLimit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.State = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DTGVclients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDcreditLimit)).BeginInit();
             this.SuspendLayout();
@@ -76,6 +76,7 @@
             this.BTNclear.TabIndex = 49;
             this.BTNclear.Text = "X";
             this.BTNclear.UseVisualStyleBackColor = true;
+            this.BTNclear.Click += new System.EventHandler(this.BTNclear_Click);
             // 
             // BTNsearchClient
             // 
@@ -86,6 +87,7 @@
             this.BTNsearchClient.TabIndex = 48;
             this.BTNsearchClient.Text = "Buscar";
             this.BTNsearchClient.UseVisualStyleBackColor = true;
+            this.BTNsearchClient.Click += new System.EventHandler(this.BTNsearchClient_Click);
             // 
             // TBXsearchClient
             // 
@@ -114,129 +116,6 @@
             this.DTGVclients.Size = new System.Drawing.Size(344, 405);
             this.DTGVclients.TabIndex = 44;
             this.DTGVclients.DoubleClick += new System.EventHandler(this.DTGVclients_DoubleClick);
-            // 
-            // BTNdelete
-            // 
-            this.BTNdelete.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNdelete.Location = new System.Drawing.Point(367, 420);
-            this.BTNdelete.Name = "BTNdelete";
-            this.BTNdelete.Size = new System.Drawing.Size(259, 33);
-            this.BTNdelete.TabIndex = 46;
-            this.BTNdelete.Text = "Eliminar";
-            this.BTNdelete.UseVisualStyleBackColor = true;
-            // 
-            // LBclientName
-            // 
-            this.LBclientName.AutoSize = true;
-            this.LBclientName.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBclientName.Location = new System.Drawing.Point(362, 52);
-            this.LBclientName.Name = "LBclientName";
-            this.LBclientName.Size = new System.Drawing.Size(105, 25);
-            this.LBclientName.TabIndex = 50;
-            this.LBclientName.Text = "Descripcion";
-            // 
-            // TBXclientName
-            // 
-            this.TBXclientName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBXclientName.Location = new System.Drawing.Point(473, 52);
-            this.TBXclientName.Name = "TBXclientName";
-            this.TBXclientName.Size = new System.Drawing.Size(153, 29);
-            this.TBXclientName.TabIndex = 51;
-            // 
-            // NUDcreditLimit
-            // 
-            this.NUDcreditLimit.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NUDcreditLimit.Location = new System.Drawing.Point(510, 280);
-            this.NUDcreditLimit.Name = "NUDcreditLimit";
-            this.NUDcreditLimit.Size = new System.Drawing.Size(116, 29);
-            this.NUDcreditLimit.TabIndex = 55;
-            // 
-            // LBcreditLimit
-            // 
-            this.LBcreditLimit.AutoSize = true;
-            this.LBcreditLimit.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBcreditLimit.Location = new System.Drawing.Point(362, 280);
-            this.LBcreditLimit.Name = "LBcreditLimit";
-            this.LBcreditLimit.Size = new System.Drawing.Size(143, 25);
-            this.LBcreditLimit.TabIndex = 54;
-            this.LBcreditLimit.Text = "Limite de credito";
-            // 
-            // TBXidentitficationCard
-            // 
-            this.TBXidentitficationCard.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBXidentitficationCard.Location = new System.Drawing.Point(436, 164);
-            this.TBXidentitficationCard.Name = "TBXidentitficationCard";
-            this.TBXidentitficationCard.Size = new System.Drawing.Size(190, 29);
-            this.TBXidentitficationCard.TabIndex = 57;
-            // 
-            // LBidentitficationCard
-            // 
-            this.LBidentitficationCard.AutoSize = true;
-            this.LBidentitficationCard.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBidentitficationCard.Location = new System.Drawing.Point(362, 164);
-            this.LBidentitficationCard.Name = "LBidentitficationCard";
-            this.LBidentitficationCard.Size = new System.Drawing.Size(68, 25);
-            this.LBidentitficationCard.TabIndex = 56;
-            this.LBidentitficationCard.Text = "Cedula";
-            // 
-            // LBcreditCard
-            // 
-            this.LBcreditCard.AutoSize = true;
-            this.LBcreditCard.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBcreditCard.Location = new System.Drawing.Point(362, 225);
-            this.LBcreditCard.Name = "LBcreditCard";
-            this.LBcreditCard.Size = new System.Drawing.Size(68, 25);
-            this.LBcreditCard.TabIndex = 58;
-            this.LBcreditCard.Text = "Tarjeta";
-            // 
-            // TBXcreditCard
-            // 
-            this.TBXcreditCard.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBXcreditCard.Location = new System.Drawing.Point(436, 221);
-            this.TBXcreditCard.Name = "TBXcreditCard";
-            this.TBXcreditCard.Size = new System.Drawing.Size(190, 29);
-            this.TBXcreditCard.TabIndex = 59;
-            // 
-            // BTNaddClient
-            // 
-            this.BTNaddClient.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNaddClient.Location = new System.Drawing.Point(367, 324);
-            this.BTNaddClient.Name = "BTNaddClient";
-            this.BTNaddClient.Size = new System.Drawing.Size(259, 34);
-            this.BTNaddClient.TabIndex = 60;
-            this.BTNaddClient.Text = "Agregar";
-            this.BTNaddClient.UseVisualStyleBackColor = true;
-            // 
-            // BTNcancel
-            // 
-            this.BTNcancel.Enabled = false;
-            this.BTNcancel.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNcancel.Location = new System.Drawing.Point(367, 372);
-            this.BTNcancel.Name = "BTNcancel";
-            this.BTNcancel.Size = new System.Drawing.Size(259, 34);
-            this.BTNcancel.TabIndex = 61;
-            this.BTNcancel.Text = "Cancelar";
-            this.BTNcancel.UseVisualStyleBackColor = true;
-            this.BTNcancel.Visible = false;
-            // 
-            // CBXtypeOfPerson
-            // 
-            this.CBXtypeOfPerson.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBXtypeOfPerson.FormattingEnabled = true;
-            this.CBXtypeOfPerson.Location = new System.Drawing.Point(485, 105);
-            this.CBXtypeOfPerson.Name = "CBXtypeOfPerson";
-            this.CBXtypeOfPerson.Size = new System.Drawing.Size(141, 31);
-            this.CBXtypeOfPerson.TabIndex = 62;
-            // 
-            // LBtypeOfPerson
-            // 
-            this.LBtypeOfPerson.AutoSize = true;
-            this.LBtypeOfPerson.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBtypeOfPerson.Location = new System.Drawing.Point(362, 107);
-            this.LBtypeOfPerson.Name = "LBtypeOfPerson";
-            this.LBtypeOfPerson.Size = new System.Drawing.Size(117, 25);
-            this.LBtypeOfPerson.TabIndex = 63;
-            this.LBtypeOfPerson.Text = "Tipo persona";
             // 
             // ClientID
             // 
@@ -286,6 +165,139 @@
             this.State.HeaderText = "Estado";
             this.State.Name = "State";
             this.State.ReadOnly = true;
+            // 
+            // BTNdelete
+            // 
+            this.BTNdelete.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTNdelete.Location = new System.Drawing.Point(367, 420);
+            this.BTNdelete.Name = "BTNdelete";
+            this.BTNdelete.Size = new System.Drawing.Size(259, 33);
+            this.BTNdelete.TabIndex = 46;
+            this.BTNdelete.Text = "Eliminar";
+            this.BTNdelete.UseVisualStyleBackColor = true;
+            this.BTNdelete.Click += new System.EventHandler(this.BTNdelete_Click);
+            // 
+            // LBclientName
+            // 
+            this.LBclientName.AutoSize = true;
+            this.LBclientName.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBclientName.Location = new System.Drawing.Point(362, 52);
+            this.LBclientName.Name = "LBclientName";
+            this.LBclientName.Size = new System.Drawing.Size(105, 25);
+            this.LBclientName.TabIndex = 50;
+            this.LBclientName.Text = "Descripcion";
+            // 
+            // TBXclientName
+            // 
+            this.TBXclientName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBXclientName.Location = new System.Drawing.Point(473, 52);
+            this.TBXclientName.Name = "TBXclientName";
+            this.TBXclientName.Size = new System.Drawing.Size(153, 29);
+            this.TBXclientName.TabIndex = 0;
+            // 
+            // NUDcreditLimit
+            // 
+            this.NUDcreditLimit.DecimalPlaces = 2;
+            this.NUDcreditLimit.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NUDcreditLimit.Location = new System.Drawing.Point(510, 280);
+            this.NUDcreditLimit.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.NUDcreditLimit.Name = "NUDcreditLimit";
+            this.NUDcreditLimit.Size = new System.Drawing.Size(116, 29);
+            this.NUDcreditLimit.TabIndex = 4;
+            // 
+            // LBcreditLimit
+            // 
+            this.LBcreditLimit.AutoSize = true;
+            this.LBcreditLimit.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBcreditLimit.Location = new System.Drawing.Point(362, 280);
+            this.LBcreditLimit.Name = "LBcreditLimit";
+            this.LBcreditLimit.Size = new System.Drawing.Size(143, 25);
+            this.LBcreditLimit.TabIndex = 54;
+            this.LBcreditLimit.Text = "Limite de credito";
+            // 
+            // TBXidentitficationCard
+            // 
+            this.TBXidentitficationCard.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBXidentitficationCard.Location = new System.Drawing.Point(436, 164);
+            this.TBXidentitficationCard.Name = "TBXidentitficationCard";
+            this.TBXidentitficationCard.Size = new System.Drawing.Size(190, 29);
+            this.TBXidentitficationCard.TabIndex = 2;
+            // 
+            // LBidentitficationCard
+            // 
+            this.LBidentitficationCard.AutoSize = true;
+            this.LBidentitficationCard.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBidentitficationCard.Location = new System.Drawing.Point(362, 164);
+            this.LBidentitficationCard.Name = "LBidentitficationCard";
+            this.LBidentitficationCard.Size = new System.Drawing.Size(68, 25);
+            this.LBidentitficationCard.TabIndex = 56;
+            this.LBidentitficationCard.Text = "Cedula";
+            // 
+            // LBcreditCard
+            // 
+            this.LBcreditCard.AutoSize = true;
+            this.LBcreditCard.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBcreditCard.Location = new System.Drawing.Point(362, 225);
+            this.LBcreditCard.Name = "LBcreditCard";
+            this.LBcreditCard.Size = new System.Drawing.Size(68, 25);
+            this.LBcreditCard.TabIndex = 58;
+            this.LBcreditCard.Text = "Tarjeta";
+            // 
+            // TBXcreditCard
+            // 
+            this.TBXcreditCard.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBXcreditCard.Location = new System.Drawing.Point(436, 221);
+            this.TBXcreditCard.Name = "TBXcreditCard";
+            this.TBXcreditCard.Size = new System.Drawing.Size(190, 29);
+            this.TBXcreditCard.TabIndex = 3;
+            // 
+            // BTNaddClient
+            // 
+            this.BTNaddClient.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTNaddClient.Location = new System.Drawing.Point(367, 324);
+            this.BTNaddClient.Name = "BTNaddClient";
+            this.BTNaddClient.Size = new System.Drawing.Size(259, 34);
+            this.BTNaddClient.TabIndex = 5;
+            this.BTNaddClient.Text = "Agregar";
+            this.BTNaddClient.UseVisualStyleBackColor = true;
+            this.BTNaddClient.Click += new System.EventHandler(this.BTNaddClient_Click);
+            // 
+            // BTNcancel
+            // 
+            this.BTNcancel.Enabled = false;
+            this.BTNcancel.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTNcancel.Location = new System.Drawing.Point(367, 372);
+            this.BTNcancel.Name = "BTNcancel";
+            this.BTNcancel.Size = new System.Drawing.Size(259, 34);
+            this.BTNcancel.TabIndex = 61;
+            this.BTNcancel.Text = "Cancelar";
+            this.BTNcancel.UseVisualStyleBackColor = true;
+            this.BTNcancel.Visible = false;
+            this.BTNcancel.Click += new System.EventHandler(this.BTNcancel_Click);
+            // 
+            // CBXtypeOfPerson
+            // 
+            this.CBXtypeOfPerson.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBXtypeOfPerson.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBXtypeOfPerson.FormattingEnabled = true;
+            this.CBXtypeOfPerson.Location = new System.Drawing.Point(485, 105);
+            this.CBXtypeOfPerson.Name = "CBXtypeOfPerson";
+            this.CBXtypeOfPerson.Size = new System.Drawing.Size(141, 31);
+            this.CBXtypeOfPerson.TabIndex = 1;
+            // 
+            // LBtypeOfPerson
+            // 
+            this.LBtypeOfPerson.AutoSize = true;
+            this.LBtypeOfPerson.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBtypeOfPerson.Location = new System.Drawing.Point(362, 107);
+            this.LBtypeOfPerson.Name = "LBtypeOfPerson";
+            this.LBtypeOfPerson.Size = new System.Drawing.Size(117, 25);
+            this.LBtypeOfPerson.TabIndex = 63;
+            this.LBtypeOfPerson.Text = "Tipo persona";
             // 
             // ClientsForm
             // 

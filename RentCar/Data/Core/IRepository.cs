@@ -17,5 +17,6 @@ namespace RentCar.Data.Core
         void AddRange(IEnumerable<T> entities);
         void Remove(T entity);
         void RemoveRange(IEnumerable<T> entities);
+        int Count(Expression<Func<T, bool>> predicate);
     }
 }

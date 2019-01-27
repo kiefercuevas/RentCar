@@ -9,14 +9,13 @@ namespace RentCar.Models
         public int EmployeeID { get; set; }
         public virtual Employee Employee { get; set; }
 
-        [Required(ErrorMessage = "El correo es obligatorio")]
-        [EmailAddress(ErrorMessage ="El correo no cumple el formato valido")]
-        public string Email { get; set; }
+        
+        public string Username { get; set; }
 
-        [Required(ErrorMessage = "La clave es obligatoria")]
-        [MinLength(6,ErrorMessage = "La clave debe ser de almenos 6 caracteres")]
+        [Required]
         public string Password { get; set; }
-
-        public virtual ICollection<Role> Roles { get; set; }
+        public int RoleID { get; set; }
+        public Role Role { get; set; }
+        
     }
 }

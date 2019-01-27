@@ -27,6 +27,8 @@ namespace RentCar.Views.vehicleTypes
         private void VehicleTypes_Load(object sender, EventArgs e)
         {
             LoadVehicleTypeGrid();
+            if (Global.Variables[Global.rol].ToString() != "ADMIN")
+                BTNdelete.Enabled = false;
         }
 
         private void LoadVehicleTypeGrid()
@@ -59,9 +61,21 @@ namespace RentCar.Views.vehicleTypes
         private string ValidateVehicleType()
         {
             if (!string.IsNullOrWhiteSpace(TBXvehicleTypeName.Text))
-                return "";
+                if (_context.VehicleTypes.Count(v => v.State == true && v.Description.ToLower() == TBXvehicleTypeName.Text.ToLower() && v.VehicleTypeID != VehicleType.VehicleTypeID) == 0)
+                {
+                    return "";
+                }
+                else
+                    return "Ya existe un tipo de vehiculo con el nombre introducido";
             else
                 return "El campo Descripcion no puede estar vacio";
+        }
+        private string ValidateRubberQuantity()
+        {
+            if (NUDrubberQuantity.Value < 999999999)
+                return "";
+            else
+                return "Ha excedido el limite de 999999999";
         }
 
         private void SetVehicleType(VehicleType vehicleType)
@@ -104,7 +118,23 @@ namespace RentCar.Views.vehicleTypes
             }
         }
 
+        private string GetErrors()
+        {
+            string vehicleType = ValidateVehicleType();
+            string rubberQuantity = ValidateRubberQuantity();
 
+            if (string.IsNullOrWhiteSpace(vehicleType))
+            {
+                if (string.IsNullOrWhiteSpace(rubberQuantity))
+                {
+                    return "";
+                }
+                else
+                    return rubberQuantity;
+            }
+            else
+                return vehicleType;
+        }
 
         private void Reset()
         {
@@ -117,9 +147,10 @@ namespace RentCar.Views.vehicleTypes
             VehicleType = new VehicleType();
         }
 
+
         private void BTNaddVehicleType_Click(object sender, EventArgs e)
         {
-            string errors = ValidateVehicleType();
+            string errors = GetErrors();
             if (string.IsNullOrWhiteSpace(errors))
             {
                 SetVehicleType(VehicleType);

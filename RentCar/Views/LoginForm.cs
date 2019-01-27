@@ -28,17 +28,25 @@ namespace RentCar.Views
                 string EncriptedPassword = EncriptPassWord(password);
 
                 User user = _context.User
-                    .GetUserWithEmployeeAndRoles(u => u.Password == EncriptedPassword && u.Email == Email);
+                    .GetUserWithEmployeeAndRoles(u => u.Password == EncriptedPassword && u.Username == Email );
 
                 if(user != null){
-                    AddSessionVariables(user);
+                    if (user.Employee.State)
+                    {
+                        AddSessionVariables(user);
 
-                    Form menuPage = new MenuPage();
-                    menuPage.FormClosed += new FormClosedEventHandler(MenuPage_FormClosed);
-                    menuPage.Show();
+                        Form menuPage = new MenuPage();
+                        menuPage.FormClosed += new FormClosedEventHandler(MenuPage_FormClosed);
+                        menuPage.Show();
 
-                    ResetForm();
-                    Hide();
+                        ResetForm();
+                        Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Este usuario se encuentra desactivado");
+                        BTNLogin.Enabled = true;
+                    }   
                 }
                 else{
                    MessageBox.Show("El usuario es incorrecto, verifique el correo o contraseña");
@@ -63,7 +71,7 @@ namespace RentCar.Views
         {
             Global.Variables.Add(Global.Id, user.Employee.EmployeeID);
             Global.Variables.Add(Global.Username, user.Employee.Name);
-            Global.Variables.Add(Global.Roles, user.Roles.Select(r => r.Name).ToList());
+            Global.Variables.Add(Global.rol, user.Role.Name);
         }
 
         void MenuPage_FormClosed(object sender, FormClosedEventArgs e)

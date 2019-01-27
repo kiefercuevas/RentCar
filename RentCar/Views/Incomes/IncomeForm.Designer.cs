@@ -79,6 +79,11 @@
             // NUDamountxDay
             // 
             this.NUDamountxDay.Location = new System.Drawing.Point(158, 144);
+            this.NUDamountxDay.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
             this.NUDamountxDay.Name = "NUDamountxDay";
             this.NUDamountxDay.Size = new System.Drawing.Size(99, 20);
             this.NUDamountxDay.TabIndex = 4;

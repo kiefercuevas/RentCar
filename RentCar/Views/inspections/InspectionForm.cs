@@ -21,8 +21,8 @@ namespace RentCar.Views.inspections
         {
             TBXEmployee.Text = Global.Variables[Global.Username] as string;
 
-            LoadClients(_context.Clients.GetAll());
-            LoadVehicle(_context.Vehicles.GetAll());
+            LoadClients(_context.Clients.Find(c => c.State == true));
+            LoadVehicle(_context.Vehicles.Find(v => v.State == true));
             LoadFuelQuantity(_context.FluelQuantities.GetAll()); 
         }
 
@@ -116,19 +116,22 @@ namespace RentCar.Views.inspections
         {
             string text = TXBvehicle.Text;
             IEnumerable<Vehicle> vehicles;
-            if (!string.IsNullOrWhiteSpace(text))
+
+            if (!string.IsNullOrWhiteSpace(text) && text.Length >= 3)
             {
-               vehicles = _context.Vehicles.Find(v => v.Brand.Description.Contains(text) ||
+               vehicles = _context.Vehicles.Find(v => 
+                   v.State == true &&
+                   (v.Brand.Description.Contains(text) ||
                    v.ChassisNumber.Contains(text) ||
                    v.Description.Contains(text) ||
                    v.EngineNumber.Contains(text) ||
                    v.FluelType.Description.Contains(text) ||
                    v.LicensePlateNumber.Contains(text) ||
                    v.Model.Description.Contains(text) ||
-                   v.VehicleType.Description.Contains(text));
+                   v.VehicleType.Description.Contains(text)));
             }
             else
-                vehicles = _context.Vehicles.GetAll();
+                vehicles = _context.Vehicles.Find(v => v.State == true);
 
             
             CLBXrubbers.Items.Clear();
@@ -139,14 +142,16 @@ namespace RentCar.Views.inspections
         {
             string text = TXBclients.Text;
             IEnumerable<Client> clients;
-            if (!string.IsNullOrWhiteSpace(text)){
-                clients = _context.Clients.Find(c => c.CreditCardNumber.Contains(text) ||
+            if (!string.IsNullOrWhiteSpace(text) && text.Length >= 3){
+                clients = _context.Clients.Find(c => 
+                            c.State == true &&
+                            (c.CreditCardNumber.Contains(text) ||
                             c.CreditLimit.ToString().Contains(text) ||
                             c.IdentificationCard.Contains(text) ||
-                            c.Name.Contains(text));
+                            c.Name.Contains(text)));
             }
             else
-                clients = _context.Clients.GetAll();
+                clients = _context.Clients.Find(c => c.State == true);
 
             LoadClients(clients);
         }
@@ -155,6 +160,7 @@ namespace RentCar.Views.inspections
         {
             string text = TBXfuelquantity.Text;
             IEnumerable<FluelQuantity> fluels;
+
             if (!string.IsNullOrWhiteSpace(text))
                 fluels = _context.FluelQuantities.Find(f => f.Quantity.ToString().Contains(text));
             else

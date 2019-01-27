@@ -304,6 +304,7 @@
             // 
             // CBXvehicleType
             // 
+            this.CBXvehicleType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBXvehicleType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBXvehicleType.FormattingEnabled = true;
             this.CBXvehicleType.Location = new System.Drawing.Point(822, 154);
@@ -323,6 +324,7 @@
             // 
             // CBXbrand
             // 
+            this.CBXbrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBXbrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBXbrand.FormattingEnabled = true;
             this.CBXbrand.Location = new System.Drawing.Point(772, 45);
@@ -332,6 +334,7 @@
             // 
             // CBXmodel
             // 
+            this.CBXmodel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBXmodel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBXmodel.FormattingEnabled = true;
             this.CBXmodel.Location = new System.Drawing.Point(772, 97);
@@ -351,6 +354,7 @@
             // 
             // CBXfluelType
             // 
+            this.CBXfluelType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBXfluelType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBXfluelType.FormattingEnabled = true;
             this.CBXfluelType.Location = new System.Drawing.Point(852, 208);

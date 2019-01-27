@@ -52,6 +52,7 @@
             this.BTNvehicleTypes = new System.Windows.Forms.Button();
             this.BTNclients = new System.Windows.Forms.Button();
             this.BTNuserName = new System.Windows.Forms.Button();
+            this.BTNchangeState = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DTGVIncomes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,8 +71,9 @@
             this.DTGVIncomes.Location = new System.Drawing.Point(244, 171);
             this.DTGVIncomes.Name = "DTGVIncomes";
             this.DTGVIncomes.ReadOnly = true;
-            this.DTGVIncomes.Size = new System.Drawing.Size(544, 293);
+            this.DTGVIncomes.Size = new System.Drawing.Size(635, 293);
             this.DTGVIncomes.TabIndex = 1;
+            this.DTGVIncomes.SelectionChanged += new System.EventHandler(this.DTGVIncomes_SelectionChanged);
             this.DTGVIncomes.DoubleClick += new System.EventHandler(this.DTGVIncomes_DoubleClick);
             // 
             // IncomeID
@@ -136,7 +138,7 @@
             this.TBXIncomeSearch.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBXIncomeSearch.Location = new System.Drawing.Point(514, 142);
             this.TBXIncomeSearch.Name = "TBXIncomeSearch";
-            this.TBXIncomeSearch.Size = new System.Drawing.Size(160, 22);
+            this.TBXIncomeSearch.Size = new System.Drawing.Size(125, 22);
             this.TBXIncomeSearch.TabIndex = 0;
             // 
             // LBStartDate
@@ -162,9 +164,9 @@
             // BTNDateFilter
             // 
             this.BTNDateFilter.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNDateFilter.Location = new System.Drawing.Point(680, 140);
+            this.BTNDateFilter.Location = new System.Drawing.Point(645, 140);
             this.BTNDateFilter.Name = "BTNDateFilter";
-            this.BTNDateFilter.Size = new System.Drawing.Size(75, 25);
+            this.BTNDateFilter.Size = new System.Drawing.Size(70, 25);
             this.BTNDateFilter.TabIndex = 5;
             this.BTNDateFilter.Text = "Filtrar";
             this.BTNDateFilter.UseVisualStyleBackColor = true;
@@ -202,7 +204,7 @@
             // BTNclear
             // 
             this.BTNclear.Font = new System.Drawing.Font("Arial Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNclear.Location = new System.Drawing.Point(761, 140);
+            this.BTNclear.Location = new System.Drawing.Point(852, 140);
             this.BTNclear.Name = "BTNclear";
             this.BTNclear.Size = new System.Drawing.Size(27, 25);
             this.BTNclear.TabIndex = 8;
@@ -221,6 +223,7 @@
             this.BTNEmployees.Text = "Empleados";
             this.BTNEmployees.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BTNEmployees.UseVisualStyleBackColor = true;
+            this.BTNEmployees.Click += new System.EventHandler(this.BTNEmployees_Click);
             // 
             // BTNbrands
             // 
@@ -260,6 +263,7 @@
             this.BTNfluels.Text = "Combustibles";
             this.BTNfluels.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BTNfluels.UseVisualStyleBackColor = true;
+            this.BTNfluels.Click += new System.EventHandler(this.BTNfluels_Click);
             // 
             // BTNvehicleTypes
             // 
@@ -294,19 +298,32 @@
             this.BTNuserName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTNuserName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTNuserName.Image = ((System.Drawing.Image)(resources.GetObject("BTNuserName.Image")));
-            this.BTNuserName.Location = new System.Drawing.Point(680, 22);
+            this.BTNuserName.Location = new System.Drawing.Point(751, 22);
             this.BTNuserName.Name = "BTNuserName";
             this.BTNuserName.Size = new System.Drawing.Size(108, 37);
             this.BTNuserName.TabIndex = 15;
             this.BTNuserName.Text = "Usuario";
             this.BTNuserName.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.BTNuserName.UseVisualStyleBackColor = true;
+            this.BTNuserName.Click += new System.EventHandler(this.BTNuserName_Click);
+            // 
+            // BTNchangeState
+            // 
+            this.BTNchangeState.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTNchangeState.Location = new System.Drawing.Point(721, 140);
+            this.BTNchangeState.Name = "BTNchangeState";
+            this.BTNchangeState.Size = new System.Drawing.Size(125, 25);
+            this.BTNchangeState.TabIndex = 16;
+            this.BTNchangeState.Text = "Finalizar Renta";
+            this.BTNchangeState.UseVisualStyleBackColor = true;
+            this.BTNchangeState.Click += new System.EventHandler(this.BTNchangeState_Click);
             // 
             // MenuPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 476);
+            this.ClientSize = new System.Drawing.Size(888, 476);
+            this.Controls.Add(this.BTNchangeState);
             this.Controls.Add(this.BTNuserName);
             this.Controls.Add(this.BTNclients);
             this.Controls.Add(this.BTNvehicleTypes);
@@ -360,5 +377,6 @@
         private System.Windows.Forms.Button BTNvehicleTypes;
         private System.Windows.Forms.Button BTNclients;
         private System.Windows.Forms.Button BTNuserName;
+        private System.Windows.Forms.Button BTNchangeState;
     }
 }

@@ -191,6 +191,11 @@
             // 
             this.NUDrubberQuantity.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NUDrubberQuantity.Location = new System.Drawing.Point(509, 107);
+            this.NUDrubberQuantity.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
             this.NUDrubberQuantity.Name = "NUDrubberQuantity";
             this.NUDrubberQuantity.Size = new System.Drawing.Size(74, 29);
             this.NUDrubberQuantity.TabIndex = 43;

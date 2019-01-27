@@ -27,6 +27,8 @@ namespace RentCar.Views.brands
         private void BrandForm_Load(object sender, EventArgs e)
         {
             LoadBrandGrid();
+            if (Global.Variables[Global.rol].ToString() != "ADMIN")
+                BTNdelete.Enabled = false;
         }
 
 
@@ -103,7 +105,12 @@ namespace RentCar.Views.brands
         private string ValidateBrand()
         {
             if (!string.IsNullOrWhiteSpace(TBXbrandName.Text)){
-                return "";
+                if (_context.Brands.Count(b => b.State == true && b.Description.ToLower() == TBXbrandName.Text.ToLower() && b.BrandID != Brand.BrandID) == 0)
+                {
+                    return "";
+                }
+                else
+                    return "Ya existe una marca con ese nombre";
             }
             else
                 return "El campo Descripcion no puede estar vacio";

@@ -6,7 +6,7 @@ namespace RentCar.Models
     {
         [Key]
         public int ModelID { get; set; }
-        [Required(ErrorMessage ="El modelo es obligatorio")]
+        [Required]
         public string Description { get; set; }
         public bool State { get; set; }
         public int BrandID { get; set; }

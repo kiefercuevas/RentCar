@@ -21,7 +21,7 @@ namespace RentCar.Data.Repositories
         public User GetUserWithEmployeeAndRoles(Expression<Func<User, bool>> predicate)
         {
             return _RentCarContex.Users.Include(u => u.Employee)
-                .Include(u => u.Roles)
+                .Include(u => u.Role)
                 .SingleOrDefault(predicate);
         }
     }

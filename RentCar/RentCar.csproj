@@ -89,9 +89,33 @@
     <Compile Include="Data\Repositories\VehicleTypeRepository.cs" />
     <Compile Include="Data\Repositories\WorkShiftRepository.cs" />
     <Compile Include="Global.cs" />
-    <Compile Include="Migrations\201901202019457_initial.cs" />
-    <Compile Include="Migrations\201901202019457_initial.Designer.cs">
-      <DependentUpon>201901202019457_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201901261858225_Initial.cs" />
+    <Compile Include="Migrations\201901261858225_Initial.Designer.cs">
+      <DependentUpon>201901261858225_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901261903204_setRoles.cs" />
+    <Compile Include="Migrations\201901261903204_setRoles.Designer.cs">
+      <DependentUpon>201901261903204_setRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901261906361_SetWorkshift.cs" />
+    <Compile Include="Migrations\201901261906361_SetWorkshift.Designer.cs">
+      <DependentUpon>201901261906361_SetWorkshift.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901261908000_AddDefaultEmployee.cs" />
+    <Compile Include="Migrations\201901261908000_AddDefaultEmployee.Designer.cs">
+      <DependentUpon>201901261908000_AddDefaultEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901261913366_AddDefaultUser.cs" />
+    <Compile Include="Migrations\201901261913366_AddDefaultUser.Designer.cs">
+      <DependentUpon>201901261913366_AddDefaultUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901262057286_AddDefaultPersonTypes.cs" />
+    <Compile Include="Migrations\201901262057286_AddDefaultPersonTypes.Designer.cs">
+      <DependentUpon>201901262057286_AddDefaultPersonTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901262231402_AddDefaultFluelQuantity.cs" />
+    <Compile Include="Migrations\201901262231402_AddDefaultFluelQuantity.Designer.cs">
+      <DependentUpon>201901262231402_AddDefaultFluelQuantity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
@@ -109,6 +133,7 @@
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Models\VehicleType.cs" />
     <Compile Include="Models\ViewModels\ClientViewModel.cs" />
+    <Compile Include="Models\ViewModels\EmployeeViewModel.cs" />
     <Compile Include="Models\ViewModels\VehicleViewModel.cs" />
     <Compile Include="Models\WorkShift.cs" />
     <Compile Include="Views\brands\BrandForm.cs">
@@ -122,6 +147,18 @@
     </Compile>
     <Compile Include="Views\clients\ClientsForm.Designer.cs">
       <DependentUpon>ClientsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\employees\EmployeesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\employees\EmployeesForm.Designer.cs">
+      <DependentUpon>EmployeesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\fluel\FluelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\fluel\FluelForm.Designer.cs">
+      <DependentUpon>FluelForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Incomes\IncomeForm.cs">
       <SubType>Form</SubType>
@@ -167,6 +204,12 @@
     <Compile Include="Views\models\ModelsForm.Designer.cs">
       <DependentUpon>ModelsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\user\UserSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\user\UserSettings.Designer.cs">
+      <DependentUpon>UserSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\vehicles\VehiclesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,8 +222,26 @@
     <Compile Include="Views\vehicleTypes\VehicleTypesForm.Designer.cs">
       <DependentUpon>VehicleTypesForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Migrations\201901202019457_initial.resx">
-      <DependentUpon>201901202019457_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901261858225_Initial.resx">
+      <DependentUpon>201901261858225_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901261903204_setRoles.resx">
+      <DependentUpon>201901261903204_setRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901261906361_SetWorkshift.resx">
+      <DependentUpon>201901261906361_SetWorkshift.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901261908000_AddDefaultEmployee.resx">
+      <DependentUpon>201901261908000_AddDefaultEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901261913366_AddDefaultUser.resx">
+      <DependentUpon>201901261913366_AddDefaultUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901262057286_AddDefaultPersonTypes.resx">
+      <DependentUpon>201901262057286_AddDefaultPersonTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901262231402_AddDefaultFluelQuantity.resx">
+      <DependentUpon>201901262231402_AddDefaultFluelQuantity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -196,6 +257,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\clients\ClientsForm.resx">
       <DependentUpon>ClientsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\employees\EmployeesForm.resx">
+      <DependentUpon>EmployeesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\fluel\FluelForm.resx">
+      <DependentUpon>FluelForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Incomes\IncomeForm.resx">
       <DependentUpon>IncomeForm.cs</DependentUpon>
@@ -217,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\models\ModelsForm.resx">
       <DependentUpon>ModelsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\user\UserSettings.resx">
+      <DependentUpon>UserSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\vehicles\VehiclesForm.resx">
       <DependentUpon>VehiclesForm.cs</DependentUpon>

@@ -38,6 +38,17 @@ namespace RentCar.Views.Incomes
             }
         }
 
+        private bool ValidateAmountLimit(IncomeAndRefund incomeAndRefund)
+        {
+            if (NUDamountxDay.Value < 999999999)
+            {
+                incomeAndRefund.AmountPerDay = (float)NUDamountxDay.Value;
+                return true;
+            }
+            else
+                return false;
+        }
+
         private void CompleteIncome()
         {
             if (DTPrefundDate.Value <= DateTime.Now)
@@ -46,7 +57,6 @@ namespace RentCar.Views.Incomes
             {
                 IncomeAndRefund income = new IncomeAndRefund()
                 {
-                    AmountPerDay = (float)NUDamountxDay.Value,
                     ClientID = Inspection.ClientID,
                     EmployeeID = Inspection.EmployeeID,
                     NumberOfDays = (DTPrefundDate.Value.Date - DateTime.Now.Date).Days,
@@ -56,19 +66,22 @@ namespace RentCar.Views.Incomes
                     VehicleID = Inspection.VehicleID,
                     State = true
                 };
-                income.Inspections = new List<Inspection>
-                {
-                    Inspection
-                };
-                _context.IncomeAndRefund.Add(income);
-                if (_context.Complete() > 0){
-                    switch(MessageBox.Show("La renta se ha realizado correctamente")){
-                        case DialogResult.OK:
-                            IsIncomeCancel = false;
-                            Close();
-                            break;
+
+                if (ValidateAmountLimit(income)){
+                    income.Inspections = new List<Inspection>{Inspection};
+                    _context.IncomeAndRefund.Add(income);
+                    if (_context.Complete() > 0)
+                    {
+                        switch (MessageBox.Show("La renta se ha realizado correctamente"))
+                        {
+                            case DialogResult.OK:
+                                IsIncomeCancel = false;
+                                Close();
+                                break;
+                        }
                     }
-                }
+                }else
+                    MessageBox.Show("Ha excedido el limite de 999999999");
             }
         }
 

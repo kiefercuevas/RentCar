@@ -6,7 +6,7 @@ namespace RentCar.Models
     {
         [Key]
         public int RoleID { get; set; }
-        [Required(ErrorMessage ="El rol es obligatorio")]
+        [Required]
         public string Name { get; set; }
         public virtual ICollection<User> Users { get; set; }
     }

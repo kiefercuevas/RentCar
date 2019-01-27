@@ -29,6 +29,8 @@ namespace RentCar.Views.vehicles
         private void VehiclesForm_Load(object sender, EventArgs e)
         {
             LoadVehicleData();
+            if (Global.Variables[Global.rol].ToString() != "ADMIN")
+                BTNdelete.Enabled = false;
         }
         private void LoadVehicleData()
         {
@@ -223,6 +225,7 @@ namespace RentCar.Views.vehicles
                        if( _context.Complete() > 0){
                             var result = MessageBox.Show("El vehiculo ha sido eliminado correctamente");
                             if (result == DialogResult.OK)
+                                Reset();
                                 LoadVehicleData();
                         }
                         break;
@@ -285,13 +288,18 @@ namespace RentCar.Views.vehicles
         }
         private string ValidateChassisNumber()
         {
-            string chassisNo = TBXchasisNumber.Text;
+            string chassisNo = TBXchasisNumber.Text.ToLower();
             if (!string.IsNullOrWhiteSpace(chassisNo))
             {
                 if (chassisNo.Length == 17)
                 {
                     if (CheckValidChassisNumber(chassisNo))
-                        return "";
+                        if (_context.Vehicles.Count(v => v.State == true && v.ChassisNumber.ToLower() == chassisNo && v.VehicleID != Vehicle.VehicleID) == 0)
+                        {
+                            return "";
+                        }
+                        else
+                            return "Ya existe un vehiculo con el numero de chasis introducido";
                     else
                         return "El numero de chasis no es valido";
                 }
@@ -303,7 +311,7 @@ namespace RentCar.Views.vehicles
         }
         private string ValidatePlateNumber()
         {
-            string plateNumber = TBXplateNumber.Text;
+            string plateNumber = TBXplateNumber.Text.ToLower();
             if (!string.IsNullOrWhiteSpace(plateNumber))
             {
                 if (TBXplateNumber.TextLength == 7)
@@ -311,7 +319,12 @@ namespace RentCar.Views.vehicles
                     string pattern = @"^[A-Za-z]{1}[0-9]{6}$";
                     var regex = new Regex(pattern);
                     if (regex.IsMatch(plateNumber))
-                        return "";
+                        if (_context.Vehicles.Count(v => v.State == true && v.LicensePlateNumber.ToLower() == plateNumber && v.VehicleID != Vehicle.VehicleID) == 0)
+                        {
+                            return "";
+                        }
+                        else
+                            return "Ya existe un vehiculo con el numero de Matricula introducido";
                     else
                         return "La Matricula no es valida";
                 }
@@ -323,11 +336,16 @@ namespace RentCar.Views.vehicles
         }
         private string ValidateEngineNumber()
         {
-            string engineNumber = TBXengineNumber.Text;
+            string engineNumber = TBXengineNumber.Text.ToLower();
             if (!string.IsNullOrWhiteSpace(engineNumber))
             {
                 if (engineNumber.Length >= 8)
-                    return "";
+                    if (_context.Vehicles.Count(v => v.State == true && v.EngineNumber.ToLower() == engineNumber && v.VehicleID != Vehicle.VehicleID) == 0)
+                    {
+                        return "";
+                    }
+                    else
+                        return "Ya existe un vehiculo con el numero de Motor introducido";
                 else
                     return "El numero del motor debe ser mayor que 8";
             }

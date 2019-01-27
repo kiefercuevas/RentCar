@@ -5,7 +5,7 @@ namespace RentCar.Models
     {
         [Key]
         public int PersonTypeID { get; set; }
-        [Required(ErrorMessage ="El tipo de persona es obligatorio")]
+        [Required]
         public string Title { get; set; }
     }
 }

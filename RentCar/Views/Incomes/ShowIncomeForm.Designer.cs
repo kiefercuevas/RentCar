@@ -76,6 +76,7 @@
             this.GBXemployee = new System.Windows.Forms.GroupBox();
             this.TBXempName = new System.Windows.Forms.TextBox();
             this.LBempName = new System.Windows.Forms.Label();
+            this.CBXstate = new System.Windows.Forms.CheckBox();
             this.GBXincomeInfo.SuspendLayout();
             this.GBclient.SuspendLayout();
             this.GBXvehicle.SuspendLayout();
@@ -94,6 +95,7 @@
             // 
             // GBXincomeInfo
             // 
+            this.GBXincomeInfo.Controls.Add(this.CBXstate);
             this.GBXincomeInfo.Controls.Add(this.LBinspection);
             this.GBXincomeInfo.Controls.Add(this.BTNinspection);
             this.GBXincomeInfo.Controls.Add(this.RTBXcomment);
@@ -128,20 +130,20 @@
             // 
             // BTNinspection
             // 
-            this.BTNinspection.Location = new System.Drawing.Point(416, 124);
+            this.BTNinspection.Location = new System.Drawing.Point(378, 124);
             this.BTNinspection.Name = "BTNinspection";
-            this.BTNinspection.Size = new System.Drawing.Size(88, 36);
+            this.BTNinspection.Size = new System.Drawing.Size(126, 36);
             this.BTNinspection.TabIndex = 14;
-            this.BTNinspection.Text = "Inspeccion";
+            this.BTNinspection.Text = "Ver Inspeccion";
             this.BTNinspection.UseVisualStyleBackColor = true;
             this.BTNinspection.Click += new System.EventHandler(this.BTNinspection_Click);
             // 
             // RTBXcomment
             // 
             this.RTBXcomment.Enabled = false;
-            this.RTBXcomment.Location = new System.Drawing.Point(567, 59);
+            this.RTBXcomment.Location = new System.Drawing.Point(529, 97);
             this.RTBXcomment.Name = "RTBXcomment";
-            this.RTBXcomment.Size = new System.Drawing.Size(181, 96);
+            this.RTBXcomment.Size = new System.Drawing.Size(209, 63);
             this.RTBXcomment.TabIndex = 13;
             this.RTBXcomment.Text = "";
             // 
@@ -149,7 +151,7 @@
             // 
             this.LBcomment.AutoSize = true;
             this.LBcomment.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBcomment.Location = new System.Drawing.Point(563, 31);
+            this.LBcomment.Location = new System.Drawing.Point(525, 66);
             this.LBcomment.Name = "LBcomment";
             this.LBcomment.Size = new System.Drawing.Size(98, 23);
             this.LBcomment.TabIndex = 12;
@@ -565,6 +567,18 @@
             this.LBempName.TabIndex = 35;
             this.LBempName.Text = "Nombre";
             // 
+            // CBXstate
+            // 
+            this.CBXstate.AutoSize = true;
+            this.CBXstate.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CBXstate.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBXstate.Location = new System.Drawing.Point(524, 30);
+            this.CBXstate.Name = "CBXstate";
+            this.CBXstate.Size = new System.Drawing.Size(77, 27);
+            this.CBXstate.TabIndex = 17;
+            this.CBXstate.Text = "Estado";
+            this.CBXstate.UseVisualStyleBackColor = true;
+            // 
             // ShowIncomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -641,5 +655,6 @@
         private System.Windows.Forms.GroupBox GBXemployee;
         private System.Windows.Forms.TextBox TBXempName;
         private System.Windows.Forms.Label LBempName;
+        private System.Windows.Forms.CheckBox CBXstate;
     }
 }

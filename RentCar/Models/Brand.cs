@@ -7,7 +7,7 @@ namespace RentCar.Models
         [Key]
         public int BrandID { get; set; }
 
-        [Required(ErrorMessage ="La descripcion es obligatoria")]
+        [Required]
         public string Description { get; set; }
         public bool State { get; set; }
         public virtual ICollection<Vehicle> Vehicles { get; set; }

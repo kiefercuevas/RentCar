@@ -3,7 +3,7 @@ namespace RentCar.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initial : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -37,8 +37,8 @@ namespace RentCar.Migrations
                         VehicleID = c.Int(nullable: false, identity: true),
                         Description = c.String(nullable: false),
                         ChassisNumber = c.String(nullable: false, maxLength: 17),
-                        EngineNumber = c.String(nullable: false, maxLength: 16),
-                        LicensePlateNumber = c.String(nullable: false, maxLength: 8),
+                        EngineNumber = c.String(nullable: false),
+                        LicensePlateNumber = c.String(nullable: false),
                         VehicleTypeID = c.Int(nullable: false),
                         BrandID = c.Int(nullable: false),
                         ModelID = c.Int(nullable: false),
@@ -156,12 +156,15 @@ namespace RentCar.Migrations
                     {
                         UserID = c.Int(nullable: false, identity: true),
                         EmployeeID = c.Int(nullable: false),
-                        Email = c.String(nullable: false),
+                        Username = c.String(),
                         Password = c.String(nullable: false),
+                        RoleID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.UserID)
                 .ForeignKey("dbo.Employees", t => t.EmployeeID, cascadeDelete: true)
-                .Index(t => t.EmployeeID);
+                .ForeignKey("dbo.Roles", t => t.RoleID, cascadeDelete: true)
+                .Index(t => t.EmployeeID)
+                .Index(t => t.RoleID);
             
             CreateTable(
                 "dbo.Roles",
@@ -224,19 +227,6 @@ namespace RentCar.Migrations
                     })
                 .PrimaryKey(t => t.VehicleTypeID);
             
-            CreateTable(
-                "dbo.RoleUsers",
-                c => new
-                    {
-                        Role_RoleID = c.Int(nullable: false),
-                        User_UserID = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => new { t.Role_RoleID, t.User_UserID })
-                .ForeignKey("dbo.Roles", t => t.Role_RoleID, cascadeDelete: true)
-                .ForeignKey("dbo.Users", t => t.User_UserID, cascadeDelete: true)
-                .Index(t => t.Role_RoleID)
-                .Index(t => t.User_UserID);
-            
         }
         
         public override void Down()
@@ -250,8 +240,7 @@ namespace RentCar.Migrations
             DropForeignKey("dbo.Inspections", "IncomeID", "dbo.IncomeAndRefunds");
             DropForeignKey("dbo.Inspections", "FluelQuantityID", "dbo.FluelQuantities");
             DropForeignKey("dbo.Employees", "WorkShiftID", "dbo.WorkShifts");
-            DropForeignKey("dbo.RoleUsers", "User_UserID", "dbo.Users");
-            DropForeignKey("dbo.RoleUsers", "Role_RoleID", "dbo.Roles");
+            DropForeignKey("dbo.Users", "RoleID", "dbo.Roles");
             DropForeignKey("dbo.Users", "EmployeeID", "dbo.Employees");
             DropForeignKey("dbo.Inspections", "EmployeeID", "dbo.Employees");
             DropForeignKey("dbo.IncomeAndRefunds", "EmployeeID", "dbo.Employees");
@@ -260,9 +249,8 @@ namespace RentCar.Migrations
             DropForeignKey("dbo.Vehicles", "FluelTypeID", "dbo.FluelTypes");
             DropForeignKey("dbo.Vehicles", "BrandID", "dbo.Brands");
             DropForeignKey("dbo.Models", "BrandID", "dbo.Brands");
-            DropIndex("dbo.RoleUsers", new[] { "User_UserID" });
-            DropIndex("dbo.RoleUsers", new[] { "Role_RoleID" });
             DropIndex("dbo.RubberStates", new[] { "InspectionID" });
+            DropIndex("dbo.Users", new[] { "RoleID" });
             DropIndex("dbo.Users", new[] { "EmployeeID" });
             DropIndex("dbo.Employees", new[] { "WorkShiftID" });
             DropIndex("dbo.Inspections", new[] { "IncomeID" });
@@ -279,7 +267,6 @@ namespace RentCar.Migrations
             DropIndex("dbo.Vehicles", new[] { "BrandID" });
             DropIndex("dbo.Vehicles", new[] { "VehicleTypeID" });
             DropIndex("dbo.Models", new[] { "BrandID" });
-            DropTable("dbo.RoleUsers");
             DropTable("dbo.VehicleTypes");
             DropTable("dbo.PersonTypes");
             DropTable("dbo.RubberStates");

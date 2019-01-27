@@ -28,6 +28,11 @@ namespace RentCar.Data.Repositories
             _entity.AddRange(entities);
         }
 
+        public int Count(Expression<Func<T, bool>> predicate)
+        {
+            return _entity.Where(predicate).Count();
+        }
+
         public IEnumerable<T> Find(Expression<Func<T, bool>> predicate)
         {
             return _entity.Where(predicate).ToList();

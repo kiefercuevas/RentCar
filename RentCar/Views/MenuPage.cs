@@ -12,24 +12,30 @@ using RentCar.Views.brands;
 using RentCar.Views.models;
 using RentCar.Views.vehicleTypes;
 using RentCar.Views.clients;
+using RentCar.Views.employees;
+using RentCar.Views.fluel;
+using RentCar.Views.user;
 namespace RentCar.Views
 {
     public partial class MenuPage : Form
     {
         private readonly RentCarUnitOfWork _context;
+        private bool IsRequiredClosing;
         public MenuPage()
         {
             InitializeComponent();
             _context = new RentCarUnitOfWork();
+            BTNchangeState.Enabled = false;
+            IsRequiredClosing = false;
         }
 
         private void MenuPage_Load(object sender, EventArgs e)
         {
             BTNuserName.Text = Global.Variables[Global.Username].ToString();
             ShowIncomes(_context.IncomeAndRefund.GetAll());
-            List<string> roles = (List<string>)Global.Variables[Global.Roles];
+            string rol = Global.Variables[Global.rol].ToString();
 
-            if (!roles.Contains(Global.ADMINROLE)){
+            if (rol != Global.ADMINROLE){
                 BTNEmployees.Enabled = false;
             }
         }
@@ -76,7 +82,7 @@ namespace RentCar.Views
 
         private void MenuPage_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
+            if (e.CloseReason == CloseReason.UserClosing && !IsRequiredClosing)
             {
                 switch (MessageBox.Show("Esta seguro de que desea salir?", "Confirmar salir", MessageBoxButtons.YesNo))
                 {
@@ -89,14 +95,15 @@ namespace RentCar.Views
                     default:
                         break;
                 }
-            }
+            }else
+                Global.Variables.Clear();
         }
 
         private void BTNIncome_Click(object sender, EventArgs e)
         {
             InspectionForm inspection = new InspectionForm();
             inspection.ShowDialog();
-            ShowIncomes(_context.IncomeAndRefund.Find(i => i.State == true));
+            ShowIncomes(_context.IncomeAndRefund.GetAll());
         }
 
         private void DTGVIncomes_DoubleClick(object sender, EventArgs e)
@@ -146,6 +153,71 @@ namespace RentCar.Views
         {
             ClientsForm clientsForm = new ClientsForm();
             clientsForm.ShowDialog();
+        }
+
+        private void BTNEmployees_Click(object sender, EventArgs e)
+        {
+            EmployeesForm form = new EmployeesForm();
+            form.ShowDialog();
+        }
+
+        private void BTNfluels_Click(object sender, EventArgs e)
+        {
+            FluelForm form = new FluelForm();
+            form.ShowDialog();
+        }
+
+        private void BTNchangeState_Click(object sender, EventArgs e)
+        {
+
+            if (DTGVIncomes.Rows.Count > 0 && DTGVIncomes.CurrentRow.Index != -1)
+            {
+                int id = Convert.ToInt32(DTGVIncomes.CurrentRow.Cells["IncomeID"].Value);
+                switch (MessageBox.Show("Esta seguro de que desea finalizar la renta", "Confirmar Finalizar", MessageBoxButtons.YesNo))
+                {
+                    case DialogResult.Yes:
+                        
+                        var income = _context.IncomeAndRefund.Get(id);
+                        income.State = false;
+                        if (_context.Complete() > 0)
+                        {
+                            var result = MessageBox.Show("la venta ha sido finalizada correctamente");
+                            if (result == DialogResult.OK){
+                                ShowIncomes(_context.IncomeAndRefund.GetAll());
+                            }
+                        }
+                        break;
+                    case DialogResult.No:
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private void DTGVIncomes_SelectionChanged(object sender, EventArgs e)
+        {
+            if (DTGVIncomes.Rows.Count > 0 && DTGVIncomes.CurrentRow.Index != -1)
+            {
+                int id = Convert.ToInt32(DTGVIncomes.CurrentRow.Cells["IncomeID"].Value);
+                var income = _context.IncomeAndRefund.Get(id);
+                if (income.State == true)
+                    BTNchangeState.Enabled = true;
+                else
+                    BTNchangeState.Enabled = false;
+            }
+        }
+
+        private void BTNuserName_Click(object sender, EventArgs e)
+        {
+            UserSettings form = new UserSettings(Convert.ToInt32(Global.Variables[Global.Id]));
+            var result = form.ShowDialog();
+
+            if(result == DialogResult.OK)
+            {
+                IsRequiredClosing = true;
+                Close();
+            }
         }
     }
 }

@@ -9,13 +9,11 @@ namespace RentCar.Models
         [Key]
         public int EmployeeID { get; set; }
 
-        [Required(ErrorMessage = "El nombre es obligatorio")]
-        [MinLength(3, ErrorMessage = "El nombre debe tener almenos 3 caracteres")]
+        [Required]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "La cedula es obligatoria")]
+        [Required]
         [StringLength(11, ErrorMessage = "El campo cedula debe tener 11 digitos")]
-        [RegularExpression(@"^\d+$", ErrorMessage = "La cedula debe contener solo numeros")]
         public string IdentificationCard { get; set; }
         public int WorkShiftID { get; set; }
         public virtual WorkShift WorkShift { get; set; }
