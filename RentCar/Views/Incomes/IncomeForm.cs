@@ -62,7 +62,7 @@ namespace RentCar.Views.Incomes
                     NumberOfDays = (DTPrefundDate.Value.Date - DateTime.Now.Date).Days,
                     Commentary = RTBXcomment.Text,
                     IncomeDate = Inspection.InspectionDate,
-                    RefundDate = DTPrefundDate.Value,
+                    RefundDate = DTPrefundDate.Value.Date,
                     VehicleID = Inspection.VehicleID,
                     State = true
                 };

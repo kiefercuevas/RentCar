@@ -14,5 +14,20 @@ namespace RentCar
         public const string ADMINROLE = "ADMIN";
         public const string USEROLE = "USER";
         public static Dictionary<string, object> Variables = new Dictionary<string, object>();
+
+        public  enum Filter :int
+        {
+            FILTER_BY_PARAM,
+            FILTER_BY_START_DATE,
+            FILTER_BY_END_DATE,
+            FILTER_BY_START_DATE_AND_PARAM,
+            FILTER_BY_END_DATE_AND_PARAM,
+            FILTER_BETWEEN_DATES,
+            FILTER_BETWEEN_DATES_AND_PARAM,
+        }
     }
+
+
+    
+
 }

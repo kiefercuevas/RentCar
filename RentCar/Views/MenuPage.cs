@@ -35,13 +35,41 @@ namespace RentCar.Views
             ShowIncomes(_context.IncomeAndRefund.GetAll());
             string rol = Global.Variables[Global.rol].ToString();
 
+            LoadFilterCombobox();
+
             if (rol != Global.ADMINROLE){
                 BTNEmployees.Enabled = false;
             }
         }
 
+        private void LoadFilterCombobox()
+        {
+           
+            Dictionary<int, string> FilterData = new Dictionary<int, string>
+            {
+                { (int)Global.Filter.FILTER_BY_PARAM, "Filtrar por parametro" },
+                { (int)Global.Filter.FILTER_BY_START_DATE, "Filtrar por fecha de renta" },
+                { (int)Global.Filter.FILTER_BY_END_DATE, "Filtrar por fecha de devolucion" },
+                { (int)Global.Filter.FILTER_BY_START_DATE_AND_PARAM, "Filtrar por fecha de renta y parametro" },
+                { (int)Global.Filter.FILTER_BY_END_DATE_AND_PARAM, "Filtrar por fecha de devolucion y parametro" },
+                { (int)Global.Filter.FILTER_BETWEEN_DATES, "Filtrar entre fechas" },
+                { (int)Global.Filter.FILTER_BETWEEN_DATES_AND_PARAM, "Filtrar entre fechas y parametro" }
+            };
 
-        
+            CBXfilter.DataSource = new BindingSource(FilterData, null);
+            CBXfilter.DisplayMember = "Value";
+            CBXfilter.ValueMember = "Key";
+        }
+
+        private int GetSourceId(ComboBox comboBox)
+        {
+            if (comboBox.DataSource != null)
+                return ((KeyValuePair<int, string>)comboBox.SelectedItem).Key;
+            else
+                return 0;
+        }
+
+
         private void ShowIncomes(IEnumerable<IncomeAndRefund> data)
         {
             DTGVIncomes.AutoGenerateColumns = false;
@@ -50,35 +78,108 @@ namespace RentCar.Views
 
         private void BTNDateFilter_Click(object sender, EventArgs e)
         {
+            int selectedValue = GetSourceId(CBXfilter);
             DateTime startDate = DTPStartDate.Value.Date;
-            DateTime endDate = DTPEndDate.Value.Date.AddDays(1);
-            IEnumerable<IncomeAndRefund> data;
+            DateTime endDate = DTPEndDate.Value.Date;
 
-            if (startDate > endDate)
-                ShowMessage("La fecha inicial no puede ser mayor a la final");
-            else{
-                data = FilterGridViewByDatesAndParam(startDate,endDate,TBXIncomeSearch.Text);
-                ShowIncomes(data);
+            switch (selectedValue)
+            {
+                case (int)Global.Filter.FILTER_BY_PARAM:
+                    ShowIncomes(FilterGridViewByParam(TBXIncomeSearch.Text));
+                    break;
+                case (int)Global.Filter.FILTER_BY_START_DATE:
+                    ShowIncomes(FilterGridViewByStartDate(startDate));
+                    break;
+                case (int)Global.Filter.FILTER_BY_END_DATE:
+                    ShowIncomes(FilterGridViewByEndDate(endDate));
+                    break;
+                case (int)Global.Filter.FILTER_BY_START_DATE_AND_PARAM:
+                    ShowIncomes(FilterGridViewByStartDate(startDate,TBXIncomeSearch.Text));
+                    break;
+                case (int)Global.Filter.FILTER_BY_END_DATE_AND_PARAM:
+                    ShowIncomes(FilterGridViewByEndDate(endDate, TBXIncomeSearch.Text));
+                    break;
+                case (int)Global.Filter.FILTER_BETWEEN_DATES:
+                    if (startDate >= endDate)
+                        MessageBox.Show("La fecha inicial no puede ser mayor a la final");
+                    else
+                       ShowIncomes(FilterGridViewByDatesAndParam(startDate, endDate.AddDays(1)));
+                    break;
+                case (int)Global.Filter.FILTER_BETWEEN_DATES_AND_PARAM:
+                    ShowIncomes(FilterGridViewByDatesAndParam(startDate, endDate.AddDays(1),TBXIncomeSearch.Text));
+                    break;
+                default:
+                    MessageBox.Show("La opcion no es valida");
+                    break;
             }
         }
 
+        private IEnumerable<IncomeAndRefund> FilterGridViewByParam(string param)
+        {
+            if (!string.IsNullOrEmpty(param))
+                return _context.IncomeAndRefund.GetIncomeAndRefundsWithAll(
+                    i => i.Client.IdentificationCard.ToLower().Contains(param) ||
+                         i.Employee.IdentificationCard.ToLower().Contains(param) ||
+                         i.Vehicle.ChassisNumber.ToLower().Contains(param) ||
+                         i.Vehicle.Description.ToLower().Contains(param) ||
+                         i.NumberOfDays.ToString().Contains(param) ||
+                         i.Client.Name.Contains(param) ||
+                         i.Employee.Name.Contains(param));
+            else
+                return _context.IncomeAndRefund.GetAll();
+                     
+        }
+        private IEnumerable<IncomeAndRefund> FilterGridViewByStartDate(DateTime startDate,string param = null)
+        {
+            if(!string.IsNullOrEmpty(param))
+            {
+                return _context.IncomeAndRefund.GetIncomeAndRefundsWithAll(
+                    i => i.IncomeDate == startDate &&
+                        (i.Client.IdentificationCard.ToLower().Contains(param) ||
+                         i.Employee.IdentificationCard.ToLower().Contains(param) ||
+                         i.Vehicle.ChassisNumber.ToLower().Contains(param) ||
+                         i.Vehicle.Description.ToLower().Contains(param) ||
+                         i.NumberOfDays.ToString().Contains(param) ||
+                         i.Client.Name.Contains(param) ||
+                         i.Employee.Name.Contains(param)));
+            }
+            return _context.IncomeAndRefund
+                      .Find(i => i.IncomeDate == startDate);
+        }
+        private IEnumerable<IncomeAndRefund> FilterGridViewByEndDate(DateTime endDate,string param = null)
+        {
+            if (!string.IsNullOrEmpty(param))
+            {
+                return _context.IncomeAndRefund.GetIncomeAndRefundsWithAll(
+                    i => i.RefundDate == endDate &&
+                        (i.Client.IdentificationCard.ToLower().Contains(param) ||
+                         i.Employee.IdentificationCard.ToLower().Contains(param) ||
+                         i.Vehicle.ChassisNumber.ToLower().Contains(param) ||
+                         i.Vehicle.Description.ToLower().Contains(param) ||
+                         i.NumberOfDays.ToString().Contains(param) ||
+                         i.Client.Name.Contains(param) ||
+                         i.Employee.Name.Contains(param)));
+            }
+            return _context.IncomeAndRefund
+                      .Find(i => i.RefundDate == endDate);
+        }
         private IEnumerable<IncomeAndRefund> FilterGridViewByDatesAndParam(DateTime start,DateTime end,string param = null)
         {
             if (!string.IsNullOrEmpty(param))
                 return _context.IncomeAndRefund
                      .Find(i => i.IncomeDate >= start && i.RefundDate < end &&
-                     i.State == true &&
-                     (i.IncomeID.ToString().Contains(param) ||
-                      i.AmountPerDay.ToString().Contains(param)));
+                     (i.Client.IdentificationCard.ToLower().Contains(param) ||
+                         i.Employee.IdentificationCard.ToLower().Contains(param) ||
+                         i.Vehicle.ChassisNumber.ToLower().Contains(param) ||
+                         i.Vehicle.Description.ToLower().Contains(param) ||
+                         i.NumberOfDays.ToString().Contains(param) ||
+                         i.Client.Name.Contains(param) ||
+                         i.Employee.Name.Contains(param)));
             else
                 return _context.IncomeAndRefund
-                     .Find(i => i.IncomeDate >= start && i.RefundDate < end && i.State == true);
+                     .Find(i => i.IncomeDate >= start && i.RefundDate < end);
         }
 
-        private void ShowMessage(string message)
-        {
-            MessageBox.Show(message);
-        }
 
         private void MenuPage_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -122,7 +223,7 @@ namespace RentCar.Views
             DTPStartDate.Value = DateTime.Now;
             DTPEndDate.Value = DateTime.Now;
             TBXIncomeSearch.Text = null;
-            ShowIncomes(_context.IncomeAndRefund.Find(i => i.State == true));
+            ShowIncomes(_context.IncomeAndRefund.GetAll());
         }
 
         private void BTNvehicles_Click(object sender, EventArgs e)

@@ -30,12 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPage));
             this.DTGVIncomes = new System.Windows.Forms.DataGridView();
-            this.IncomeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IncomeDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RefundDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AmountPerDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumberOfDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.State = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DTPStartDate = new System.Windows.Forms.DateTimePicker();
             this.DTPEndDate = new System.Windows.Forms.DateTimePicker();
             this.TBXIncomeSearch = new System.Windows.Forms.TextBox();
@@ -53,6 +47,14 @@
             this.BTNclients = new System.Windows.Forms.Button();
             this.BTNuserName = new System.Windows.Forms.Button();
             this.BTNchangeState = new System.Windows.Forms.Button();
+            this.CBXfilter = new System.Windows.Forms.ComboBox();
+            this.IncomeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IncomeDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RefundDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AmountPerDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumberOfDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Commentary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.State = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DTGVIncomes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,85 +69,46 @@
             this.RefundDate,
             this.AmountPerDay,
             this.NumberOfDays,
+            this.Commentary,
             this.State});
             this.DTGVIncomes.Location = new System.Drawing.Point(244, 171);
             this.DTGVIncomes.Name = "DTGVIncomes";
             this.DTGVIncomes.ReadOnly = true;
-            this.DTGVIncomes.Size = new System.Drawing.Size(635, 293);
+            this.DTGVIncomes.Size = new System.Drawing.Size(728, 293);
             this.DTGVIncomes.TabIndex = 1;
             this.DTGVIncomes.SelectionChanged += new System.EventHandler(this.DTGVIncomes_SelectionChanged);
             this.DTGVIncomes.DoubleClick += new System.EventHandler(this.DTGVIncomes_DoubleClick);
             // 
-            // IncomeID
-            // 
-            this.IncomeID.DataPropertyName = "IncomeID";
-            this.IncomeID.HeaderText = "Codigo";
-            this.IncomeID.Name = "IncomeID";
-            this.IncomeID.ReadOnly = true;
-            // 
-            // IncomeDate
-            // 
-            this.IncomeDate.DataPropertyName = "IncomeDate";
-            this.IncomeDate.HeaderText = "Fecha Renta";
-            this.IncomeDate.Name = "IncomeDate";
-            this.IncomeDate.ReadOnly = true;
-            // 
-            // RefundDate
-            // 
-            this.RefundDate.DataPropertyName = "RefundDate";
-            this.RefundDate.HeaderText = "Fecha Devolucion";
-            this.RefundDate.Name = "RefundDate";
-            this.RefundDate.ReadOnly = true;
-            // 
-            // AmountPerDay
-            // 
-            this.AmountPerDay.DataPropertyName = "AmountPerDay";
-            this.AmountPerDay.HeaderText = "Monto x Dia";
-            this.AmountPerDay.Name = "AmountPerDay";
-            this.AmountPerDay.ReadOnly = true;
-            // 
-            // NumberOfDays
-            // 
-            this.NumberOfDays.DataPropertyName = "NumberOfDays";
-            this.NumberOfDays.HeaderText = "CantidadDias";
-            this.NumberOfDays.Name = "NumberOfDays";
-            this.NumberOfDays.ReadOnly = true;
-            // 
-            // State
-            // 
-            this.State.DataPropertyName = "State";
-            this.State.HeaderText = "Estado";
-            this.State.Name = "State";
-            this.State.ReadOnly = true;
-            // 
             // DTPStartDate
             // 
-            this.DTPStartDate.Location = new System.Drawing.Point(303, 144);
+            this.DTPStartDate.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DTPStartDate.Location = new System.Drawing.Point(297, 135);
             this.DTPStartDate.Name = "DTPStartDate";
-            this.DTPStartDate.Size = new System.Drawing.Size(68, 20);
+            this.DTPStartDate.Size = new System.Drawing.Size(68, 29);
             this.DTPStartDate.TabIndex = 1;
             // 
             // DTPEndDate
             // 
             this.DTPEndDate.CalendarFont = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DTPEndDate.Location = new System.Drawing.Point(428, 144);
+            this.DTPEndDate.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DTPEndDate.Location = new System.Drawing.Point(423, 134);
             this.DTPEndDate.Name = "DTPEndDate";
-            this.DTPEndDate.Size = new System.Drawing.Size(70, 20);
+            this.DTPEndDate.Size = new System.Drawing.Size(70, 29);
             this.DTPEndDate.TabIndex = 2;
             // 
             // TBXIncomeSearch
             // 
-            this.TBXIncomeSearch.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBXIncomeSearch.Location = new System.Drawing.Point(514, 142);
+            this.TBXIncomeSearch.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBXIncomeSearch.Location = new System.Drawing.Point(499, 135);
             this.TBXIncomeSearch.Name = "TBXIncomeSearch";
-            this.TBXIncomeSearch.Size = new System.Drawing.Size(125, 22);
+            this.TBXIncomeSearch.Size = new System.Drawing.Size(100, 29);
             this.TBXIncomeSearch.TabIndex = 0;
             // 
             // LBStartDate
             // 
             this.LBStartDate.AutoSize = true;
             this.LBStartDate.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBStartDate.Location = new System.Drawing.Point(240, 143);
+            this.LBStartDate.Location = new System.Drawing.Point(240, 139);
             this.LBStartDate.Name = "LBStartDate";
             this.LBStartDate.Size = new System.Drawing.Size(51, 20);
             this.LBStartDate.TabIndex = 3;
@@ -155,7 +118,7 @@
             // 
             this.LBEndDate.AutoSize = true;
             this.LBEndDate.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBEndDate.Location = new System.Drawing.Point(377, 143);
+            this.LBEndDate.Location = new System.Drawing.Point(370, 139);
             this.LBEndDate.Name = "LBEndDate";
             this.LBEndDate.Size = new System.Drawing.Size(47, 20);
             this.LBEndDate.TabIndex = 4;
@@ -164,9 +127,9 @@
             // BTNDateFilter
             // 
             this.BTNDateFilter.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNDateFilter.Location = new System.Drawing.Point(645, 140);
+            this.BTNDateFilter.Location = new System.Drawing.Point(751, 134);
             this.BTNDateFilter.Name = "BTNDateFilter";
-            this.BTNDateFilter.Size = new System.Drawing.Size(70, 25);
+            this.BTNDateFilter.Size = new System.Drawing.Size(88, 30);
             this.BTNDateFilter.TabIndex = 5;
             this.BTNDateFilter.Text = "Filtrar";
             this.BTNDateFilter.UseVisualStyleBackColor = true;
@@ -204,9 +167,9 @@
             // BTNclear
             // 
             this.BTNclear.Font = new System.Drawing.Font("Arial Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNclear.Location = new System.Drawing.Point(852, 140);
+            this.BTNclear.Location = new System.Drawing.Point(845, 133);
             this.BTNclear.Name = "BTNclear";
-            this.BTNclear.Size = new System.Drawing.Size(27, 25);
+            this.BTNclear.Size = new System.Drawing.Size(25, 30);
             this.BTNclear.TabIndex = 8;
             this.BTNclear.Text = "X";
             this.BTNclear.UseVisualStyleBackColor = true;
@@ -216,7 +179,7 @@
             // 
             this.BTNEmployees.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTNEmployees.Image = ((System.Drawing.Image)(resources.GetObject("BTNEmployees.Image")));
-            this.BTNEmployees.Location = new System.Drawing.Point(12, 329);
+            this.BTNEmployees.Location = new System.Drawing.Point(12, 319);
             this.BTNEmployees.Name = "BTNEmployees";
             this.BTNEmployees.Size = new System.Drawing.Size(205, 58);
             this.BTNEmployees.TabIndex = 9;
@@ -243,9 +206,9 @@
             // 
             this.BTNmodels.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTNmodels.Image = ((System.Drawing.Image)(resources.GetObject("BTNmodels.Image")));
-            this.BTNmodels.Location = new System.Drawing.Point(12, 190);
+            this.BTNmodels.Location = new System.Drawing.Point(653, 22);
             this.BTNmodels.Name = "BTNmodels";
-            this.BTNmodels.Size = new System.Drawing.Size(205, 58);
+            this.BTNmodels.Size = new System.Drawing.Size(205, 75);
             this.BTNmodels.TabIndex = 11;
             this.BTNmodels.Text = "Modelos";
             this.BTNmodels.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -269,7 +232,7 @@
             // 
             this.BTNvehicleTypes.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTNvehicleTypes.Image = ((System.Drawing.Image)(resources.GetObject("BTNvehicleTypes.Image")));
-            this.BTNvehicleTypes.Location = new System.Drawing.Point(12, 118);
+            this.BTNvehicleTypes.Location = new System.Drawing.Point(12, 139);
             this.BTNvehicleTypes.Name = "BTNvehicleTypes";
             this.BTNvehicleTypes.Size = new System.Drawing.Size(205, 58);
             this.BTNvehicleTypes.TabIndex = 13;
@@ -282,7 +245,7 @@
             // 
             this.BTNclients.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTNclients.Image = ((System.Drawing.Image)(resources.GetObject("BTNclients.Image")));
-            this.BTNclients.Location = new System.Drawing.Point(12, 256);
+            this.BTNclients.Location = new System.Drawing.Point(12, 230);
             this.BTNclients.Name = "BTNclients";
             this.BTNclients.Size = new System.Drawing.Size(205, 58);
             this.BTNclients.TabIndex = 14;
@@ -298,7 +261,7 @@
             this.BTNuserName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTNuserName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTNuserName.Image = ((System.Drawing.Image)(resources.GetObject("BTNuserName.Image")));
-            this.BTNuserName.Location = new System.Drawing.Point(751, 22);
+            this.BTNuserName.Location = new System.Drawing.Point(864, 22);
             this.BTNuserName.Name = "BTNuserName";
             this.BTNuserName.Size = new System.Drawing.Size(108, 37);
             this.BTNuserName.TabIndex = 15;
@@ -310,19 +273,80 @@
             // BTNchangeState
             // 
             this.BTNchangeState.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNchangeState.Location = new System.Drawing.Point(721, 140);
+            this.BTNchangeState.Location = new System.Drawing.Point(876, 133);
             this.BTNchangeState.Name = "BTNchangeState";
-            this.BTNchangeState.Size = new System.Drawing.Size(125, 25);
+            this.BTNchangeState.Size = new System.Drawing.Size(96, 30);
             this.BTNchangeState.TabIndex = 16;
             this.BTNchangeState.Text = "Finalizar Renta";
             this.BTNchangeState.UseVisualStyleBackColor = true;
             this.BTNchangeState.Click += new System.EventHandler(this.BTNchangeState_Click);
             // 
+            // CBXfilter
+            // 
+            this.CBXfilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBXfilter.DropDownWidth = 280;
+            this.CBXfilter.Font = new System.Drawing.Font("Arial Narrow", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBXfilter.FormattingEnabled = true;
+            this.CBXfilter.Location = new System.Drawing.Point(605, 134);
+            this.CBXfilter.Name = "CBXfilter";
+            this.CBXfilter.Size = new System.Drawing.Size(140, 30);
+            this.CBXfilter.TabIndex = 17;
+            // 
+            // IncomeID
+            // 
+            this.IncomeID.DataPropertyName = "IncomeID";
+            this.IncomeID.HeaderText = "Codigo";
+            this.IncomeID.Name = "IncomeID";
+            this.IncomeID.ReadOnly = true;
+            // 
+            // IncomeDate
+            // 
+            this.IncomeDate.DataPropertyName = "IncomeDate";
+            this.IncomeDate.HeaderText = "Fecha Renta";
+            this.IncomeDate.Name = "IncomeDate";
+            this.IncomeDate.ReadOnly = true;
+            // 
+            // RefundDate
+            // 
+            this.RefundDate.DataPropertyName = "RefundDate";
+            this.RefundDate.HeaderText = "Fecha Devolucion";
+            this.RefundDate.Name = "RefundDate";
+            this.RefundDate.ReadOnly = true;
+            // 
+            // AmountPerDay
+            // 
+            this.AmountPerDay.DataPropertyName = "AmountPerDay";
+            this.AmountPerDay.HeaderText = "Monto x Dia";
+            this.AmountPerDay.Name = "AmountPerDay";
+            this.AmountPerDay.ReadOnly = true;
+            // 
+            // NumberOfDays
+            // 
+            this.NumberOfDays.DataPropertyName = "NumberOfDays";
+            this.NumberOfDays.HeaderText = "CantidadDias";
+            this.NumberOfDays.Name = "NumberOfDays";
+            this.NumberOfDays.ReadOnly = true;
+            // 
+            // Commentary
+            // 
+            this.Commentary.DataPropertyName = "Commentary";
+            this.Commentary.HeaderText = "Comentario";
+            this.Commentary.Name = "Commentary";
+            this.Commentary.ReadOnly = true;
+            // 
+            // State
+            // 
+            this.State.DataPropertyName = "State";
+            this.State.HeaderText = "Estado de la renta";
+            this.State.Name = "State";
+            this.State.ReadOnly = true;
+            // 
             // MenuPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(888, 476);
+            this.ClientSize = new System.Drawing.Size(984, 476);
+            this.Controls.Add(this.CBXfilter);
             this.Controls.Add(this.BTNchangeState);
             this.Controls.Add(this.BTNuserName);
             this.Controls.Add(this.BTNclients);
@@ -363,12 +387,6 @@
         private System.Windows.Forms.Button BTNDateFilter;
         private System.Windows.Forms.Button BTNIncome;
         private System.Windows.Forms.Button BTNvehicles;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IncomeID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IncomeDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RefundDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AmountPerDay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumberOfDays;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn State;
         private System.Windows.Forms.Button BTNclear;
         private System.Windows.Forms.Button BTNEmployees;
         private System.Windows.Forms.Button BTNbrands;
@@ -378,5 +396,13 @@
         private System.Windows.Forms.Button BTNclients;
         private System.Windows.Forms.Button BTNuserName;
         private System.Windows.Forms.Button BTNchangeState;
+        private System.Windows.Forms.ComboBox CBXfilter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IncomeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IncomeDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RefundDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AmountPerDay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumberOfDays;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Commentary;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn State;
     }
 }

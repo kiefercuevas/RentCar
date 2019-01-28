@@ -34,5 +34,20 @@ namespace RentCar.Data.Repositories
                 .Include(i => i.Vehicle.FluelType)
                 .SingleOrDefault(i => i.IncomeID == id);
         }
+
+        public IEnumerable<IncomeAndRefund> GetIncomeAndRefundsWithAll(Expression<Func<IncomeAndRefund, bool>> predicate)
+        {
+            return _RentCarContex.IncomeAndRefunds
+                .Include(i => i.Employee)
+                .Include(i => i.Client)
+                .Include(i => i.Client.PersonType)
+                .Include(i => i.Vehicle)
+                .Include(i => i.Vehicle.VehicleType)
+                .Include(i => i.Vehicle.Brand)
+                .Include(i => i.Vehicle.Model)
+                .Include(i => i.Vehicle.FluelType)
+                .Where(predicate)
+                .ToList();
+        }
     }
 }

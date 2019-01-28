@@ -193,7 +193,7 @@ namespace RentCar.Views.inspections
                     HasLeverCat = CKBhasLeverCat.Checked,
                     HasReplacementRubber = CKBhasReplacementRubber.Checked,
                     State = true,
-                    InspectionDate = DateTime.Now,
+                    InspectionDate = DateTime.Today.Date,
                     Etc = RTBXetc.Text,
                     RubberStates = new List<RubberState>()
                 };
