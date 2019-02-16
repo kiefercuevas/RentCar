@@ -243,7 +243,7 @@ namespace RentCar.Views.employees
                     {
                         if (IsValidIdentificationCard(identiticationCard))
                         {
-                            if (_context.Employees.Count(emp => emp.IdentificationCard == identiticationCard && emp.State == true) == 0){
+                            if (_context.Employees.Count(emp => emp.IdentificationCard == identiticationCard && emp.State == true && emp.EmployeeID != Employee.EmployeeID) == 0){
                                 return "";
                             }
                             else

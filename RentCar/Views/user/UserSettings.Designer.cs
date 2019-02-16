@@ -43,6 +43,7 @@
             this.TBXcurrentPassword.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBXcurrentPassword.Location = new System.Drawing.Point(191, 45);
             this.TBXcurrentPassword.Name = "TBXcurrentPassword";
+            this.TBXcurrentPassword.PasswordChar = '*';
             this.TBXcurrentPassword.Size = new System.Drawing.Size(148, 26);
             this.TBXcurrentPassword.TabIndex = 4;
             // 
@@ -81,6 +82,7 @@
             this.TBXnewPassword.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBXnewPassword.Location = new System.Drawing.Point(191, 91);
             this.TBXnewPassword.Name = "TBXnewPassword";
+            this.TBXnewPassword.PasswordChar = '*';
             this.TBXnewPassword.Size = new System.Drawing.Size(148, 26);
             this.TBXnewPassword.TabIndex = 6;
             // 
@@ -99,6 +101,7 @@
             this.TBXconfirmNewPassword.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBXconfirmNewPassword.Location = new System.Drawing.Point(191, 137);
             this.TBXconfirmNewPassword.Name = "TBXconfirmNewPassword";
+            this.TBXconfirmNewPassword.PasswordChar = '*';
             this.TBXconfirmNewPassword.Size = new System.Drawing.Size(148, 26);
             this.TBXconfirmNewPassword.TabIndex = 8;
             // 

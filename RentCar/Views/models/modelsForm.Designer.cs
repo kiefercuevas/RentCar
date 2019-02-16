@@ -126,7 +126,6 @@
             this.BTNdelete.TabIndex = 22;
             this.BTNdelete.Text = "Eliminar";
             this.BTNdelete.UseVisualStyleBackColor = true;
-            this.BTNdelete.Visible = false;
             this.BTNdelete.Click += new System.EventHandler(this.BTNdelete_Click);
             // 
             // BTNaddModel

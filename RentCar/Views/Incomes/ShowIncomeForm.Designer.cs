@@ -30,6 +30,7 @@
         {
             this.LBincomeID = new System.Windows.Forms.Label();
             this.GBXincomeInfo = new System.Windows.Forms.GroupBox();
+            this.CBXstate = new System.Windows.Forms.CheckBox();
             this.LBinspection = new System.Windows.Forms.Label();
             this.BTNinspection = new System.Windows.Forms.Button();
             this.RTBXcomment = new System.Windows.Forms.RichTextBox();
@@ -76,7 +77,6 @@
             this.GBXemployee = new System.Windows.Forms.GroupBox();
             this.TBXempName = new System.Windows.Forms.TextBox();
             this.LBempName = new System.Windows.Forms.Label();
-            this.CBXstate = new System.Windows.Forms.CheckBox();
             this.GBXincomeInfo.SuspendLayout();
             this.GBclient.SuspendLayout();
             this.GBXvehicle.SuspendLayout();
@@ -117,6 +117,19 @@
             this.GBXincomeInfo.TabIndex = 2;
             this.GBXincomeInfo.TabStop = false;
             this.GBXincomeInfo.Text = "Detalles de la renta";
+            // 
+            // CBXstate
+            // 
+            this.CBXstate.AutoCheck = false;
+            this.CBXstate.AutoSize = true;
+            this.CBXstate.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CBXstate.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBXstate.Location = new System.Drawing.Point(524, 30);
+            this.CBXstate.Name = "CBXstate";
+            this.CBXstate.Size = new System.Drawing.Size(77, 27);
+            this.CBXstate.TabIndex = 17;
+            this.CBXstate.Text = "Estado";
+            this.CBXstate.UseVisualStyleBackColor = true;
             // 
             // LBinspection
             // 
@@ -566,18 +579,6 @@
             this.LBempName.Size = new System.Drawing.Size(66, 23);
             this.LBempName.TabIndex = 35;
             this.LBempName.Text = "Nombre";
-            // 
-            // CBXstate
-            // 
-            this.CBXstate.AutoSize = true;
-            this.CBXstate.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CBXstate.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBXstate.Location = new System.Drawing.Point(524, 30);
-            this.CBXstate.Name = "CBXstate";
-            this.CBXstate.Size = new System.Drawing.Size(77, 27);
-            this.CBXstate.TabIndex = 17;
-            this.CBXstate.Text = "Estado";
-            this.CBXstate.UseVisualStyleBackColor = true;
             // 
             // ShowIncomeForm
             // 
