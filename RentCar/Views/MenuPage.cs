@@ -15,6 +15,9 @@ using RentCar.Views.clients;
 using RentCar.Views.employees;
 using RentCar.Views.fluel;
 using RentCar.Views.user;
+using Microsoft.Reporting.WinForms;
+
+
 namespace RentCar.Views
 {
     public partial class MenuPage : Form
@@ -319,6 +322,18 @@ namespace RentCar.Views
                 IsRequiredClosing = true;
                 Close();
             }
+        }
+
+        private void BTNprintRent_Click(object sender, EventArgs e)
+        {
+
+            List<IncomeAndRefund> incomeAndRefunds = (List<IncomeAndRefund>)DTGVIncomes.DataSource;
+
+            IncomeReportViewer vizor = new IncomeReportViewer
+            {
+                IncomeAndRefunds = incomeAndRefunds
+            };
+            vizor.ShowDialog();
         }
     }
 }

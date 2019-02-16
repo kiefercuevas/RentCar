@@ -138,6 +138,27 @@
   <metadata name="State.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="IncomeID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="IncomeDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="RefundDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="AmountPerDay.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="NumberOfDays.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Commentary.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="State.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="BTNIncome.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -324,25 +345,21 @@
         ZjCMyDf+bxKJX8+Z1ememUVkAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="IncomeID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="IncomeDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="RefundDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="AmountPerDay.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="NumberOfDays.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Commentary.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="State.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="BTNprintRent.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAApdJREFUaEPt2k2oDWEcx/EhsiJCKcKCkvKSl5S3EFFWFkpZKHnZSGGjrKwuO2Jj
+        YyM7FpIilKIsFEVEIrGjkJB3vr/pnNu/5z7HvD0z57k1v/ps5syZ5/xmzj13nplJCmQSjuMZvuFvjX7g
+        BU5gGoJnBd7BN3jdPmEjgmUGPsI3WFO+YAGC5BzcAfSVe1+jr3DHvIrKGQPtHbvh/RiFOjMS2/EH3XF/
+        YzIqZTZsmSdoMrdgx9ffcqXMg93gbTSZ87Djb0altIUCpy2UlbZQ4LSFstIWCpwghcZjCdZjN+wGH0HL
+        m3ITdvwj0PLlmIL/RkfjMn7BbiRm97ABQ6L5xmf43hQ7ncAewGCmot/znapUah3SnIRvpZi8hM68P5hl
+        rjtI8xy+FWKxDyOgjMMF+NbTfGkiku+dBTG6CDdj0etILYL3hVgcgi/uxK9rJbwvxOIU3Ojr9wq+9aMv
+        pH8lc2Gjaxq+dSX6QqKLNDpS+vpd6izrZVgUKqItFLvChd7gWIMew/c5eilcqN/zoSxtoWFRqMiEzi00
+        E77vfllrYFO00FIkr82CLG4h7RHfemUdhk3RQum0/KxZkCXmQg+RRudKeacQMRfahsHsgiZIvhUtt5AO
+        8Z6AFsImb6HTGJJNeArfG7rcQnUnq9Bb7EXPaK6hvaTbgdpjR2E34BaahTMlbEGeuIV01q3PtQOrMBqF
+        knXltOzf0ADyxC1U+6XgtlBHtIX0uMzWErTdPGm8UN0JXmgO7Abvo8lcgR1/LSpFF/XsyetPrEYT0bM9
+        7iMy01E512A3qlJ3cb1Guk7tPsL2AEGiU/J+3zPS3QWdyQTLTujI+Aarm8ocRPAsww00dbRURL+qlX8I
+        sjIB87G4RvpBSG+NFEuS/AOZWYdwnaYSmwAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>
