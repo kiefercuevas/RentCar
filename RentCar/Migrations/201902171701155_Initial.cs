@@ -44,6 +44,7 @@ namespace RentCar.Migrations
                         ModelID = c.Int(nullable: false),
                         FluelTypeID = c.Int(nullable: false),
                         State = c.Boolean(nullable: false),
+                        IsRented = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.VehicleID)
                 .ForeignKey("dbo.Brands", t => t.BrandID, cascadeDelete: true)

@@ -22,7 +22,7 @@ namespace RentCar.Views.inspections
             TBXEmployee.Text = Global.Variables[Global.Username] as string;
 
             LoadClients(_context.Clients.Find(c => c.State == true));
-            LoadVehicle(_context.Vehicles.Find(v => v.State == true));
+            LoadVehicle(_context.Vehicles.Find(v => v.State == true && v.IsRented == false));
             LoadFuelQuantity(_context.FluelQuantities.GetAll()); 
         }
 

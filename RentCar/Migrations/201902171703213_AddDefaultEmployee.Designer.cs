@@ -7,13 +7,13 @@ namespace RentCar.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddDefaultFluelQuantity : IMigrationMetadata
+    public sealed partial class AddDefaultEmployee : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddDefaultFluelQuantity));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddDefaultEmployee));
         
         string IMigrationMetadata.Id
         {
-            get { return "201901262231402_AddDefaultFluelQuantity"; }
+            get { return "201902171703213_AddDefaultEmployee"; }
         }
         
         string IMigrationMetadata.Source

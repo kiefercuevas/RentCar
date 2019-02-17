@@ -62,5 +62,11 @@ namespace RentCar.Data.Repositories
         {
             return _entity.SingleOrDefault(predicate);
         }
+
+        public void Reload(T entity)
+        {
+            _Context.Entry(entity).Reload();
+        }
+
     }
 }

@@ -68,7 +68,10 @@ namespace RentCar.Views.Incomes
                 };
 
                 if (ValidateAmountLimit(income)){
+                    //poner el id del vehiculo desde la inspection
                     income.Inspections = new List<Inspection>{Inspection};
+                    ChangeVehicleRentedState(income.VehicleID);
+
                     _context.IncomeAndRefund.Add(income);
                     if (_context.Complete() > 0)
                     {
@@ -83,6 +86,12 @@ namespace RentCar.Views.Incomes
                 }else
                     MessageBox.Show("Ha excedido el limite de 999999999");
             }
+        }
+
+        private void ChangeVehicleRentedState(int VehicleID)
+        {
+            Vehicle vehicle = _context.Vehicles.Get(VehicleID);
+            vehicle.IsRented = true;
         }
 
         private void IncomeForm_FormClosing(object sender, FormClosingEventArgs e)

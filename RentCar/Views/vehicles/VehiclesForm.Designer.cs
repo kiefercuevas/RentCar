@@ -29,16 +29,6 @@
         private void InitializeComponent()
         {
             this.DTGVvehicle = new System.Windows.Forms.DataGridView();
-            this.VehicleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LicensePlateNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ChassisNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EngineNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VehicleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FluelType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.State = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BTNaddVehicle = new System.Windows.Forms.Button();
             this.BTNdelete = new System.Windows.Forms.Button();
             this.TBXsearchVehicle = new System.Windows.Forms.TextBox();
@@ -62,6 +52,17 @@
             this.CBXfluelType = new System.Windows.Forms.ComboBox();
             this.LBfluelType = new System.Windows.Forms.Label();
             this.BTNcancel = new System.Windows.Forms.Button();
+            this.VehicleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LicensePlateNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChassisNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EngineNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VehicleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FluelType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.State = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsRented = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DTGVvehicle)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,83 +81,14 @@
             this.EngineNumber,
             this.VehicleType,
             this.FluelType,
-            this.State});
+            this.State,
+            this.IsRented});
             this.DTGVvehicle.Location = new System.Drawing.Point(12, 48);
             this.DTGVvehicle.Name = "DTGVvehicle";
             this.DTGVvehicle.ReadOnly = true;
             this.DTGVvehicle.Size = new System.Drawing.Size(344, 356);
             this.DTGVvehicle.TabIndex = 0;
             this.DTGVvehicle.DoubleClick += new System.EventHandler(this.DTGVvehicle_DoubleClick);
-            // 
-            // VehicleID
-            // 
-            this.VehicleID.DataPropertyName = "VehicleID";
-            this.VehicleID.HeaderText = "Codigo";
-            this.VehicleID.Name = "VehicleID";
-            this.VehicleID.ReadOnly = true;
-            // 
-            // Description
-            // 
-            this.Description.DataPropertyName = "Description";
-            this.Description.HeaderText = "Descripcion";
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            // 
-            // Brand
-            // 
-            this.Brand.DataPropertyName = "Brand";
-            this.Brand.HeaderText = "Marca";
-            this.Brand.Name = "Brand";
-            this.Brand.ReadOnly = true;
-            // 
-            // Model
-            // 
-            this.Model.DataPropertyName = "Model";
-            this.Model.HeaderText = "Modelo";
-            this.Model.Name = "Model";
-            this.Model.ReadOnly = true;
-            // 
-            // LicensePlateNumber
-            // 
-            this.LicensePlateNumber.DataPropertyName = "LicensePlateNumber";
-            this.LicensePlateNumber.HeaderText = "Matricula";
-            this.LicensePlateNumber.Name = "LicensePlateNumber";
-            this.LicensePlateNumber.ReadOnly = true;
-            // 
-            // ChassisNumber
-            // 
-            this.ChassisNumber.DataPropertyName = "ChassisNumber";
-            this.ChassisNumber.HeaderText = "No. Chasis";
-            this.ChassisNumber.Name = "ChassisNumber";
-            this.ChassisNumber.ReadOnly = true;
-            // 
-            // EngineNumber
-            // 
-            this.EngineNumber.DataPropertyName = "EngineNumber";
-            this.EngineNumber.HeaderText = "No. Motor";
-            this.EngineNumber.Name = "EngineNumber";
-            this.EngineNumber.ReadOnly = true;
-            // 
-            // VehicleType
-            // 
-            this.VehicleType.DataPropertyName = "VehicleType";
-            this.VehicleType.HeaderText = "Tipo de vehiculo";
-            this.VehicleType.Name = "VehicleType";
-            this.VehicleType.ReadOnly = true;
-            // 
-            // FluelType
-            // 
-            this.FluelType.DataPropertyName = "FluelType";
-            this.FluelType.HeaderText = "Tipo de Combustible";
-            this.FluelType.Name = "FluelType";
-            this.FluelType.ReadOnly = true;
-            // 
-            // State
-            // 
-            this.State.DataPropertyName = "State";
-            this.State.HeaderText = "Estado";
-            this.State.Name = "State";
-            this.State.ReadOnly = true;
             // 
             // BTNaddVehicle
             // 
@@ -385,6 +317,83 @@
             this.BTNcancel.Visible = false;
             this.BTNcancel.Click += new System.EventHandler(this.BTNcancel_Click);
             // 
+            // VehicleID
+            // 
+            this.VehicleID.DataPropertyName = "VehicleID";
+            this.VehicleID.HeaderText = "Codigo";
+            this.VehicleID.Name = "VehicleID";
+            this.VehicleID.ReadOnly = true;
+            // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "Description";
+            this.Description.HeaderText = "Descripcion";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
+            // Brand
+            // 
+            this.Brand.DataPropertyName = "Brand";
+            this.Brand.HeaderText = "Marca";
+            this.Brand.Name = "Brand";
+            this.Brand.ReadOnly = true;
+            // 
+            // Model
+            // 
+            this.Model.DataPropertyName = "Model";
+            this.Model.HeaderText = "Modelo";
+            this.Model.Name = "Model";
+            this.Model.ReadOnly = true;
+            // 
+            // LicensePlateNumber
+            // 
+            this.LicensePlateNumber.DataPropertyName = "LicensePlateNumber";
+            this.LicensePlateNumber.HeaderText = "Matricula";
+            this.LicensePlateNumber.Name = "LicensePlateNumber";
+            this.LicensePlateNumber.ReadOnly = true;
+            // 
+            // ChassisNumber
+            // 
+            this.ChassisNumber.DataPropertyName = "ChassisNumber";
+            this.ChassisNumber.HeaderText = "No. Chasis";
+            this.ChassisNumber.Name = "ChassisNumber";
+            this.ChassisNumber.ReadOnly = true;
+            // 
+            // EngineNumber
+            // 
+            this.EngineNumber.DataPropertyName = "EngineNumber";
+            this.EngineNumber.HeaderText = "No. Motor";
+            this.EngineNumber.Name = "EngineNumber";
+            this.EngineNumber.ReadOnly = true;
+            // 
+            // VehicleType
+            // 
+            this.VehicleType.DataPropertyName = "VehicleType";
+            this.VehicleType.HeaderText = "Tipo de vehiculo";
+            this.VehicleType.Name = "VehicleType";
+            this.VehicleType.ReadOnly = true;
+            // 
+            // FluelType
+            // 
+            this.FluelType.DataPropertyName = "FluelType";
+            this.FluelType.HeaderText = "Tipo de Combustible";
+            this.FluelType.Name = "FluelType";
+            this.FluelType.ReadOnly = true;
+            // 
+            // State
+            // 
+            this.State.DataPropertyName = "State";
+            this.State.HeaderText = "Estado";
+            this.State.Name = "State";
+            this.State.ReadOnly = true;
+            // 
+            // IsRented
+            // 
+            this.IsRented.DataPropertyName = "IsRented";
+            this.IsRented.HeaderText = "Esta Rentado?";
+            this.IsRented.Name = "IsRented";
+            this.IsRented.ReadOnly = true;
+            // 
             // VehiclesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -433,16 +442,6 @@
         private System.Windows.Forms.TextBox TBXsearchVehicle;
         private System.Windows.Forms.Button BTNsearchVehicle;
         private System.Windows.Forms.Button BTNclear;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VehicleID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Brand;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Model;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LicensePlateNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ChassisNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EngineNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VehicleType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FluelType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn State;
         private System.Windows.Forms.Label LBclient;
         private System.Windows.Forms.TextBox TBXvehicleName;
         private System.Windows.Forms.Label LBvehicleName;
@@ -461,5 +460,16 @@
         private System.Windows.Forms.ComboBox CBXfluelType;
         private System.Windows.Forms.Label LBfluelType;
         private System.Windows.Forms.Button BTNcancel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VehicleID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Brand;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Model;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LicensePlateNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChassisNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EngineNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VehicleType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FluelType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn State;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IsRented;
     }
 }

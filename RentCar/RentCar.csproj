@@ -114,33 +114,33 @@
     <Compile Include="IncomeReportViewer.Designer.cs">
       <DependentUpon>IncomeReportViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201901261858225_Initial.cs" />
-    <Compile Include="Migrations\201901261858225_Initial.Designer.cs">
-      <DependentUpon>201901261858225_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201902171701155_Initial.cs" />
+    <Compile Include="Migrations\201902171701155_Initial.Designer.cs">
+      <DependentUpon>201902171701155_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201901261903204_setRoles.cs" />
-    <Compile Include="Migrations\201901261903204_setRoles.Designer.cs">
-      <DependentUpon>201901261903204_setRoles.cs</DependentUpon>
+    <Compile Include="Migrations\201902171702046_AddRoles.cs" />
+    <Compile Include="Migrations\201902171702046_AddRoles.Designer.cs">
+      <DependentUpon>201902171702046_AddRoles.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201901261906361_SetWorkshift.cs" />
-    <Compile Include="Migrations\201901261906361_SetWorkshift.Designer.cs">
-      <DependentUpon>201901261906361_SetWorkshift.cs</DependentUpon>
+    <Compile Include="Migrations\201902171702434_AddWorkShifts.cs" />
+    <Compile Include="Migrations\201902171702434_AddWorkShifts.Designer.cs">
+      <DependentUpon>201902171702434_AddWorkShifts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201901261908000_AddDefaultEmployee.cs" />
-    <Compile Include="Migrations\201901261908000_AddDefaultEmployee.Designer.cs">
-      <DependentUpon>201901261908000_AddDefaultEmployee.cs</DependentUpon>
+    <Compile Include="Migrations\201902171703213_AddDefaultEmployee.cs" />
+    <Compile Include="Migrations\201902171703213_AddDefaultEmployee.Designer.cs">
+      <DependentUpon>201902171703213_AddDefaultEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201901261913366_AddDefaultUser.cs" />
-    <Compile Include="Migrations\201901261913366_AddDefaultUser.Designer.cs">
-      <DependentUpon>201901261913366_AddDefaultUser.cs</DependentUpon>
+    <Compile Include="Migrations\201902171704163_AddDefaultUser.cs" />
+    <Compile Include="Migrations\201902171704163_AddDefaultUser.Designer.cs">
+      <DependentUpon>201902171704163_AddDefaultUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201901262057286_AddDefaultPersonTypes.cs" />
-    <Compile Include="Migrations\201901262057286_AddDefaultPersonTypes.Designer.cs">
-      <DependentUpon>201901262057286_AddDefaultPersonTypes.cs</DependentUpon>
+    <Compile Include="Migrations\201902171705053_AddDefaultPersonTypes.cs" />
+    <Compile Include="Migrations\201902171705053_AddDefaultPersonTypes.Designer.cs">
+      <DependentUpon>201902171705053_AddDefaultPersonTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201901262231402_AddDefaultFluelQuantity.cs" />
-    <Compile Include="Migrations\201901262231402_AddDefaultFluelQuantity.Designer.cs">
-      <DependentUpon>201901262231402_AddDefaultFluelQuantity.cs</DependentUpon>
+    <Compile Include="Migrations\201902171705318_AddDefaultFluelQuantities.cs" />
+    <Compile Include="Migrations\201902171705318_AddDefaultFluelQuantities.Designer.cs">
+      <DependentUpon>201902171705318_AddDefaultFluelQuantities.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
@@ -254,26 +254,26 @@
     <EmbeddedResource Include="IncomeReportViewer.resx">
       <DependentUpon>IncomeReportViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901261858225_Initial.resx">
-      <DependentUpon>201901261858225_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902171701155_Initial.resx">
+      <DependentUpon>201902171701155_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901261903204_setRoles.resx">
-      <DependentUpon>201901261903204_setRoles.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902171702046_AddRoles.resx">
+      <DependentUpon>201902171702046_AddRoles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901261906361_SetWorkshift.resx">
-      <DependentUpon>201901261906361_SetWorkshift.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902171702434_AddWorkShifts.resx">
+      <DependentUpon>201902171702434_AddWorkShifts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901261908000_AddDefaultEmployee.resx">
-      <DependentUpon>201901261908000_AddDefaultEmployee.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902171703213_AddDefaultEmployee.resx">
+      <DependentUpon>201902171703213_AddDefaultEmployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901261913366_AddDefaultUser.resx">
-      <DependentUpon>201901261913366_AddDefaultUser.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902171704163_AddDefaultUser.resx">
+      <DependentUpon>201902171704163_AddDefaultUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901262057286_AddDefaultPersonTypes.resx">
-      <DependentUpon>201901262057286_AddDefaultPersonTypes.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902171705053_AddDefaultPersonTypes.resx">
+      <DependentUpon>201902171705053_AddDefaultPersonTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901262231402_AddDefaultFluelQuantity.resx">
-      <DependentUpon>201901262231402_AddDefaultFluelQuantity.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902171705318_AddDefaultFluelQuantities.resx">
+      <DependentUpon>201902171705318_AddDefaultFluelQuantities.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

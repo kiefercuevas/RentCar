@@ -3,7 +3,7 @@ namespace RentCar.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class setRoles : DbMigration
+    public partial class AddRoles : DbMigration
     {
         public override void Up()
         {

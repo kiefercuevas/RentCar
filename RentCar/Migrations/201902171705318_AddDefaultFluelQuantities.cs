@@ -3,7 +3,7 @@ namespace RentCar.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddDefaultFluelQuantity : DbMigration
+    public partial class AddDefaultFluelQuantities : DbMigration
     {
         public override void Up()
         {

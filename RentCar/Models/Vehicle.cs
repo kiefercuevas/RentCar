@@ -33,7 +33,7 @@ namespace RentCar.Models
         public int FluelTypeID { get; set; }
         public FluelType FluelType { get; set; }
         public bool State { get; set; }
-
+        public bool IsRented { get; set; }
         public virtual ICollection<Inspection> Inspections { get; set; }
         public virtual ICollection<IncomeAndRefund> IncomeAndRefunds { get; set; }
     }

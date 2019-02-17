@@ -3,7 +3,7 @@ namespace RentCar.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class SetWorkshift : DbMigration
+    public partial class AddWorkShifts : DbMigration
     {
         public override void Up()
         {

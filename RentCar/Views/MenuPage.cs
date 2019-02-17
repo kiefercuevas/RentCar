@@ -22,7 +22,7 @@ namespace RentCar.Views
 {
     public partial class MenuPage : Form
     {
-        private readonly RentCarUnitOfWork _context;
+        private RentCarUnitOfWork _context;
         private bool IsRequiredClosing;
         public MenuPage()
         {
@@ -75,6 +75,9 @@ namespace RentCar.Views
 
         private void ShowIncomes(IEnumerable<IncomeAndRefund> data)
         {
+            DTGVIncomes.DataSource = null;
+            DTGVIncomes.Rows.Clear();
+
             DTGVIncomes.AutoGenerateColumns = false;
             DTGVIncomes.DataSource = data;
         }
@@ -280,16 +283,23 @@ namespace RentCar.Views
                 switch (MessageBox.Show("Esta seguro de que desea finalizar la renta", "Confirmar Finalizar", MessageBoxButtons.YesNo))
                 {
                     case DialogResult.Yes:
+                        var income = _context.IncomeAndRefund.GetIncomeAndRefundWithAll(id);
+
+                        var vehicle = _context.Vehicles.Get(income.VehicleID);
+                        _context.Vehicles.Reload(vehicle);
+
+                        vehicle.IsRented = false;
                         
-                        var income = _context.IncomeAndRefund.Get(id);
                         income.State = false;
-                        if (_context.Complete() > 0)
-                        {
-                            var result = MessageBox.Show("la venta ha sido finalizada correctamente");
-                            if (result == DialogResult.OK){
-                                ShowIncomes(_context.IncomeAndRefund.GetAll());
+
+                            if (_context.Complete() > 0)
+                            {
+                                var result = MessageBox.Show("la venta ha sido finalizada correctamente");
+                                if (result == DialogResult.OK)
+                                {
+                                    ShowIncomes(_context.IncomeAndRefund.GetAll());
+                                }
                             }
-                        }
                         break;
                     case DialogResult.No:
                         break;
@@ -297,6 +307,12 @@ namespace RentCar.Views
                         break;
                 }
             }
+        }
+
+        private void ChangeVehicleRentedState(int VehicleID)
+        {
+            Vehicle vehicle = _context.Vehicles.Get(VehicleID);
+            vehicle.IsRented = false;
         }
 
         private void DTGVIncomes_SelectionChanged(object sender, EventArgs e)

@@ -166,7 +166,8 @@ namespace RentCar.Views.vehicles
                     FluelType = vehicle.FluelType.Description,
                     LicensePlateNumber = vehicle.LicensePlateNumber,
                     Model = vehicle.Model.Description,
-                    State = vehicle.State
+                    State = vehicle.State,
+                    IsRented = vehicle.IsRented,
                 });
             }
             return vehicleViewModels;

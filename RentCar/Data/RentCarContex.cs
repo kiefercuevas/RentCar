@@ -30,8 +30,10 @@ namespace RentCar.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            Configuration.LazyLoadingEnabled = false;
+            
             base.OnModelCreating(modelBuilder);
-
+            
 
             modelBuilder.Entity<Model>().
                 HasRequired(m => m.Brand)

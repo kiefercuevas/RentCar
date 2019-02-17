@@ -9,7 +9,7 @@ namespace RentCar.Migrations
         {
             var date = DateTime.Today.Date;
             Sql("INSERT INTO [Employees] (Name,IdentificationCard,AdmissionDate,WorkShiftID,CommissionPercentage,State) " +
-                "VALUES ('kiefer','40225413133','" + date + "',1,0,1)");
+                "VALUES ('ADMIN','00000000000','" + date + "',1,0,1)");
         }
         
         public override void Down()

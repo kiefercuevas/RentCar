@@ -18,5 +18,6 @@ namespace RentCar.Models.ViewModels
         public string FluelType { get; set; }
         public string VehicleType { get; set; }
         public bool State { get; set; }
+        public bool IsRented { get; set; }
     }
 }

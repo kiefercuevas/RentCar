@@ -8,7 +8,7 @@ namespace RentCar.Migrations
         public override void Up()
         {
             Sql(@"INSERT INTO [Users](EmployeeID,Username,Password,RoleID)  " +
-                "Values (1,'ADMIN','/9cvqy+uz0JEgrkqb2QLlo0iDXXrCn9sX61RVLkczTU=',1)");
+                "Values (1,'ADMIN','A6xnQhbz4Vx2HuGl4lXwZ5U2I8iziLRFnhP5eNfIRvQ=',1)");
         }
         
         public override void Down()
