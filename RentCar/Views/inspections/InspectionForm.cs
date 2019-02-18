@@ -121,6 +121,7 @@ namespace RentCar.Views.inspections
             {
                vehicles = _context.Vehicles.Find(v => 
                    v.State == true &&
+                   v.IsRented == false &&
                    (v.Brand.Description.Contains(text) ||
                    v.ChassisNumber.Contains(text) ||
                    v.Description.Contains(text) ||
@@ -131,7 +132,7 @@ namespace RentCar.Views.inspections
                    v.VehicleType.Description.Contains(text)));
             }
             else
-                vehicles = _context.Vehicles.Find(v => v.State == true);
+                vehicles = _context.Vehicles.Find(v => v.State == true && v.IsRented == false);
 
             
             CLBXrubbers.Items.Clear();
